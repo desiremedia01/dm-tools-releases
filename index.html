@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DM Tools</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Auth Overlay -->
+    <div class="auth-overlay" id="authOverlay">
+        <div class="auth-box">
+            <img src="assets/logo.png" class="auth-logo-img" alt="DM Tools">
+            <div class="auth-domain">Restricted to @desiremedia.com.au</div>
+            <button class="btn btn--accent auth-login-btn" id="authLoginBtn">Sign in with Google</button>
+            <div class="auth-status" id="authStatus"></div>
+        </div>
+    </div>
+
+    <div class="app">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-brand">
+                <img src="assets/logodm.png" class="header-logo-img" alt="DM Tools">
+            </div>
+            <div class="header-right">
+                <span class="host-badge" id="hostBadge">AE</span>
+                <span class="version">v1.0</span>
+                <button class="auth-logout-btn" id="authLogoutBtn" title="Sign out">⏏</button>
+            </div>
+        </header>
+
+        <!-- Scrollable Content -->
+        <div class="content">
+
+            <!-- Tools Section (AE) -->
+            <section class="section" id="aeSection">
+                <div class="section-header">
+                    <span class="section-title">Tools</span>
+                    <div class="section-line"></div>
+                </div>
+                <div class="btn-grid">
+                    <button class="btn" data-action="warpComp">Warp / Comp</button>
+                    <button class="btn" data-action="motionBlur">Motion Blur</button>
+                    <button class="btn" data-action="dayToNight">Day to Night</button>
+                    <button class="btn" data-action="pinDrop">Pin Drop</button>
+                    <button class="btn" data-action="trackCamera">3D Track Camera</button>
+                    <button class="btn" data-action="stabilize">Stabilize Motion</button>
+                    <button class="btn" data-action="ccRepetile">CC RepeTile</button>
+                    <button class="btn" data-action="keyStroke">Key + Stroke</button>
+                </div>
+            </section>
+
+            <!-- Speed Ramp Section (AE) -->
+            <section class="section" id="speedRampSection">
+                <div class="section-header">
+                    <span class="section-title">Speed Ramp</span>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="slider-wrap">
+                    <input type="range" min="0" max="100" value="50" step="50" class="slider" id="intensitySlider">
+                    <div class="slider-labels">
+                        <span>Soft</span>
+                        <span>Normal</span>
+                        <span>Intense</span>
+                    </div>
+                </div>
+
+                <div class="btn-grid btn-grid--3">
+                    <button class="btn btn--accent" data-action="introRamp">Intro</button>
+                    <button class="btn btn--accent" data-action="middleRamp">Middle</button>
+                    <button class="btn btn--accent" data-action="outroRamp">Outro</button>
+                </div>
+            </section>
+
+            <!-- Premiere Section -->
+            <section class="section" id="prSection" style="display:none">
+                <div class="section-header">
+                    <span class="section-title">Tools</span>
+                    <div class="section-line"></div>
+                </div>
+                <div class="btn-grid btn-grid--3">
+                    <button class="btn" data-action="prWarpStabilizer">Warp Stabilizer</button>
+                    <button class="btn" data-action="prColorGrade">Color Grade</button>
+                    <button class="btn" data-action="soundboard">Sound Effects</button>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Pin Drop Form (full-panel overlay) -->
+        <div class="pd-overlay" id="pinDropOverlay">
+            <div class="pd-header">
+                <span class="section-title">Pin Drop</span>
+            </div>
+            <div class="pd-body">
+                <div class="pd-toggle">
+                    <button class="pd-toggle-btn active" id="pdModeAddress">Address</button>
+                    <button class="pd-toggle-btn" id="pdModeKollosche">Kollosche</button>
+                </div>
+
+                <div id="pdAddressFields">
+                    <label class="pd-label">Address</label>
+                    <input type="text" class="pd-input" id="pinDropAddress" placeholder="Enter address...">
+                    <label class="pd-label" style="margin-top:8px">Font</label>
+                    <input type="text" class="pd-input" id="pinDropFontSearch" placeholder="Search fonts...">
+                    <select class="pd-select" id="pinDropFont" size="5"></select>
+                </div>
+
+                <div id="pdLogoFields" style="display:none">
+                    <div class="pd-logo-preview">
+                        <img src="assets/kollosche-pin.png" class="pd-logo-img" alt="Kollosche">
+                    </div>
+                </div>
+            </div>
+            <div class="pd-actions">
+                <button class="btn" id="pinDropCancelBtn">Cancel</button>
+                <button class="btn btn--accent" id="pinDropCreateBtn">Create</button>
+            </div>
+        </div>
+
+<!-- Soundboard Overlay -->
+        <div class="sb-overlay" id="sbOverlay">
+            <div class="sb-header">
+                <button class="sb-back" id="sbBackBtn">&#8592;</button>
+                <span class="section-title">Sound Effects</span>
+            </div>
+            <div class="sb-content" id="sbContent"></div>
+        </div>
+
+<!-- Color Grade Overlay -->
+        <div class="pd-overlay" id="colorGradeOverlay">
+            <div class="pd-header">
+                <span class="section-title">Color Grade</span>
+            </div>
+            <div class="pd-body">
+                <label class="pd-label">Drone Conversion (DJI)</label>
+                <select class="pd-select" id="cgDroneSelect" size="3"></select>
+                <label class="pd-label" style="margin-top:8px">Camera Conversion</label>
+                <select class="pd-select" id="cgCameraSelect" size="3"></select>
+                <label class="pd-label" style="margin-top:8px">Creative</label>
+                <select class="pd-select" id="cgCreativeSelect" size="3"></select>
+            </div>
+            <div class="pd-actions">
+                <button class="btn" id="cgCancelBtn">Cancel</button>
+                <button class="btn btn--accent" id="cgApplyBtn">Apply</button>
+            </div>
+        </div>
+
+<!-- Collect Files Bar -->
+        <div class="collect-bar" id="collectBar" style="display:none">
+            <button class="btn collect-btn" data-action="collectFiles">Collect Files</button>
+        </div>
+
+<!-- Status Bar -->
+        <div class="status-bar" id="statusBar">
+            <span class="status-dot" id="statusDot"></span>
+            <span class="status-msg" id="statusMsg">Ready</span>
+        </div>
+
+    </div>
+
+    <script src="js/CSInterface.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/updater.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
