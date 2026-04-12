@@ -1,0 +1,33 @@
+{
+  "version": "1.0.0",
+  "files": [
+    {
+      "path": "index.html",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/index.html"
+    },
+    {
+      "path": "css/style.css",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/css/style.css"
+    },
+    {
+      "path": "js/main.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/main.js"
+    },
+    {
+      "path": "js/auth.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/auth.js"
+    },
+    {
+      "path": "js/updater.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/updater.js"
+    },
+    {
+      "path": "jsx/ae-tools.jsx",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/jsx/ae-tools.jsx"
+    },
+    {
+      "path": "jsx/pr-tools.jsx",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/jsx/pr-tools.jsx"
+    }
+  ]
+}
