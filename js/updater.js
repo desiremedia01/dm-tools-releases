@@ -8,7 +8,7 @@
 var DmUpdater = (function () {
 
     /* ── Config ─────────────────────────────────────────────────────── */
-    var LOCAL_VERSION  = '1.0.0';
+    var LOCAL_VERSION  = '1.1.0';
     var VERSION_URL    = 'https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/version.json';
 
     /* ── Helpers ─────────────────────────────────────────────────────── */
