@@ -14,10 +14,6 @@
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/main.js"
     },
     {
-      "path": "js/auth.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/auth.js"
-    },
-    {
       "path": "js/updater.js",
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/updater.js"
     },
