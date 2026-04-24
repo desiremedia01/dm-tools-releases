@@ -76,6 +76,29 @@
                 </div>
             </section>
 
+            <!-- Scale Ramp Section (AE) -->
+            <section class="section" id="scaleRampSection" style="display:none">
+                <div class="section-header">
+                    <span class="section-title">Scale Ramp</span>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="slider-wrap">
+                    <input type="range" min="0" max="100" value="50" step="50" class="slider" id="scaleIntensitySlider">
+                    <div class="slider-labels">
+                        <span>Soft</span>
+                        <span>Normal</span>
+                        <span>Intense</span>
+                    </div>
+                </div>
+
+                <div class="btn-grid btn-grid--3">
+                    <button class="btn btn--accent" data-action="introScaleRamp">Intro</button>
+                    <button class="btn btn--accent" data-action="middleScaleRamp">Middle</button>
+                    <button class="btn btn--accent" data-action="outroScaleRamp">Outro</button>
+                </div>
+            </section>
+
             <!-- Premiere Section -->
             <section class="section" id="prSection" style="display:none">
                 <div class="section-header">
