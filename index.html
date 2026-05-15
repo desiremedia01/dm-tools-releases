@@ -99,6 +99,18 @@
                 </div>
             </section>
 
+            <!-- AI Video Section (PR only) -->
+            <section class="section" id="aiSection" style="display:none">
+                <div class="section-header">
+                    <span class="section-title">AI Video</span>
+                    <div class="section-line"></div>
+                </div>
+                <div class="btn-grid">
+                    <button class="btn" id="vgCaptureBtn">Capture Frame</button>
+                    <button class="btn btn--accent" id="openVideoGen">Video Generator</button>
+                </div>
+            </section>
+
             <!-- Premiere Section -->
             <section class="section" id="prSection" style="display:none">
                 <div class="section-header">
@@ -180,6 +192,92 @@
             </div>
         </div>
 
+<!-- Video Generator Overlay -->
+        <div class="vg-overlay" id="vgOverlay">
+
+            <div class="vg-header">
+                <button class="sb-back" id="vgBack">&#8592;</button>
+                <span class="section-title">Video Generator</span>
+                <span class="vg-meta" id="vgMeta"></span>
+                <button class="btn vg-hf-auth-btn" id="vgHfAuthBtn" style="display:none;font-size:11px;padding:4px 10px">Connect Higgsfield</button>
+            </div>
+
+            <!-- Step 1: Upload -->
+            <div class="vg-step" id="vgStep1">
+                <div class="vg-dropzone" id="vgDropzone">
+                    <div class="vg-dropzone-icon">&#8679;</div>
+                    <div class="vg-dropzone-label">Drop image here</div>
+                    <div class="vg-dropzone-sub">JPG, PNG, WEBP</div>
+                    <input type="file" id="vgFileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
+                    <button class="btn vg-browse-btn" id="vgBrowseBtn">Browse</button>
+                </div>
+                <div class="vg-api-row">
+                    <label class="pd-label">Anthropic API Key</label>
+                    <input type="password" class="pd-input" id="vgAnthropicKey" placeholder="sk-ant-...">
+                </div>
+                <div class="vg-auth-row" id="vgAuthRow">
+                    <span class="vg-auth-status" id="vgAuthStatus">Checking Higgsfield auth...</span>
+                    <button class="btn vg-auth-btn" id="vgAuthBtn" style="display:none">Authenticate</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Template -->
+            <div class="vg-step" id="vgStep2" style="display:none">
+                <div class="vg-preview-wrap">
+                    <img id="vgPreviewImg" class="vg-preview-img" src="" alt="">
+                    <div class="vg-preview-meta" id="vgPreviewMeta"></div>
+                </div>
+                <div class="vg-api-row" id="vgApiRow2">
+                    <label class="pd-label">Anthropic API Key</label>
+                    <input type="password" class="pd-input" id="vgAnthropicKey2" placeholder="sk-ant-...">
+                </div>
+                <div class="vg-section-label">Template</div>
+                <div class="btn-grid btn-grid--1 vg-template-grid" id="vgTemplateGrid">
+                    <button class="btn vg-tmpl-btn" data-tmpl="weather">Weather Change</button>
+                    <button class="btn vg-tmpl-btn" data-tmpl="shadow">Shadow Timelapse</button>
+                    <button class="btn vg-tmpl-btn" data-tmpl="construction">Construction Timelapse</button>
+                </div>
+                <div class="vg-analyse-status" id="vgAnalyseStatus" style="display:none">
+                    <span class="vg-spin">&#9696;</span> Analysing image...
+                </div>
+            </div>
+
+            <!-- Step 3: Prompt -->
+            <div class="vg-step" id="vgStep3" style="display:none">
+                <div class="vg-section-label">Prompt <span class="vg-tmpl-name" id="vgTmplName"></span></div>
+                <div class="vg-api-row row" id="vgApiRow3" style="display:none">
+                    <input type="password" class="pd-input" id="vgAnthropicKey3" placeholder="sk-ant-... (Anthropic key)">
+                    <button class="btn vg-analyse-btn" id="vgAnalyseBtn">Analyse</button>
+                </div>
+                <div id="vgStep3Status" style="display:none;font-size:11px;padding:4px 0;color:var(--error)"></div>
+                <textarea class="vg-textarea" id="vgPrompt" rows="14"></textarea>
+            </div>
+
+            <!-- Step 4: Generate / Result -->
+            <div class="vg-step" id="vgStep4" style="display:none">
+                <div class="vg-progress-wrap" id="vgProgressWrap">
+                    <div class="vg-progress-label" id="vgProgressLabel">Uploading image...</div>
+                    <div class="vg-progress-bar">
+                        <div class="vg-progress-fill" id="vgProgressFill" style="width:0%"></div>
+                    </div>
+                </div>
+                <div class="vg-result" id="vgResult" style="display:none">
+                    <div class="vg-result-label">Video ready</div>
+                    <div class="vg-result-url" id="vgResultUrl"></div>
+                    <button class="btn btn--accent vg-open-btn" id="vgOpenBtn">Open in Browser</button>
+                </div>
+            </div>
+
+            <!-- Footer actions -->
+            <div class="vg-actions" id="vgActions">
+                <button class="btn" id="vgActionBack" style="display:none">Back</button>
+                <button class="btn btn--accent" id="vgActionNext" style="display:none">Next</button>
+                <button class="btn btn--accent" id="vgActionGenerate" style="display:none">Generate</button>
+                <button class="btn" id="vgActionAgain" style="display:none">Generate Another</button>
+            </div>
+
+        </div>
+
 <!-- Collect Files Bar -->
         <div class="collect-bar" id="collectBar" style="display:none">
             <button class="btn collect-btn" data-action="collectFiles">Collect Files</button>
@@ -197,5 +295,25 @@
     <script src="js/auth.js"></script>
     <script src="js/updater.js"></script>
     <script src="js/main.js"></script>
+    <script>
+    /* Reveal AI Video section in Premiere Pro only */
+    (function revealAI() {
+        function check() {
+            try {
+                var env  = (typeof cs !== 'undefined' && cs) ? cs.getHostEnvironment() : null;
+                var host = env ? env.appName : (typeof HOST !== 'undefined' ? HOST : '');
+                if (host === 'PPRO') {
+                    var sec = document.getElementById('aiSection');
+                    if (sec) { sec.style.display = ''; return true; }
+                }
+            } catch (e) {}
+            return false;
+        }
+        if (!check()) {
+            setTimeout(function(){ if (!check()) setTimeout(check, 500); }, 100);
+        }
+    })();
+    </script>
+    <script src="js/video-gen.js"></script>
 </body>
 </html>
