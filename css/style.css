@@ -883,3 +883,369 @@ body {
 .section { animation: fadeIn 0.3s ease both; }
 .section:nth-child(2) { animation-delay: 0.05s; }
 .section:nth-child(3) { animation-delay: 0.10s; }
+
+/* ── AI Video LUT Selector ────────────────────────────── */
+.ai-lut-select {
+    width: 100%;
+    padding: 8px 28px 8px 10px;
+    margin-bottom: 6px;
+    background: var(--surface-2);
+    color: var(--text-1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%238a8a8a' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color var(--transition-fast);
+}
+
+.ai-lut-select:hover { border-color: rgba(255, 255, 255, 0.12); }
+.ai-lut-select:focus { border-color: rgba(6, 147, 227, 0.5); }
+.ai-lut-select option { background: var(--surface-2); color: var(--text-1); }
+
+/* ── AI Video Jobs Panel ──────────────────────────────── */
+.vg-jobs-panel { padding-bottom: 4px; }
+
+.vg-jobs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vg-job-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    animation: fadeIn 0.2s ease both;
+}
+
+.vg-job-top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.vg-job-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-1);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vg-job-status {
+    font-size: 10px;
+    color: var(--text-2);
+    white-space: nowrap;
+}
+
+.vg-job-status--success { color: var(--success); }
+.vg-job-status--error   { color: var(--error); }
+
+.vg-job-dismiss {
+    background: none;
+    border: none;
+    color: var(--text-3);
+    cursor: pointer;
+    font-size: 11px;
+    padding: 0 2px;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color var(--transition-fast);
+}
+.vg-job-dismiss:hover { color: var(--text-1); }
+
+.vg-job-bar {
+    height: 2px;
+    background: var(--surface-3);
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.vg-job-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 1px;
+    transition: width 0.4s ease, background 0.3s ease;
+}
+
+.vg-job-preview {
+    display: block;
+    width: 100%;
+    max-height: 160px;
+    margin-top: 8px;
+    border-radius: var(--radius);
+    background: #000;
+    object-fit: contain;
+}
+
+/* ── Step 3 header (label + re-analyse button) ─── */
+.vg-step3-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.vg-reanalyse-btn {
+    font-size: 10px;
+    padding: 3px 8px;
+    height: auto;
+    color: var(--text-2);
+    flex-shrink: 0;
+}
+.vg-reanalyse-btn:hover { color: var(--text-1); }
+
+/* ── Adjust Prompt field ─────────────────────────── */
+.vg-adjust-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px solid var(--border);
+    padding-top: 10px;
+    margin-top: 2px;
+}
+
+.vg-adjust-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-2);
+}
+
+.vg-adjust-row {
+    display: flex;
+    gap: 7px;
+    align-items: flex-end;
+}
+
+.vg-adjust-input {
+    flex: 1;
+    padding: 8px 10px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-1);
+    font-size: 12px;
+    font-family: inherit;
+    resize: none;
+    line-height: 1.4;
+    transition: border-color var(--transition-fast);
+}
+.vg-adjust-input:focus {
+    outline: none;
+    border-color: rgba(6,147,227,0.4);
+}
+.vg-adjust-input::placeholder { color: var(--text-3); }
+
+.vg-adjust-btn {
+    flex-shrink: 0;
+    height: 52px;
+    padding: 0 14px;
+    font-size: 12px;
+}
+
+/* ── AI Video Mode Buttons ─────────────────────────────── */
+#vgModeTimelapse.active,
+#vgModeStartEnd.active {
+    background: var(--accent-dim);
+    border-color: rgba(6, 147, 227, 0.45);
+    color: var(--text-1);
+}
+
+.vg-mode-extras {
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+/* ── Start → End Frame Step ───────────────────────────── */
+.vg-se-previews {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+}
+
+.vg-se-preview-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.vg-se-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    text-align: center;
+}
+
+.vg-se-img {
+    width: 100%;
+    height: 68px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    display: block;
+    background: var(--surface-2);
+}
+
+.vg-se-mid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.vg-se-arrow {
+    font-size: 16px;
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+.vg-se-swap-btn {
+    font-size: 14px;
+    padding: 2px 7px;
+    height: auto;
+    color: var(--text-2);
+}
+
+.vg-se-swap-btn.active {
+    background: var(--accent-dim);
+    border-color: rgba(6, 147, 227, 0.45);
+    color: var(--accent);
+}
+
+/* ── Camera type row (Step 3, Start→End mode) ─────────── */
+/* ── End frame presets ───────────────────────────────────── */
+.vg-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 6px;
+}
+
+.vg-preset-btn {
+    padding: 3px 9px;
+    background: var(--surface-2);
+    color: var(--text-2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.vg-preset-btn:hover {
+    background: var(--surface-3);
+    color: var(--text-1);
+}
+
+.vg-preset-btn.active {
+    background: rgba(6, 147, 227, 0.18);
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.vg-camera-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vg-camera-select {
+    flex: 1;
+    padding: 6px 28px 6px 10px;
+    background: var(--surface-2);
+    color: var(--text-1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: inherit;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%238a8a8a' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color var(--transition-fast);
+}
+
+.vg-camera-select:hover  { border-color: rgba(255, 255, 255, 0.12); }
+.vg-camera-select:focus  { border-color: rgba(6, 147, 227, 0.5); }
+.vg-camera-select option { background: var(--surface-2); color: var(--text-1); }
+
+/* ── Duration slider (Step 3) ─────────────────────────── */
+.vg-duration-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.vg-duration-slider {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 2px;
+    border-radius: 1px;
+    background: var(--surface-3);
+    outline: none;
+    cursor: pointer;
+}
+
+.vg-duration-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--text-1);
+    cursor: pointer;
+    border: 2px solid var(--accent);
+    transition: transform var(--transition-fast);
+}
+
+.vg-duration-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.vg-duration-val {
+    font-size: 11px;
+    color: var(--text-2);
+    min-width: 26px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ── Dropzone divider ─────────────────────────────────── */
+.vg-dropzone-divider {
+    font-size: 10px;
+    color: var(--text-3);
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
