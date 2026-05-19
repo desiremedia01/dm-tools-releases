@@ -50,6 +50,7 @@
                     <button class="btn" data-action="stabilize">Stabilize Motion</button>
                     <button class="btn" data-action="ccRepetile">CC RepeTile</button>
                     <button class="btn" data-action="keyStroke">Key + Stroke</button>
+                    <button class="btn" data-action="directionShake">Direction Shake</button>
                 </div>
             </section>
 
@@ -76,28 +77,6 @@
                 </div>
             </section>
 
-            <!-- Scale Ramp Section (AE) -->
-            <section class="section" id="scaleRampSection" style="display:none">
-                <div class="section-header">
-                    <span class="section-title">Scale Ramp</span>
-                    <div class="section-line"></div>
-                </div>
-
-                <div class="slider-wrap">
-                    <input type="range" min="0" max="100" value="50" step="50" class="slider" id="scaleIntensitySlider">
-                    <div class="slider-labels">
-                        <span>Soft</span>
-                        <span>Normal</span>
-                        <span>Intense</span>
-                    </div>
-                </div>
-
-                <div class="btn-grid btn-grid--3">
-                    <button class="btn btn--accent" data-action="introScaleRamp">Intro</button>
-                    <button class="btn btn--accent" data-action="middleScaleRamp">Middle</button>
-                    <button class="btn btn--accent" data-action="outroScaleRamp">Outro</button>
-                </div>
-            </section>
 
             <!-- AI Video Section (PR only) -->
             <section class="section" id="aiSection" style="display:none">
@@ -106,8 +85,8 @@
                     <div class="section-line"></div>
                 </div>
                 <div class="btn-grid">
-                    <button class="btn" id="vgCaptureBtn">Capture Frame</button>
-                    <button class="btn btn--accent" id="openVideoGen">Video Generator</button>
+                    <button class="btn" id="vgModeTimelapse">Timelapse</button>
+                    <button class="btn" id="vgModeStartEnd">Start &#8594; End</button>
                 </div>
             </section>
 
@@ -122,6 +101,15 @@
                     <button class="btn" data-action="prColorGrade">Color Grade</button>
                     <button class="btn" data-action="soundboard">Sound Effects</button>
                 </div>
+            </section>
+
+            <!-- AI Video Jobs Panel -->
+            <section class="section vg-jobs-panel" id="vgJobsPanel" style="display:none">
+                <div class="section-header">
+                    <span class="section-title">AI Video Jobs</span>
+                    <div class="section-line"></div>
+                </div>
+                <div class="vg-jobs-list" id="vgJobsList"></div>
             </section>
 
         </div>
@@ -202,8 +190,24 @@
                 <button class="btn vg-hf-auth-btn" id="vgHfAuthBtn" style="display:none;font-size:11px;padding:4px 10px">Connect Higgsfield</button>
             </div>
 
-            <!-- Step 1: Upload -->
+            <!-- Step 1: Capture -->
             <div class="vg-step" id="vgStep1">
+                <select class="ai-lut-select" id="vgLutSelect">
+                    <option value="">No LUT</option>
+                    <option value="Canon Clog2">Canon Clog2</option>
+                    <option value="Canon Clog3">Canon Clog3</option>
+                    <option value="DJI Air 3">DJI Air 3</option>
+                    <option value="DJI Avata 2">DJI Avata 2</option>
+                    <option value="DJI Mavic 3">DJI Mavic 3</option>
+                    <option value="DJI Mavic 4 Pro">DJI Mavic 4 Pro</option>
+                    <option value="RED Camera">RED Camera</option>
+                    <option value="Slog3">Slog3</option>
+                </select>
+                <div class="btn-grid">
+                    <button class="btn" id="vgCaptureBtn">From Timeline</button>
+                    <button class="btn" id="vgCaptureSrcBtn">From Source</button>
+                </div>
+                <div class="vg-dropzone-divider">or</div>
                 <div class="vg-dropzone" id="vgDropzone">
                     <div class="vg-dropzone-icon">&#8679;</div>
                     <div class="vg-dropzone-label">Drop image here</div>
@@ -211,13 +215,46 @@
                     <input type="file" id="vgFileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
                     <button class="btn vg-browse-btn" id="vgBrowseBtn">Browse</button>
                 </div>
-                <div class="vg-api-row">
-                    <label class="pd-label">Anthropic API Key</label>
-                    <input type="password" class="pd-input" id="vgAnthropicKey" placeholder="sk-ant-...">
-                </div>
                 <div class="vg-auth-row" id="vgAuthRow">
                     <span class="vg-auth-status" id="vgAuthStatus">Checking Higgsfield auth...</span>
                     <button class="btn vg-auth-btn" id="vgAuthBtn" style="display:none">Authenticate</button>
+                </div>
+            </div>
+
+            <!-- Step 2b: End Frame Generation (start → end mode) -->
+            <div class="vg-step" id="vgStep2End" style="display:none">
+                <div class="vg-section-label">Start Frame</div>
+                <div class="vg-preview-wrap">
+                    <img id="vgSeStartPreview" class="vg-preview-img" src="" alt="">
+                    <div class="vg-preview-meta" id="vgSeStartMeta"></div>
+                </div>
+                <div class="vg-section-label" style="margin-top:2px">End Frame Prompt</div>
+                <div class="vg-presets">
+                    <button class="vg-preset-btn" data-preset="renovation">Renovation</button>
+                    <button class="vg-preset-btn" data-preset="day_night">Day &#8594; Night</button>
+                    <button class="vg-preset-btn" data-preset="weather">Weather Change</button>
+                </div>
+                <textarea class="vg-textarea" id="vgEndPrompt" rows="4" placeholder="Describe what you want the end frame to look like..."></textarea>
+                <button class="btn btn--accent" id="vgGenerateEndBtn">Generate End Frame</button>
+                <div class="vg-analyse-status" id="vgEndFrameStatus" style="display:none">
+                    <span class="vg-spin">&#9696;</span> Generating end frame...
+                </div>
+                <div id="vgEndPreviewWrap" style="display:none">
+                    <div class="vg-se-previews">
+                        <div class="vg-se-preview-item">
+                            <div class="vg-se-label">Start</div>
+                            <img id="vgSeStart" class="vg-se-img" src="" alt="">
+                        </div>
+                        <div class="vg-se-mid">
+                            <div class="vg-se-arrow">&#8594;</div>
+                            <button class="btn vg-se-swap-btn" id="vgSwapFramesBtn" title="Swap start and end">&#8645;</button>
+                        </div>
+                        <div class="vg-se-preview-item">
+                            <div class="vg-se-label">End</div>
+                            <img id="vgSeEnd" class="vg-se-img" src="" alt="">
+                        </div>
+                    </div>
+                    <button class="btn" id="vgRegenerateEndBtn" style="margin-top:6px;width:100%">Regenerate</button>
                 </div>
             </div>
 
@@ -226,10 +263,6 @@
                 <div class="vg-preview-wrap">
                     <img id="vgPreviewImg" class="vg-preview-img" src="" alt="">
                     <div class="vg-preview-meta" id="vgPreviewMeta"></div>
-                </div>
-                <div class="vg-api-row" id="vgApiRow2">
-                    <label class="pd-label">Anthropic API Key</label>
-                    <input type="password" class="pd-input" id="vgAnthropicKey2" placeholder="sk-ant-...">
                 </div>
                 <div class="vg-section-label">Template</div>
                 <div class="btn-grid btn-grid--1 vg-template-grid" id="vgTemplateGrid">
@@ -244,27 +277,39 @@
 
             <!-- Step 3: Prompt -->
             <div class="vg-step" id="vgStep3" style="display:none">
-                <div class="vg-section-label">Prompt <span class="vg-tmpl-name" id="vgTmplName"></span></div>
-                <div class="vg-api-row row" id="vgApiRow3" style="display:none">
-                    <input type="password" class="pd-input" id="vgAnthropicKey3" placeholder="sk-ant-... (Anthropic key)">
-                    <button class="btn vg-analyse-btn" id="vgAnalyseBtn">Analyse</button>
+                <div class="vg-step3-header">
+                    <div class="vg-section-label">Prompt <span class="vg-tmpl-name" id="vgTmplName"></span></div>
+                    <button class="btn vg-reanalyse-btn" id="vgReanalyseBtn">Re-analyse</button>
                 </div>
                 <div id="vgStep3Status" style="display:none;font-size:11px;padding:4px 0;color:var(--error)"></div>
-                <textarea class="vg-textarea" id="vgPrompt" rows="14"></textarea>
-            </div>
+                <div class="vg-camera-row" id="vgCameraRow" style="display:none">
+                    <span class="vg-section-label" style="white-space:nowrap">Camera</span>
+                    <select class="vg-camera-select" id="vgCameraSelect">
+                        <option value="static">Static</option>
+                        <option value="push_in">Push In</option>
+                        <option value="push_out">Push Out</option>
+                        <option value="pan_left">Pan Left</option>
+                        <option value="pan_right">Pan Right</option>
+                        <option value="tilt_up">Tilt Up</option>
+                        <option value="tilt_down">Tilt Down</option>
+                        <option value="drone">Drone</option>
+                        <option value="handheld">Handheld</option>
+                    </select>
+                </div>
+                <textarea class="vg-textarea" id="vgPrompt" rows="11"></textarea>
 
-            <!-- Step 4: Generate / Result -->
-            <div class="vg-step" id="vgStep4" style="display:none">
-                <div class="vg-progress-wrap" id="vgProgressWrap">
-                    <div class="vg-progress-label" id="vgProgressLabel">Uploading image...</div>
-                    <div class="vg-progress-bar">
-                        <div class="vg-progress-fill" id="vgProgressFill" style="width:0%"></div>
+                <!-- Adjust prompt in plain language (Shadow only) -->
+                <div class="vg-adjust-wrap" id="vgAdjustWrap" style="display:none">
+                    <div class="vg-adjust-label">Adjust prompt</div>
+                    <div class="vg-adjust-row">
+                        <textarea class="vg-adjust-input" id="vgAdjustInput" rows="2" placeholder="Describe what you want changed — e.g. 'make the house get brighter as the sun hits the front'"></textarea>
+                        <button class="btn btn--accent vg-adjust-btn" id="vgAdjustBtn">Apply</button>
                     </div>
                 </div>
-                <div class="vg-result" id="vgResult" style="display:none">
-                    <div class="vg-result-label">Video ready</div>
-                    <div class="vg-result-url" id="vgResultUrl"></div>
-                    <button class="btn btn--accent vg-open-btn" id="vgOpenBtn">Open in Browser</button>
+                <div class="vg-duration-row">
+                    <span class="vg-section-label">Duration</span>
+                    <input type="range" min="3" max="15" step="1" value="12" id="vgDuration" class="vg-duration-slider">
+                    <span class="vg-duration-val" id="vgDurationVal">12s</span>
                 </div>
             </div>
 
@@ -273,7 +318,6 @@
                 <button class="btn" id="vgActionBack" style="display:none">Back</button>
                 <button class="btn btn--accent" id="vgActionNext" style="display:none">Next</button>
                 <button class="btn btn--accent" id="vgActionGenerate" style="display:none">Generate</button>
-                <button class="btn" id="vgActionAgain" style="display:none">Generate Another</button>
             </div>
 
         </div>
