@@ -28,6 +28,7 @@
             <div class="header-right">
                 <span class="host-badge" id="hostBadge">AE</span>
                 <span class="version" id="versionBadge">v1.0</span>
+                <button class="auth-logout-btn" id="undoBtn" title="Undo last effect" style="display:none;font-size:14px;padding:4px 8px;margin-right:4px">↶</button>
                 <button class="auth-logout-btn" id="authLogoutBtn" title="Sign out">⏏</button>
             </div>
         </header>
@@ -317,6 +318,12 @@
             <div class="vg-actions" id="vgActions">
                 <button class="btn" id="vgActionBack" style="display:none">Back</button>
                 <button class="btn btn--accent" id="vgActionNext" style="display:none">Next</button>
+                <div class="vg-progress-wrap" id="vgProgressWrap" style="display:none;width:100%;margin-bottom:8px">
+                    <div class="vg-progress-bar">
+                        <div class="vg-progress-fill" id="vgProgressFill"></div>
+                    </div>
+                    <div class="vg-progress-text" id="vgProgressText">0%</div>
+                </div>
                 <button class="btn btn--accent" id="vgActionGenerate" style="display:none">Generate</button>
             </div>
 
