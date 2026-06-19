@@ -224,18 +224,17 @@ body {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--text-1);
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius);
+    background: linear-gradient(90deg, #0693e3, #00d4ff);
     cursor: pointer;
-    border: 2px solid var(--accent);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    border: 1px solid var(--border);
+    transition: opacity var(--transition-fast);
 }
 
 .slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 0 4px var(--accent-dim);
+    opacity: 0.8;
 }
 
 .slider-labels {
@@ -352,14 +351,17 @@ body {
     transition: border-color var(--transition-fast);
 }
 
-.pd-input:focus { border-color: rgba(6, 147, 227, 0.5); }
+.pd-input:focus {
+    border-color: var(--text-1);
+    outline: none;
+}
 .pd-input::placeholder { color: var(--text-3); }
 
 .pd-select {
     width: 100%;
     background: var(--surface-2);
     color: var(--text-1);
-    border: 1px solid var(--border);
+    border: 0.5px solid var(--border-strong);
     border-radius: var(--radius);
     font-family: inherit;
     font-size: 12px;
@@ -372,17 +374,20 @@ body {
     scrollbar-color: var(--surface-3) transparent;
 }
 
-.pd-select:focus { border-color: rgba(6, 147, 227, 0.5); }
+.pd-select:focus {
+    border-color: var(--text-1);
+    outline: none;
+}
 
 .pd-select option {
     padding: 6px 10px;
-    background: var(--surface-2);
+    background: var(--surface-3);
     color: var(--text-1);
 }
 
 .pd-select option:checked {
-    background: var(--accent-dim);
-    color: var(--accent);
+    background: linear-gradient(90deg, #0693e3, #00d4ff);
+    color: var(--bg);
 }
 
 .pd-toggle {
@@ -870,6 +875,34 @@ body {
 }
 .vg-actions .btn { flex: 1; }
 
+.vg-progress-wrap {
+    display: flex !important;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.vg-progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--surface-2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.vg-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0693e3, #00d4ff);
+    width: 0%;
+    transition: width var(--transition-fast);
+    border-radius: var(--radius);
+}
+
+.vg-progress-text {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
 @keyframes pulse {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0.4; }
@@ -891,7 +924,7 @@ body {
     margin-bottom: 6px;
     background: var(--surface-2);
     color: var(--text-1);
-    border: 1px solid var(--border);
+    border: 0.5px solid var(--border-strong);
     border-radius: var(--radius);
     font-family: inherit;
     font-size: 12px;
@@ -900,15 +933,15 @@ body {
     outline: none;
     appearance: none;
     -webkit-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%238a8a8a' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23ffffff' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 10px center;
     transition: border-color var(--transition-fast);
 }
 
-.ai-lut-select:hover { border-color: rgba(255, 255, 255, 0.12); }
-.ai-lut-select:focus { border-color: rgba(6, 147, 227, 0.5); }
-.ai-lut-select option { background: var(--surface-2); color: var(--text-1); }
+.ai-lut-select:hover { border-color: var(--text-1); }
+.ai-lut-select:focus { border-color: var(--text-1); outline: none; }
+.ai-lut-select option { background: var(--surface-3); color: var(--text-1); }
 
 /* ── AI Video Jobs Panel ──────────────────────────────── */
 .vg-jobs-panel { padding-bottom: 4px; }
@@ -1223,7 +1256,7 @@ body {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: var(--text-1);
+    background: linear-gradient(90deg, #0693e3, #00d4ff);
     cursor: pointer;
     border: 2px solid var(--accent);
     transition: transform var(--transition-fast);
