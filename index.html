@@ -87,7 +87,7 @@
                 </div>
                 <div class="btn-grid">
                     <button class="btn" id="vgModeTimelapse">Timelapse</button>
-                    <button class="btn" id="vgModeStartEnd">Start &#8594; End</button>
+                    <button class="btn" id="vgModeO1Edit">O1 Edit</button>
                 </div>
             </section>
 
@@ -206,7 +206,6 @@
                 </select>
                 <div class="btn-grid">
                     <button class="btn" id="vgCaptureBtn">From Timeline</button>
-                    <button class="btn" id="vgCaptureSrcBtn">From Source</button>
                 </div>
                 <div class="vg-dropzone-divider">or</div>
                 <div class="vg-dropzone" id="vgDropzone">
@@ -220,6 +219,113 @@
                     <span class="vg-auth-status" id="vgAuthStatus">Checking Higgsfield auth...</span>
                     <button class="btn vg-auth-btn" id="vgAuthBtn" style="display:none">Authenticate</button>
                 </div>
+            </div>
+
+            <!-- O1 Edit — Step 1: Export -->
+            <div class="vg-step" id="vgStep1O1" style="display:none">
+                <select class="ai-lut-select" id="vgLutSelectO1">
+                    <option value="">No LUT</option>
+                    <option value="Canon Clog2">Canon Clog2</option>
+                    <option value="Canon Clog3">Canon Clog3</option>
+                    <option value="DJI Air 3">DJI Air 3</option>
+                    <option value="DJI Avata 2">DJI Avata 2</option>
+                    <option value="DJI Mavic 3">DJI Mavic 3</option>
+                    <option value="DJI Mavic 4 Pro">DJI Mavic 4 Pro</option>
+                    <option value="RED Camera">RED Camera</option>
+                    <option value="Slog3">Slog3</option>
+                </select>
+                <div class="vg-section-label">Set in/out points on the timeline, then:</div>
+                <button class="btn btn--accent" id="vgO1ReadBtn">Read In/Out Points</button>
+                <div id="vgO1Error" style="display:none;color:#ff6b6b;font-size:11px;margin-top:6px;word-break:break-word"></div>
+                <div id="vgO1ClipInfo" style="display:none">
+                    <div class="vg-preview-meta" style="margin-top:6px">
+                        <span id="vgO1Duration" style="font-weight:700"></span>
+                        &nbsp;·&nbsp;
+                        <span id="vgO1Source" style="opacity:0.55;font-size:10px;word-break:break-all"></span>
+                    </div>
+                </div>
+                <div id="vgO1ExportReady" style="display:none;margin-top:10px">
+                    <div style="font-size:10px;color:#aaa;margin-bottom:4px">Clip:</div>
+                    <div id="vgO1ExportPath" style="font-size:10px;word-break:break-all;color:#fff;background:rgba(255,255,255,0.07);padding:5px 7px;border-radius:5px;margin-bottom:4px"></div>
+                    <div id="vgO1RefRow" style="display:none;margin-bottom:8px">
+                        <div style="font-size:10px;color:#aaa;margin-bottom:4px">Reference image:</div>
+                        <div id="vgO1RefPath" style="font-size:10px;word-break:break-all;color:#fff;background:rgba(255,255,255,0.07);padding:5px 7px;border-radius:5px;margin-bottom:4px"></div>
+                        <button class="btn" id="vgO1RevealRef" style="width:100%">Reveal Ref in Finder</button>
+                    </div>
+                    <div style="display:flex;gap:6px;margin-bottom:6px">
+                        <button class="btn btn--accent" id="vgO1OpenHighgsfield" style="flex:1">Open Higgsfield</button>
+                        <button class="btn" id="vgO1RevealFinder" style="flex:1">Reveal Clip</button>
+                    </div>
+                    <div style="font-size:10px;color:#aaa;line-height:1.5">Upload clip + ref image to Higgsfield e use <b style="color:#fff">Kling O1 Edit</b>.</div>
+                </div>
+            </div>
+
+            <!-- O1 Edit — Step 2: Preset + Reference Image -->
+            <div class="vg-step" id="vgStep2O1" style="display:none">
+
+                <!-- Sub: preset selection -->
+                <div id="vgO1PresetSelect">
+                    <div class="vg-section-label">Choose Effect</div>
+                    <div class="btn-grid btn-grid--1">
+                        <button class="btn vg-o1-preset-btn" id="vgO1PresetWeather">Clear Sky</button>
+                        <button class="btn vg-o1-preset-btn" id="vgO1PresetTwilight">Twilight</button>
+                        <button class="btn vg-o1-preset-btn" id="vgO1PresetCars">Add Cars</button>
+                    </div>
+                </div>
+
+                <!-- Sub: twilight options -->
+                <div id="vgO1TwilightOpts" style="display:none">
+                    <div class="vg-section-label">Reference Source</div>
+                    <div class="btn-grid">
+                        <button class="btn" id="vgO1TwilightNightRef">Use Night Clip</button>
+                        <button class="btn btn--accent" id="vgO1TwilightGenerate">Generate Twilight</button>
+                    </div>
+                    <div class="vg-analyse-status" id="vgO1TwilightStatus" style="display:none">
+                        <span class="vg-spin">&#9696;</span> Generating twilight reference...
+                    </div>
+                    <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:8px;line-height:1.5">
+                        Use Night Clip: position playhead on the night footage, then click.
+                    </div>
+                </div>
+
+                <!-- Sub: cars options -->
+                <div id="vgO1CarsOpts" style="display:none">
+                    <div class="vg-section-label">Cars Prompt</div>
+                    <textarea class="vg-textarea" id="vgO1CarsPrompt" rows="3">A luxury car driving through the driveway, rear of the car facing the camera</textarea>
+                    <div class="vg-analyse-status" id="vgO1CarsStatus" style="display:none">
+                        <span class="vg-spin">&#9696;</span> Generating cars reference...
+                    </div>
+                    <button class="btn btn--accent" id="vgO1CarsGenerate" style="margin-top:8px">Generate</button>
+                </div>
+
+                <!-- Sub: reference image approval -->
+                <div id="vgO1ApproveWrap" style="display:none">
+                    <div class="vg-section-label">Reference Image</div>
+                    <div class="vg-preview-wrap">
+                        <img id="vgO1RefPreview" class="vg-preview-img" src="" alt="">
+                    </div>
+                    <div class="btn-grid" style="margin-top:8px">
+                        <button class="btn" id="vgO1Regenerate">Regenerate</button>
+                        <button class="btn btn--accent" id="vgO1Approve">Approve &#8594;</button>
+                    </div>
+                </div>
+
+                <!-- Sub: ready to upload -->
+                <div id="vgO1ReadyWrap" style="display:none">
+                    <div class="vg-section-label">Ready to Upload</div>
+                    <div id="vgO1ReadyFolderPath" style="font-size:10px;word-break:break-all;color:#fff;background:rgba(255,255,255,0.07);padding:5px 7px;border-radius:5px;margin-bottom:8px"></div>
+                    <div style="font-size:10px;color:#aaa;margin-bottom:3px">Prompt:</div>
+                    <textarea id="vgO1ReadyPrompt" readonly rows="3" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);color:#fff;border:none;border-radius:5px;padding:5px 7px;font-size:10px;resize:none;cursor:text;margin-bottom:8px"></textarea>
+                    <div style="display:flex;gap:6px;margin-bottom:6px">
+                        <button class="btn btn--accent" id="vgO1ReadyOpen" style="flex:1">Open Higgsfield</button>
+                        <button class="btn" id="vgO1ReadyReveal" style="flex:1">Reveal in Finder</button>
+                    </div>
+                    <div style="display:flex;gap:6px;margin-bottom:6px">
+                        <button class="btn" id="vgO1NewGeneration" style="width:100%">New Generation</button>
+                    </div>
+                    <div style="font-size:10px;color:#aaa;line-height:1.5">Use <b style="color:#fff">Kling O1 Edit</b>: upload the clip as video and the ref image from the folder above.</div>
+                </div>
+
             </div>
 
             <!-- Step 2b: End Frame Generation (start → end mode) -->
