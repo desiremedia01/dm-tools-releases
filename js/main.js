@@ -805,16 +805,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
             var jsxRelink = '(function(){' +
                 'var map=' + JSON.stringify(JSON.stringify(map)) + ';map=JSON.parse(map);' +
-                'var n=0;' +
+                'var ok=0,fail=[],errs=[];' +
                 'function walk(bin){for(var i=0;i<bin.children.numItems;i++){var it=bin.children[i];' +
                 'if(it.type===ProjectItemType.BIN){walk(it);}' +
-                'else{try{var p=it.getMediaPath();if(p&&map[p]){it.changeMediaPath(map[p],true);n++;}}catch(e){}}}}' +
+                'else{try{var p=it.getMediaPath();if(p&&map[p]){' +
+                'var r=it.changeMediaPath(map[p],true);' +
+                'try{it.refreshMedia();}catch(e0){}' +
+                'if(!it.isOffline()){ok++;}else{fail.push(it.name);errs.push(it.name+\':rc=\'+r);}' +
+                '}}catch(e){errs.push(String(e));}}}}' +
                 'walk(app.project.rootItem);' +
-                'return String(n);}())';
+                'return JSON.stringify({ok:ok,fail:fail,errs:errs});}())';
 
             evalScript(jsxRelink, function(res2) {
-                var n = parseInt(res2, 10) || 0;
-                setStatus('Relinked ' + n + ' of ' + offline.length + ' clip(s)', n ? 'success' : 'error');
+                var r;
+                try { r = JSON.parse(res2); } catch (_) { r = null; }
+                if (!r) { setStatus('Relink failed: ' + res2, 'error'); relinkBtn.disabled = false; return; }
+                if (r.ok && !r.fail.length) {
+                    setStatus('Relinked ' + r.ok + ' of ' + offline.length + ' clip(s)', 'success');
+                } else {
+                    setStatus('Relinked ' + r.ok + ', still offline: ' + r.fail.length +
+                        (r.errs.length ? ' [' + r.errs.slice(0, 3).join('; ') + ']' : ''), r.ok ? 'success' : 'error');
+                }
                 relinkBtn.disabled = false;
             });
         });
