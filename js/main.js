@@ -709,3 +709,114 @@ document.addEventListener('DOMContentLoaded', function() {
         authShowLogin();
     });
 });
+
+/* ── Relink NAS ───────────────────────────────────── */
+(function() {
+    var NAS_BASES = ['NAS - Desire Group', 'NAS- Desire Group 2', 'SSD NAS - WIP'];
+
+    function nasRoots() {
+        var fs = require('fs');
+        try {
+            return fs.readdirSync('/Volumes').filter(function(v) {
+                return NAS_BASES.some(function(b) { return v === b || v.indexOf(b + '-') === 0; });
+            }).map(function(v) { return '/Volumes/' + v; });
+        } catch (_) { return []; }
+    }
+
+    function findOnNas(oldPath, roots) {
+        var fs = require('fs');
+        var cp = require('child_process');
+        var parts = oldPath.split('/').filter(Boolean); // e.g. Volumes/OldVol/a/b/file.mp4
+        var rel = parts.slice(2).join('/');             // a/b/file.mp4
+        var base = parts[parts.length - 1];
+        // 1: same relative path on each NAS root
+        for (var i = 0; i < roots.length; i++) {
+            var cand = roots[i] + '/' + rel;
+            try { if (fs.existsSync(cand)) return cand; } catch (_) {}
+        }
+        // 2: progressively shorter relative paths (folder moved up/down a level)
+        for (var s = 3; s < parts.length - 1; s++) {
+            var rel2 = parts.slice(s).join('/');
+            for (var j = 0; j < roots.length; j++) {
+                var cand2 = roots[j] + '/' + rel2;
+                try { if (fs.existsSync(cand2)) return cand2; } catch (_) {}
+            }
+        }
+        // 3: Spotlight search by filename
+        for (var k = 0; k < roots.length; k++) {
+            try {
+                var out = cp.execSync('mdfind -onlyin ' + JSON.stringify(roots[k]) +
+                    ' -name ' + JSON.stringify(base), { timeout: 15000 }).toString().trim();
+                if (out) {
+                    var lines = out.split('\n');
+                    for (var m = 0; m < lines.length; m++) {
+                        if (lines[m].split('/').pop() === base) return lines[m];
+                    }
+                }
+            } catch (_) {}
+        }
+        return null;
+    }
+
+    var relinkBtn = document.getElementById('prRelinkNas');
+    if (!relinkBtn) return;
+    relinkBtn.addEventListener('click', function() {
+        if (HOST !== 'PPRO') { setStatus('Relink NAS only works in Premiere', 'error'); return; }
+        relinkBtn.disabled = true;
+        setStatus('Scanning for offline clips...', 'busy');
+
+        var jsxCollect = '(function(){' +
+            'var out=[];' +
+            'function walk(bin){for(var i=0;i<bin.children.numItems;i++){var it=bin.children[i];' +
+            'if(it.type===ProjectItemType.BIN){walk(it);}' +
+            'else{try{if(it.isOffline()&&it.canChangeMediaPath()){var p=it.getMediaPath();if(p)out.push(p);}}catch(e){}}}}' +
+            'walk(app.project.rootItem);' +
+            'return JSON.stringify(out);}())';
+
+        evalScript(jsxCollect, function(res) {
+            var offline;
+            try { offline = JSON.parse(res); } catch (_) { offline = null; }
+            if (!offline || !offline.length) {
+                setStatus(offline ? 'No offline clips found' : 'Scan failed', offline ? 'success' : 'error');
+                relinkBtn.disabled = false;
+                return;
+            }
+
+            var roots = nasRoots();
+            if (!roots.length) {
+                setStatus('No NAS volume mounted — connect the NAS first', 'error');
+                relinkBtn.disabled = false;
+                return;
+            }
+
+            setStatus('Searching ' + offline.length + ' file(s) on NAS...', 'busy');
+            var map = {};
+            var found = 0;
+            offline.forEach(function(p) {
+                var np = findOnNas(p, roots);
+                if (np && np !== p) { map[p] = np; found++; }
+            });
+
+            if (!found) {
+                setStatus('0 of ' + offline.length + ' found on NAS', 'error');
+                relinkBtn.disabled = false;
+                return;
+            }
+
+            var jsxRelink = '(function(){' +
+                'var map=' + JSON.stringify(JSON.stringify(map)) + ';map=JSON.parse(map);' +
+                'var n=0;' +
+                'function walk(bin){for(var i=0;i<bin.children.numItems;i++){var it=bin.children[i];' +
+                'if(it.type===ProjectItemType.BIN){walk(it);}' +
+                'else{try{var p=it.getMediaPath();if(p&&map[p]){it.changeMediaPath(map[p],true);n++;}}catch(e){}}}}' +
+                'walk(app.project.rootItem);' +
+                'return String(n);}())';
+
+            evalScript(jsxRelink, function(res2) {
+                var n = parseInt(res2, 10) || 0;
+                setStatus('Relinked ' + n + ' of ' + offline.length + ' clip(s)', n ? 'success' : 'error');
+                relinkBtn.disabled = false;
+            });
+        });
+    });
+})();
