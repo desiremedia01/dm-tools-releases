@@ -110,13 +110,19 @@
         setStatus('Reading selected clips...', 'busy');
 
         var jsxCollect = '(function(){' +
-            'var sel;try{sel=app.getCurrentProjectViewSelection();}catch(e){sel=null;}' +
-            'if(!sel||!sel.length)return JSON.stringify({error:"Select the shoot clips in the Project panel first"});' +
             'var out=[];' +
-            'for(var i=0;i<sel.length;i++){var it=sel[i];' +
-            'if(it.type===ProjectItemType.BIN){for(var j=0;j<it.children.numItems;j++){var ch=it.children[j];' +
-            'try{var p=ch.getMediaPath();if(p)out.push({id:ch.nodeId,name:ch.name,path:p,dur:ch.getOutPoint(4).seconds});}catch(e){}}}' +
-            'else{try{var p2=it.getMediaPath();if(p2)out.push({id:it.nodeId,name:it.name,path:p2,dur:it.getOutPoint(4).seconds});}catch(e){}}}' +
+            'function grab(it){try{var p=it.getMediaPath();if(p)out.push({id:it.nodeId,name:it.name,path:p,dur:it.getOutPoint(4).seconds});}catch(e){}}' +
+            'function grabBin(bin){for(var j=0;j<bin.children.numItems;j++){var ch=bin.children[j];' +
+            'if(ch.type===ProjectItemType.BIN)grabBin(ch);else grab(ch);}}' +
+            'var sel;try{sel=app.getCurrentProjectViewSelection();}catch(e){sel=null;}' +
+            'if(sel&&sel.length){for(var i=0;i<sel.length;i++){var it=sel[i];' +
+            'if(it.type===ProjectItemType.BIN)grabBin(it);else grab(it);}}' +
+            'else{var media=null;' +
+            'function findBin(bin){for(var k=0;k<bin.children.numItems;k++){var b=bin.children[k];' +
+            'if(b.type===ProjectItemType.BIN){if(b.name.toUpperCase().indexOf("02 MEDIA")===0){media=b;return;}findBin(b);if(media)return;}}}' +
+            'findBin(app.project.rootItem);' +
+            'if(!media)return JSON.stringify({error:"Bin 02 MEDIA not found - select clips manually"});' +
+            'grabBin(media);}' +
             'return JSON.stringify({clips:out});}())';
 
         evalScript(jsxCollect, function(res) {
