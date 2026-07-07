@@ -112,20 +112,21 @@ function setStatus(msg, type) {
 }
 
 /* ── Slider ───────────────────────────────────────── */
-var intensitySlider = document.getElementById('intensitySlider');
+var intensitySlider = document.getElementById('intensitySlider'); // removed from UI
 
 function getIntensity() {
-    return parseFloat(intensitySlider.value);
+    return 100;
 }
 
 // Update slider track fill
-intensitySlider.addEventListener('input', function() {
+if (intensitySlider) intensitySlider.addEventListener('input', function() {
     var pct = (this.value / 100) * 100;
     this.style.background = 'linear-gradient(to right, #0693e3 ' + pct + '%, #2a2a2a ' + pct + '%)';
 });
 
 // Init slider fill
 (function() {
+    if (!intensitySlider) return;
     var pct = (intensitySlider.value / 100) * 100;
     intensitySlider.style.background = 'linear-gradient(to right, #0693e3 ' + pct + '%, #2a2a2a ' + pct + '%)';
 })();
@@ -229,7 +230,7 @@ var actions = {
     // ── Speed Ramp ────────────────────────────────────
     introRamp: function() {
         setStatus('Applying Intro Ramp...', 'busy');
-        var intensity = getIntensity();
+        var intensity = 100;
         evalScript('$.evalFile("' + getJsxPath() + '"); introRamp(' + intensity + ');', function(res) {
             if (!res || res === 'undefined' || res === '__dev__' || (res && res.indexOf('Error') !== 0 && res.indexOf('error') !== 0)) {
                 trackEffect('Intro Ramp', null, null);
@@ -239,7 +240,7 @@ var actions = {
     },
     middleRamp: function() {
         setStatus('Applying Middle Ramp...', 'busy');
-        var intensity = getIntensity();
+        var intensity = 100;
         evalScript('$.evalFile("' + getJsxPath() + '"); middleRamp(' + intensity + ');', function(res) {
             if (!res || res === 'undefined' || res === '__dev__' || (res && res.indexOf('Error') !== 0 && res.indexOf('error') !== 0)) {
                 trackEffect('Middle Ramp', null, null);
@@ -249,7 +250,7 @@ var actions = {
     },
     outroRamp: function() {
         setStatus('Applying Outro Ramp...', 'busy');
-        var intensity = getIntensity();
+        var intensity = 75;
         evalScript('$.evalFile("' + getJsxPath() + '"); outroRamp(' + intensity + ');', function(res) {
             if (!res || res === 'undefined' || res === '__dev__' || (res && res.indexOf('Error') !== 0 && res.indexOf('error') !== 0)) {
                 trackEffect('Outro Ramp', null, null);
