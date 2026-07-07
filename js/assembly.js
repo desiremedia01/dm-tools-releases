@@ -32,6 +32,26 @@
     }
 
     function classifyFrames(key, frames, cb) {
+        // Batches of 15 to stay under response/connection limits
+        var BATCH = 15;
+        var all = [];
+        var offset = 0;
+        function next() {
+            if (offset >= frames.length) { cb(null, all); return; }
+            var slice = frames.slice(offset, offset + BATCH);
+            var base = offset;
+            classifyBatch(key, slice, function(err, cats) {
+                if (err) { cb(err); return; }
+                cats.forEach(function(x) { all.push({ i: base + x.i, cat: x.cat, shot: x.shot }); });
+                offset += BATCH;
+                setStatus('Classifying ' + Math.min(offset, frames.length) + '/' + frames.length + ' clips...', 'busy');
+                next();
+            });
+        }
+        next();
+    }
+
+    function classifyBatch(key, frames, cb) {
         var CATS = 'drone_aerial, facade, living, kitchen, dining, pool_bbq, master_bedroom, ensuite, bathroom, bedroom, garage, study, hallway, other';
         var prompt = 'These are frames from real-estate video clips, in order. For EACH image return one JSON object: ' +
             '{"i": <image index starting 0>, "cat": "<one of: ' + CATS + '>", "shot": "wide" or "detail"}. ' +
@@ -43,7 +63,7 @@
 
         var body = JSON.stringify({
             contents: [{ parts: parts }],
-            generationConfig: { response_mime_type: 'application/json', temperature: 0 }
+            generationConfig: { response_mime_type: 'application/json', temperature: 0, maxOutputTokens: 8192 }
         });
 
         var https = require('https');
@@ -64,7 +84,11 @@
                 } catch (e) { cb(new Error('Gemini parse: ' + e.message + ' | ' + data.slice(0, 150))); }
             });
         });
-        req.on('error', function(e) { cb(new Error('Gemini request: ' + e.message)); });
+        req.on('error', function(e) {
+            if (!classifyBatch._retried) { classifyBatch._retried = 1; setTimeout(function() { classifyBatch(key, frames, cb); }, 2000); return; }
+            classifyBatch._retried = 0;
+            cb(new Error('Gemini request: ' + e.message));
+        });
         req.setTimeout(120000, function() { req.destroy(); cb(new Error('Gemini timeout')); });
         req.write(body); req.end();
     }
@@ -134,7 +158,7 @@
                 return /\.(mp4|mov|mxf|m4v)$/i.test(c.path);
             });
             if (vids.length < 3) { setStatus('Need at least 3 video clips selected (' + vids.length + ' found)', 'error'); asmBtn.disabled = false; return; }
-            if (vids.length > 60) vids = vids.slice(0, 60);
+            if (vids.length > 200) vids = vids.slice(0, 200);
 
             var ff = findFfmpeg();
             setStatus('Extracting frames 0/' + vids.length + '...', 'busy');
