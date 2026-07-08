@@ -1,5 +1,5 @@
 {
-  "version": "1.4.2",
+  "version": "1.4.3",
   "files": [
     {
       "path": "index.html",
@@ -29,5 +29,13 @@
       "path": "jsx/pr-tools.jsx",
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/jsx/pr-tools.jsx"
     }
+  ],
+  "notes": [
+    "Warp Stabilizer: clips com speed alterado ou reversed agora sao nested automaticamente antes de aplicar",
+    "Sound Effects: cria track de audio automaticamente quando nao ha nenhuma livre",
+    "Speed Ramps: intensidade fixa (Intro/Middle intense, Outro medio) - slider removido",
+    "Motion Blur (AE): adjustment layer cortado automaticamente do 2o keyframe ao penultimo",
+    "Direction Shake (AE): CC Force Motion Blur incluido",
+    "Novidades agora aparecem neste popup a cada update"
   ]
 }

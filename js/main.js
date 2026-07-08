@@ -679,7 +679,22 @@ authLogoutBtn.addEventListener('click', function() {
 /* ── Updater ───────────────────────────────────────── */
 function runUpdateCheck() {
     DmUpdater.check(
-        function(newVersion, failed) {
+        function(newVersion, failed, notes) {
+            if (notes && notes.length) {
+                var ov = document.createElement('div');
+                ov.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.75);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px';
+                var items = '';
+                for (var ni = 0; ni < notes.length; ni++) {
+                    items += '<li style="margin-bottom:7px;line-height:1.45">' + notes[ni] + '</li>';
+                }
+                ov.innerHTML = '<div style="background:#1e1e1e;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:18px 20px;max-width:340px;max-height:70%;overflow-y:auto">' +
+                    '<div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">\u2728 DM Tools v' + newVersion + '</div>' +
+                    '<div style="font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:12px">What\u2019s new</div>' +
+                    '<ul style="font-size:12px;color:rgba(255,255,255,0.85);padding-left:18px;margin:0 0 14px 0">' + items + '</ul>' +
+                    '<button id="dmWhatsNewOk" class="btn btn--accent" style="width:100%">OK \u2014 reopen panel to apply</button></div>';
+                document.body.appendChild(ov);
+                document.getElementById('dmWhatsNewOk').onclick = function() { ov.remove(); };
+            }
             var msg = failed > 0
                 ? 'Update v' + newVersion + ' partial — reopen panel'
                 : '\u2605 Updated to v' + newVersion + ' — please reopen the panel';
