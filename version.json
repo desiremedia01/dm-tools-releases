@@ -1,5 +1,5 @@
 {
-  "version": "1.4.3",
+  "version": "1.4.4",
   "files": [
     {
       "path": "index.html",
@@ -31,11 +31,13 @@
     }
   ],
   "notes": [
-    "Warp Stabilizer: clips com speed alterado ou reversed agora sao nested automaticamente antes de aplicar",
-    "Sound Effects: cria track de audio automaticamente quando nao ha nenhuma livre",
-    "Speed Ramps: intensidade fixa (Intro/Middle intense, Outro medio) - slider removido",
-    "Motion Blur (AE): adjustment layer cortado automaticamente do 2o keyframe ao penultimo",
-    "Direction Shake (AE): CC Force Motion Blur incluido",
-    "Novidades agora aparecem neste popup a cada update"
+    "<b>O1 Edit</b>: export de clip via FFmpeg (sem Media Encoder)",
+    "<b>Use Night Clip</b>: popup de selecao de LUT, salva o frame no disco, suporte a clips AEP (Dynamic Link)",
+    "<b>Warp Stabilizer</b>: clips com speed alterado ou reversed sao nested automaticamente antes de aplicar (musica/audio intocados)",
+    "<b>Sound Effects</b>: cria track de audio automaticamente quando nao ha nenhuma livre",
+    "<b>Speed Ramps</b>: slider removido - Intro e Middle sempre intense, Outro intermediario; Middle com vale mais fundo e centralizado; Outro nunca termina antes do corte da musica",
+    "<b>Motion Blur (AE)</b>: adjustment layer cortado automaticamente do 2o keyframe geral ate o penultimo do layer de cima (inclui time remap)",
+    "<b>Direction Shake (AE)</b>: CC Force Motion Blur incluido no shake",
+    "<b>Updater</b>: este popup de novidades a cada atualizacao"
   ]
 }
