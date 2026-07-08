@@ -31,7 +31,7 @@
     }
   ],
   "notes": [
-    "<b>Warp Stabilizer</b>: speed-changed or reversed clips are automatically nested before applying (music/audio untouched)",
+    "<b>Warp Stabilizer</b>: speed-changed or reversed clips are automatically nested before applying",
     "<b>Sound Effects</b>: automatically creates an audio track when none is free",
     "<b>Speed Ramps</b>: simpler and better — no more slider",
     "<b>Motion Blur (AE)</b>: adjustment layer auto-trimmed from the 2nd keyframe to the second-to-last of the top layer (includes time remap)",
