@@ -93,6 +93,8 @@
                     <button class="btn" data-action="prWarpStabilizer">Warp Stabilizer</button>
                     <button class="btn" data-action="prColorGrade">Color Grade</button>
                     <button class="btn" data-action="soundboard">Sound Effects</button>
+                    <button class="btn" id="prMakeProxies">Make Proxies</button>
+                    <button class="btn" id="prReelsFolder">Organize Reels</button>
                 </div>
             </section>
 
@@ -259,10 +261,17 @@
                 <div id="vgO1PresetSelect">
                     <div class="vg-section-label">Choose Effect</div>
                     <div class="btn-grid btn-grid--1">
-                        <button class="btn vg-o1-preset-btn" id="vgO1PresetWeather">Clear Sky</button>
+                        <button class="btn vg-o1-preset-btn" id="vgO1PresetWeather">Make It Sunny</button>
                         <button class="btn vg-o1-preset-btn" id="vgO1PresetTwilight">Twilight</button>
                         <button class="btn vg-o1-preset-btn" id="vgO1PresetCars">Add Cars</button>
                     </div>
+                </div>
+
+                <!-- Sub: weather options -->
+                <div id="vgO1WeatherOpts" style="display:none">
+                    <div class="vg-section-label">Make It Sunny</div>
+                    <button class="btn btn--accent" id="vgO1WeatherGenerate" style="width:100%">Create Reference Image</button>
+                    <div class="vg-analyse-status" id="vgO1WeatherStatus" style="display:none">Generating sunny reference — takes ~30-60s...</div>
                 </div>
 
                 <!-- Sub: twilight options -->
@@ -444,6 +453,7 @@
     <script src="js/auth.js"></script>
     <script src="js/updater.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/stagingSequence.js"></script>
     <script>
     /* Reveal AI Video section in Premiere Pro only */
     (function revealAI() {

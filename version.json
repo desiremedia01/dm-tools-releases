@@ -1,5 +1,5 @@
 {
-  "version": "1.4.5",
+  "version": "1.4.6",
   "files": [
     {
       "path": "index.html",
@@ -28,14 +28,15 @@
     {
       "path": "jsx/pr-tools.jsx",
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/jsx/pr-tools.jsx"
+    },
+    {
+      "path": "js/stagingSequence.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/stagingSequence.js"
     }
   ],
   "notes": [
-    "<b>Warp Stabilizer</b>: speed-changed or reversed clips are automatically nested before applying",
-    "<b>Sound Effects</b>: automatically creates an audio track when none is free",
-    "<b>Speed Ramps</b>: simpler and better — no more slider",
-    "<b>Motion Blur (AE)</b>: adjustment layer auto-trimmed from the 2nd keyframe to the second-to-last of the top layer (includes time remap)",
-    "<b>Direction Shake (AE)</b>: CC Force Motion Blur included in the shake",
-    "<b>Updater</b>: this What's New popup on every update"
+    "<b>Organize Reels</b>: one click moves every portrait clip from the CLIP bin into a Reels bin \u2014 it reads the Video Info column",
+    "<b>Make Proxies</b>: build proxies for the whole shoot straight from the panel (clear message if ffmpeg/Wavdrop is missing)",
+    "<b>AI Video (O1 Edit)</b>: new weather reference step, and frame grabs now land on the right frame for speed-changed or reversed clips"
   ]
 }
