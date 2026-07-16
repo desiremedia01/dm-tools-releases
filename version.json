@@ -1,5 +1,5 @@
 {
-  "version": "1.4.7",
+  "version": "1.4.8",
   "files": [
     {
       "path": "index.html",
@@ -32,10 +32,16 @@
     {
       "path": "js/stagingSequence.js",
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/stagingSequence.js"
+    },
+    {
+      "path": "js/enhanceSpeech.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/enhanceSpeech.js"
     }
   ],
   "notes": [
-    "<b>Sound Effects</b>: 2 new sounds — Reverse Cymbal Riser and Nature Timelapse; Metallic Riser updated",
-    "<b>Auto sound sync</b>: new sounds now download to every machine automatically on launch"
+    "<b>Enhance Speech</b>: new button — exports the selected audio clip and opens Adobe Podcast to clean it up",
+    "<b>O1 Edit</b>: Approve is faster and now auto-opens Higgsfield, copies the prompt (just Cmd+V), and reveals the clip in Finder",
+    "<b>O1 Edit</b>: click the reference image to view it full-size",
+    "<b>Under the hood</b>: bundled ffmpeg so every machine handles any camera (one-time ~80MB download on next launch)"
   ]
 }

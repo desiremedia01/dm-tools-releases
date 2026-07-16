@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "binaries": [
+    {
+      "path": "bin/ffmpeg",
+      "size": 80269896,
+      "exec": true
+    }
+  ]
+}

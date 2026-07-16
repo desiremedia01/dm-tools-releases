@@ -806,6 +806,82 @@ var DmSoundSync = (function () {
     return { run: run };
 })();
 
+/* ── Binary Sync (bundled ffmpeg) ─────────────────────────────────────
+   Ships a modern ffmpeg (8.1) so every machine can process any camera,
+   not just those with Wavdrop/static installed. Downloads binaries.json
+   entries as base64, writes them, and sets the exec bit. */
+var DmBinSync = (function () {
+    var BIN_URL  = 'https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/binaries.json';
+    var RAW_BASE = 'https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/';
+
+    function root() { try { return (typeof cs !== 'undefined' && cs) ? cs.getSystemPath('extension') : '.'; } catch (e) { return '.'; } }
+    function localSize(rel) { try { var r = window.cep.fs.stat(root() + '/' + rel); return (r && r.err === 0 && r.data) ? r.data.size : -1; } catch (e) { return -1; } }
+    function fetchTextS(url, cb) {
+        try {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url + '?t=' + Date.now(), true); xhr.timeout = 15000;
+            xhr.onreadystatechange = function () { if (xhr.readyState === 4) cb(xhr.status === 200 ? null : 'HTTP ' + xhr.status, xhr.responseText); };
+            xhr.ontimeout = function () { cb('timeout'); }; xhr.onerror = function () { cb('network'); }; xhr.send();
+        } catch (e) { cb('exc'); }
+    }
+    function fetchBinB64(url, cb) {
+        try {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url + '?t=' + Date.now(), true); xhr.responseType = 'arraybuffer'; xhr.timeout = 300000;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+                if (xhr.status !== 200) { cb('HTTP ' + xhr.status); return; }
+                try { var b = new Uint8Array(xhr.response), s = ''; for (var i = 0; i < b.length; i += 8192) s += String.fromCharCode.apply(null, b.subarray(i, i + 8192)); cb(null, btoa(s)); }
+                catch (e) { cb('decode'); }
+            };
+            xhr.ontimeout = function () { cb('timeout'); }; xhr.onerror = function () { cb('network'); }; xhr.send();
+        } catch (e) { cb('exc'); }
+    }
+    function writeBin(rel, b64, exec) {
+        try {
+            var parts = rel.split('/'), dir = root();
+            for (var i = 0; i < parts.length - 1; i++) { dir += '/' + parts[i]; try { window.cep.fs.makedir(dir); } catch (e) {} }
+            var full = root() + '/' + rel;
+            var res = window.cep.fs.writeFile(full, b64, cep.encoding.Base64);
+            if (!res || res.err !== 0) return false;
+            if (exec) { try { require('fs').chmodSync(full, 0o755); } catch (e) {} }
+            return true;
+        } catch (e) { return false; }
+    }
+
+    function ffmpegPath() {
+        try {
+            var full = root() + '/bin/ffmpeg';
+            if (require('fs').existsSync(full)) return full;
+        } catch (e) {}
+        return null;
+    }
+
+    function run() {
+        if (!(window.cep && window.cep.fs)) return;
+        fetchTextS(BIN_URL, function (err, txt) {
+            if (err) return;
+            var list; try { list = JSON.parse(txt).binaries || []; } catch (e) { return; }
+            var missing = list.filter(function (b) { var sz = localSize(b.path); return sz < 0 || (b.size && Math.abs(sz - b.size) > 64); });
+            if (!missing.length) { // ensure exec bit even if already present
+                list.forEach(function (b) { if (b.exec) { try { require('fs').chmodSync(root() + '/' + b.path, 0o755); } catch (e) {} } });
+                return;
+            }
+            var pending = missing.length, ok = 0;
+            setStatus('Downloading ffmpeg (one-time, ~80MB)...', 'busy');
+            missing.forEach(function (b) {
+                fetchBinB64(RAW_BASE + b.path, function (e2, b64) {
+                    if (!e2 && writeBin(b.path, b64, b.exec)) ok++;
+                    if (--pending === 0) setStatus(ok ? 'ffmpeg installed \u2713' : 'ffmpeg download failed', ok ? 'success' : 'error');
+                });
+            });
+        });
+    }
+    return { run: run, ffmpegPath: ffmpegPath };
+})();
+// Global resolver: bundled ffmpeg first, used by all features
+window.DM_BUNDLED_FFMPEG = function () { try { return DmBinSync.ffmpegPath(); } catch (e) { return null; } };
+
 document.addEventListener('DOMContentLoaded', function() {
     detectHost();
     var vb = document.getElementById('versionBadge');
@@ -814,7 +890,8 @@ document.addEventListener('DOMContentLoaded', function() {
         authShowApp(email);
         setStatus('Ready', 'idle');
         runUpdateCheck();
-        setTimeout(function(){ try { DmSoundSync.run(); } catch(e){} }, 4000);
+        setTimeout(function(){ try { DmBinSync.run(); } catch(e){} }, 3000);
+        setTimeout(function(){ try { DmSoundSync.run(); } catch(e){} }, 6000);
     }, function() {
         authShowLogin();
     });
