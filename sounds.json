@@ -76,6 +76,22 @@
     {
       "path": "assets/sounds/sold-reel/number_counter.mp3",
       "size": 359813
+    },
+    {
+      "path": "assets/sounds/others/camera_shutter.mp3",
+      "size": 7148
+    },
+    {
+      "path": "assets/sounds/others/click.mp3",
+      "size": 5686
+    },
+    {
+      "path": "assets/sounds/others/door_open.mp3",
+      "size": 155101
+    },
+    {
+      "path": "assets/sounds/others/plop.mp3",
+      "size": 19479
     }
   ]
 }

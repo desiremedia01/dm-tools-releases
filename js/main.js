@@ -562,6 +562,16 @@ var SOUND_LIBRARY = [
             { id: "cash_register",  label: "Cash Register",  file: "assets/sounds/sold-reel/cash_register.mp3" },
             { id: "number_counter", label: "Number Counter", file: "assets/sounds/sold-reel/number_counter.mp3" }
         ]
+    },
+    {
+        id: "others",
+        label: "Others",
+        sounds: [
+            { id: "camera_shutter", label: "Camera Shutter", file: "assets/sounds/others/camera_shutter.mp3" },
+            { id: "click",          label: "Click",          file: "assets/sounds/others/click.mp3" },
+            { id: "door_open",      label: "Door Open",      file: "assets/sounds/others/door_open.mp3" },
+            { id: "plop",           label: "Plop",           file: "assets/sounds/others/plop.mp3" }
+        ]
     }
 ];
 
