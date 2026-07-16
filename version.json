@@ -1,5 +1,5 @@
 {
-  "version": "1.4.8",
+  "version": "1.4.9",
   "files": [
     {
       "path": "index.html",
@@ -39,9 +39,10 @@
     }
   ],
   "notes": [
-    "<b>Enhance Speech</b>: new button — exports the selected audio clip and opens Adobe Podcast to clean it up",
-    "<b>O1 Edit</b>: Approve is faster and now auto-opens Higgsfield, copies the prompt (just Cmd+V), and reveals the clip in Finder",
-    "<b>O1 Edit</b>: click the reference image to view it full-size",
-    "<b>Under the hood</b>: bundled ffmpeg so every machine handles any camera (one-time ~80MB download on next launch)"
+    "<b>O1 Edit</b>: each effect now shows the full prompt you can edit, plus \"Adjust prompt\" — describe a tweak in your words and it rewrites the prompt",
+    "<b>O1 Edit — Add Cars</b>: detects which side the driveway is on and places the car there",
+    "<b>O1 Edit</b>: loading indicator while the reference image generates",
+    "<b>O1 Edit</b>: exports match your timeline orientation (portrait stays portrait, no black bars)",
+    "<b>O1 Edit</b>: warns if the clip is under 3s (Higgsfield needs at least 3s)"
   ]
 }

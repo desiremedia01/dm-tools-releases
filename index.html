@@ -97,7 +97,7 @@
                     <button class="btn" id="prReelsFolder">Organize Reels</button>
                     <button class="btn" id="prAutoSfx">Auto SFX</button>
                     <button class="btn" id="prEnhanceSpeech">Enhance Speech</button>
-                    <button class="btn" id="prTestLumetri" style="background:#7a4">🧪 Test Lumetri</button>
+                    <button class="btn" id="prAutoCorrect">Auto Correct</button>
                 </div>
             </section>
 
@@ -272,14 +272,31 @@
 
                 <!-- Sub: weather options -->
                 <div id="vgO1WeatherOpts" style="display:none">
-                    <div class="vg-section-label">Make It Sunny</div>
-                    <button class="btn btn--accent" id="vgO1WeatherGenerate" style="width:100%">Create Reference Image</button>
+                    <div class="vg-section-label">Make It Sunny — Prompt</div>
+                    <textarea class="vg-textarea" id="vgO1WeatherPrompt" rows="3"></textarea>
+                    <div class="vg-adjust-wrap">
+                        <div class="vg-adjust-label">Adjust prompt</div>
+                        <div class="vg-adjust-row">
+                            <textarea class="vg-adjust-input" id="vgO1WeatherAdjust" rows="2" placeholder="Describe a tweak in your words — e.g. 'warmer light, fewer clouds'"></textarea>
+                            <button class="btn btn--accent vg-adjust-btn" id="vgO1WeatherAdjustBtn">Apply</button>
+                        </div>
+                    </div>
+                    <button class="btn btn--accent" id="vgO1WeatherGenerate" style="width:100%;margin-top:8px">Create Reference Image</button>
                     <div class="vg-analyse-status" id="vgO1WeatherStatus" style="display:none">Generating sunny reference — takes ~30-60s...</div>
                 </div>
 
                 <!-- Sub: twilight options -->
                 <div id="vgO1TwilightOpts" style="display:none">
-                    <div class="vg-section-label">Reference Source</div>
+                    <div class="vg-section-label">Twilight — Prompt</div>
+                    <textarea class="vg-textarea" id="vgO1TwilightPrompt" rows="3"></textarea>
+                    <div class="vg-adjust-wrap">
+                        <div class="vg-adjust-label">Adjust prompt</div>
+                        <div class="vg-adjust-row">
+                            <textarea class="vg-adjust-input" id="vgO1TwilightAdjust" rows="2" placeholder="Describe a tweak in your words — e.g. 'warmer window glow, deeper blue sky'"></textarea>
+                            <button class="btn btn--accent vg-adjust-btn" id="vgO1TwilightAdjustBtn">Apply</button>
+                        </div>
+                    </div>
+                    <div class="vg-section-label" style="margin-top:8px">Reference Source</div>
                     <div class="btn-grid">
                         <button class="btn" id="vgO1TwilightNightRef">Use Night Clip</button>
                         <button class="btn btn--accent" id="vgO1TwilightGenerate">Generate Twilight</button>
@@ -294,8 +311,15 @@
 
                 <!-- Sub: cars options -->
                 <div id="vgO1CarsOpts" style="display:none">
-                    <div class="vg-section-label">Cars Prompt</div>
-                    <textarea class="vg-textarea" id="vgO1CarsPrompt" rows="3">A luxury car driving through the driveway, rear of the car facing the camera</textarea>
+                    <div class="vg-section-label">Add Cars — Prompt</div>
+                    <textarea class="vg-textarea" id="vgO1CarsPrompt" rows="3">A luxury car in the driveway, rear of the car facing the camera</textarea>
+                    <div class="vg-adjust-wrap">
+                        <div class="vg-adjust-label">Adjust prompt</div>
+                        <div class="vg-adjust-row">
+                            <textarea class="vg-adjust-input" id="vgO1CarsAdjust" rows="2" placeholder="Describe a tweak in your words — e.g. 'black SUV, parked not driving'"></textarea>
+                            <button class="btn btn--accent vg-adjust-btn" id="vgO1CarsAdjustBtn">Apply</button>
+                        </div>
+                    </div>
                     <div class="vg-analyse-status" id="vgO1CarsStatus" style="display:none">
                         <span class="vg-spin">&#9696;</span> Generating cars reference...
                     </div>
@@ -460,6 +484,7 @@
     <script src="js/autoSfx.js"></script>
     <script src="js/enhanceSpeech.js"></script>
     <script src="js/colorGrade.js"></script>
+    <script src="js/autoGrade.js"></script>
     <script>
     /* Reveal AI Video section in Premiere Pro only */
     (function revealAI() {
