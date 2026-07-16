@@ -1,5 +1,5 @@
 {
-  "version": "1.4.9",
+  "version": "1.5.0",
   "files": [
     {
       "path": "index.html",
@@ -38,11 +38,5 @@
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/enhanceSpeech.js"
     }
   ],
-  "notes": [
-    "<b>O1 Edit</b>: each effect now shows the full prompt you can edit, plus \"Adjust prompt\" — describe a tweak in your words and it rewrites the prompt",
-    "<b>O1 Edit — Add Cars</b>: detects which side the driveway is on and places the car there",
-    "<b>O1 Edit</b>: loading indicator while the reference image generates",
-    "<b>O1 Edit</b>: exports match your timeline orientation (portrait stays portrait, no black bars)",
-    "<b>O1 Edit</b>: warns if the clip is under 3s (Higgsfield needs at least 3s)"
-  ]
+  "notes": []
 }

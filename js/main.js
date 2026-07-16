@@ -513,7 +513,7 @@ cgApplyBtn.addEventListener('click', function() {
     var drone    = cgDroneSelect.value;
     var camera   = cgCameraSelect.value;
     var creative = cgCreativeSelect.value;
-    if (!drone || !camera || !creative) { setStatus('Seleciona todos os LUTs', 'error'); return; }
+    if (!drone || !camera || !creative) { setStatus('Select all three LUTs', 'error'); return; }
     colorGradeOverlay.classList.remove('visible');
     setStatus('Applying Color Grade...', 'busy');
     // colorGrade.js le os comps .aep e cobre eles na track de conversao;
