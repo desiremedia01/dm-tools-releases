@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "sounds": [
+    {
+      "path": "assets/sounds/transitions/day_to_night_long.mp3",
+      "size": 120452
+    },
+    {
+      "path": "assets/sounds/transitions/day_to_night_short.mp3",
+      "size": 88369
+    },
+    {
+      "path": "assets/sounds/transitions/metallic_riser.mp3",
+      "size": 645458
+    },
+    {
+      "path": "assets/sounds/transitions/reverse_cymbal_riser.mp3",
+      "size": 908915
+    },
+    {
+      "path": "assets/sounds/transitions/riser_to_sub_drop.mp3",
+      "size": 287208
+    },
+    {
+      "path": "assets/sounds/transitions/shake.mp3",
+      "size": 32969
+    },
+    {
+      "path": "assets/sounds/transitions/whoosh_long.mp3",
+      "size": 107378
+    },
+    {
+      "path": "assets/sounds/transitions/whoosh_short.mp3",
+      "size": 85489
+    },
+    {
+      "path": "assets/sounds/nature/beach.mp3",
+      "size": 1459979
+    },
+    {
+      "path": "assets/sounds/nature/birds.mp3",
+      "size": 1422510
+    },
+    {
+      "path": "assets/sounds/nature/construction.mp3",
+      "size": 940453
+    },
+    {
+      "path": "assets/sounds/nature/crackling_fire.mp3",
+      "size": 858967
+    },
+    {
+      "path": "assets/sounds/nature/crickets.mp3",
+      "size": 1436704
+    },
+    {
+      "path": "assets/sounds/nature/pool.mp3",
+      "size": 1443605
+    },
+    {
+      "path": "assets/sounds/nature/nature_timelapse.mp3",
+      "size": 1574640
+    },
+    {
+      "path": "assets/sounds/nature/timelapse.mp3",
+      "size": 186196
+    },
+    {
+      "path": "assets/sounds/nature/winds.mp3",
+      "size": 366437
+    },
+    {
+      "path": "assets/sounds/sold-reel/cash_register.mp3",
+      "size": 46798
+    },
+    {
+      "path": "assets/sounds/sold-reel/number_counter.mp3",
+      "size": 359813
+    }
+  ]
+}

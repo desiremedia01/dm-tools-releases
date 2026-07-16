@@ -1,5 +1,5 @@
 {
-  "version": "1.4.6",
+  "version": "1.4.7",
   "files": [
     {
       "path": "index.html",
@@ -35,8 +35,7 @@
     }
   ],
   "notes": [
-    "<b>Organize Reels</b>: one click moves every portrait clip from the CLIP bin into a Reels bin \u2014 it reads the Video Info column",
-    "<b>Make Proxies</b>: build proxies for the whole shoot straight from the panel (clear message if ffmpeg/Wavdrop is missing)",
-    "<b>AI Video (O1 Edit)</b>: new weather reference step, and frame grabs now land on the right frame for speed-changed or reversed clips"
+    "<b>Sound Effects</b>: 2 new sounds — Reverse Cymbal Riser and Nature Timelapse; Metallic Riser updated",
+    "<b>Auto sound sync</b>: new sounds now download to every machine automatically on launch"
   ]
 }

@@ -516,6 +516,9 @@ cgApplyBtn.addEventListener('click', function() {
     if (!drone || !camera || !creative) { setStatus('Seleciona todos os LUTs', 'error'); return; }
     colorGradeOverlay.classList.remove('visible');
     setStatus('Applying Color Grade...', 'busy');
+    // colorGrade.js le os comps .aep e cobre eles na track de conversao;
+    // sem o modulo, cai no caminho antigo (comps pulados)
+    if (window.DM_applyColorGrade) { window.DM_applyColorGrade(drone, camera, creative); return; }
     evalScript('$.evalFile("' + getPrJsxPath() + '"); prColorGrade("' + drone + '", "' + camera + '", "' + creative + '");', function(res) {
         handleResult(res, 'Color Grade applied!');
     });
@@ -530,6 +533,7 @@ var SOUND_LIBRARY = [
             { id: "day_to_night_long",  label: "Day to Night (Long)",  file: "assets/sounds/transitions/day_to_night_long.mp3" },
             { id: "day_to_night_short", label: "Day to Night (Short)", file: "assets/sounds/transitions/day_to_night_short.mp3" },
             { id: "metallic_riser",     label: "Metallic Riser",       file: "assets/sounds/transitions/metallic_riser.mp3" },
+            { id: "reverse_cymbal_riser", label: "Reverse Cymbal Riser", file: "assets/sounds/transitions/reverse_cymbal_riser.mp3" },
             { id: "riser_to_sub_drop",  label: "Riser to Sub Drop",    file: "assets/sounds/transitions/riser_to_sub_drop.mp3" },
             { id: "shake",              label: "Shake",                file: "assets/sounds/transitions/shake.mp3" },
             { id: "whoosh_long",        label: "Whoosh (Long)",        file: "assets/sounds/transitions/whoosh_long.mp3" },
@@ -546,6 +550,7 @@ var SOUND_LIBRARY = [
             { id: "crackling_fire", label: "Crackling Fire", file: "assets/sounds/nature/crackling_fire.mp3" },
             { id: "crickets",       label: "Crickets",       file: "assets/sounds/nature/crickets.mp3" },
             { id: "pool",           label: "Pool",           file: "assets/sounds/nature/pool.mp3" },
+            { id: "nature_timelapse", label: "Nature Timelapse", file: "assets/sounds/nature/nature_timelapse.mp3" },
             { id: "timelapse",      label: "Timelapse",      file: "assets/sounds/nature/timelapse.mp3" },
             { id: "winds",          label: "Winds",          file: "assets/sounds/nature/winds.mp3" }
         ]
@@ -713,6 +718,94 @@ function runUpdateCheck() {
 }
 
 /* ── Init ─────────────────────────────────────────── */
+/* ── Sound Sync ───────────────────────────────────────────────────────
+   Keeps assets/sounds in sync with the release repo. Runs in the background
+   on panel load: fetches sounds.json, downloads any missing / size-mismatched
+   audio as binary (base64) — code updates can't ship binaries, so this does. */
+var DmSoundSync = (function () {
+    var SOUNDS_URL = 'https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/sounds.json';
+    var RAW_BASE   = 'https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/';
+
+    function root() {
+        try { return (typeof cs !== 'undefined' && cs) ? cs.getSystemPath('extension') : '.'; }
+        catch (e) { return '.'; }
+    }
+    function localSize(relPath) {
+        try {
+            var r = window.cep.fs.stat(root() + '/' + relPath);
+            return (r && r.err === 0 && r.data) ? r.data.size : -1;
+        } catch (e) { return -1; }
+    }
+    function fetchTextS(url, cb) {
+        try {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url + '?t=' + Date.now(), true);
+            xhr.timeout = 15000;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+                cb(xhr.status === 200 ? null : 'HTTP ' + xhr.status, xhr.responseText);
+            };
+            xhr.ontimeout = function () { cb('timeout'); };
+            xhr.onerror = function () { cb('network'); };
+            xhr.send();
+        } catch (e) { cb('exc'); }
+    }
+    function fetchBinB64(url, cb) {
+        try {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url + '?t=' + Date.now(), true);
+            xhr.responseType = 'arraybuffer';
+            xhr.timeout = 60000;
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState !== 4) return;
+                if (xhr.status !== 200) { cb('HTTP ' + xhr.status); return; }
+                try {
+                    var b = new Uint8Array(xhr.response), s = '';
+                    for (var i = 0; i < b.length; i += 8192) s += String.fromCharCode.apply(null, b.subarray(i, i + 8192));
+                    cb(null, btoa(s));
+                } catch (e) { cb('decode'); }
+            };
+            xhr.ontimeout = function () { cb('timeout'); };
+            xhr.onerror = function () { cb('network'); };
+            xhr.send();
+        } catch (e) { cb('exc'); }
+    }
+    function writeBin(relPath, b64) {
+        try {
+            var parts = relPath.split('/'), dir = root();
+            for (var i = 0; i < parts.length - 1; i++) { dir += '/' + parts[i]; try { window.cep.fs.makedir(dir); } catch (e) {} }
+            var res = window.cep.fs.writeFile(root() + '/' + relPath, b64, cep.encoding.Base64);
+            return res && res.err === 0;
+        } catch (e) { return false; }
+    }
+
+    function run() {
+        if (!(window.cep && window.cep.fs)) return; // dev mode / no CEP fs
+        fetchTextS(SOUNDS_URL, function (err, txt) {
+            if (err) return; // no manifest yet — silent
+            var list;
+            try { list = JSON.parse(txt).sounds || []; } catch (e) { return; }
+            var missing = list.filter(function (s) {
+                var sz = localSize(s.path);
+                return sz < 0 || (s.size && Math.abs(sz - s.size) > 16);
+            });
+            if (!missing.length) return;
+            var pending = missing.length, done = 0, failed = 0;
+            setStatus('Syncing ' + missing.length + ' sound' + (missing.length > 1 ? 's' : '') + '...', 'busy');
+            missing.forEach(function (s) {
+                fetchBinB64(RAW_BASE + s.path, function (e2, b64) {
+                    if (e2 || !writeBin(s.path, b64)) failed++; else done++;
+                    if (--pending === 0) {
+                        if (failed) setStatus('Sounds synced (' + done + ' ok, ' + failed + ' failed)', done ? 'success' : 'error');
+                        else setStatus('Sounds synced: ' + done + ' added \u2713', 'success');
+                    }
+                });
+            });
+        });
+    }
+    return { run: run };
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     detectHost();
     var vb = document.getElementById('versionBadge');
@@ -721,6 +814,7 @@ document.addEventListener('DOMContentLoaded', function() {
         authShowApp(email);
         setStatus('Ready', 'idle');
         runUpdateCheck();
+        setTimeout(function(){ try { DmSoundSync.run(); } catch(e){} }, 4000);
     }, function() {
         authShowLogin();
     });
