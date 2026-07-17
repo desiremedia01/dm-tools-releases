@@ -98,6 +98,8 @@
                     <button class="btn" id="prAutoSfx">Auto SFX</button>
                     <button class="btn" id="prEnhanceSpeech">Enhance Speech</button>
                     <button class="btn" id="prAutoCorrect">Auto Correct</button>
+                    <button class="btn" id="prGrowCorpus" style="display:none;background:#4a5a7a">Grow Corpus</button>
+                    <button class="btn" id="prReframe" style="display:none;background:#4a5a7a">Reframe → 9:16</button>
                 </div>
             </section>
 
@@ -472,6 +474,7 @@
         <div class="status-bar" id="statusBar">
             <span class="status-dot" id="statusDot"></span>
             <span class="status-msg" id="statusMsg">Ready</span>
+            <button id="reportBugBtn" title="Report a bug" style="margin-left:auto;background:none;border:1px solid rgba(255,255,255,0.15);border-radius:5px;color:rgba(255,255,255,0.55);font-size:10px;padding:2px 7px;cursor:pointer;flex-shrink:0">🐞 Report Bug</button>
         </div>
 
     </div>
@@ -485,6 +488,8 @@
     <script src="js/enhanceSpeech.js"></script>
     <script src="js/colorGrade.js"></script>
     <script src="js/autoGrade.js"></script>
+    <script src="js/reframe.js"></script>
+    <script src="js/reportBug.js"></script>
     <script>
     /* Reveal AI Video section in Premiere Pro only */
     (function revealAI() {
