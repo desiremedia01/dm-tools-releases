@@ -1,5 +1,5 @@
 {
-  "version": "1.5.1",
+  "version": "1.6.0",
   "files": [
     {
       "path": "index.html",
@@ -36,7 +36,40 @@
     {
       "path": "js/enhanceSpeech.js",
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/enhanceSpeech.js"
+    },
+    {
+      "path": "js/autoSfx.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/autoSfx.js"
+    },
+    {
+      "path": "js/colorGrade.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/colorGrade.js"
+    },
+    {
+      "path": "js/autoGrade.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/autoGrade.js"
+    },
+    {
+      "path": "js/gradeMiner.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/gradeMiner.js"
+    },
+    {
+      "path": "js/reportBug.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/reportBug.js"
+    },
+    {
+      "path": "calibration/gradeStats.json",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/calibration/gradeStats.json"
+    },
+    {
+      "path": "assets/luts/conversion/Slog3.cube",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/assets/luts/conversion/Slog3.cube"
     }
   ],
-  "notes": []
+  "notes": [
+    "\ud83d\udd0a <b>Auto SFX</b> \u2014 one click adds whooshes on speed ramps, day-to-night sound, and ambience (birds/crickets/pool) across your edited sequence.",
+    "\ud83c\udfa8 <b>Color Grade</b> \u2014 builds the 3 AG adjustment layers per segment, covers .aep comps, cuts Grade/Creative at every clip change, crossfades through day-to-nights, and drops Creative to 70% on drone and night shots.",
+    "\u2728 <b>Auto Correct</b> \u2014 automatically corrects exposure, contrast, highlights and shadows per clip, anchored to Desire Media's delivered projects. Applies instantly \u2014 undo with Cmd+Z.",
+    "\ud83d\udc1e <b>Report Bug</b> \u2014 found an issue? Send it straight to us from the panel."
+  ]
 }
