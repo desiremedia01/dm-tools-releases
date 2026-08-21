@@ -1,5 +1,5 @@
 {
-  "version": "1.6.1",
+  "version": "1.6.2",
   "files": [
     {
       "path": "index.html",
@@ -78,6 +78,6 @@
     "\ud83c\udfb5 <b>Download Audio</b> \u2014 new tab. Paste a Spotify / YouTube / SoundCloud link, see the waveform, then click to drop it at the playhead or drag it straight onto the timeline. Saved to the project's assets folder.",
     "\ud83d\udd0a <b>Sound Effects</b> \u2014 click a sound to place it at the playhead, or drag it onto the timeline.",
     "\u2728 <b>New SFX</b> \u2014 \"Sunlight\" impact added to Transitions.",
-    "\u26a1 <b>Quick Export</b> \u2014 export your in/out range fast, straight from the source with an optional LUT, then reveal it in Finder."
+    "\u26a1 <b>Quick Export</b> \u2014 export your in/out range fast, straight from the source with an optional LUT \u2014 great for quick Higgsfield jobs. Reveals in Finder when done."
   ]
 }

@@ -76,8 +76,8 @@
         overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;display:flex;align-items:center;justify-content:center';
         overlay.innerHTML = '<div style="background:#1e1e1e;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:18px 20px;min-width:240px">' +
             '<div style="font-size:13px;font-weight:700;color:#fff;margin-bottom:10px">Quick Export — LUT</div>' +
-            '<select id="qeLutPick" style="width:100%;background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:7px;font-size:12px;margin-bottom:14px">' +
-            '<option value="">— No LUT —</option>' + luts.map(function (l) { return '<option value="' + l + '">' + l + '</option>'; }).join('') + '</select>' +
+            '<select id="qeLutPick" style="width:100%;background:#2a2a2a;color:#fff;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:7px;font-size:12px;margin-bottom:14px">' +
+            '<option value="" style="background:#2a2a2a;color:#fff">— No LUT —</option>' + luts.map(function (l) { return '<option value="' + l + '" style="background:#2a2a2a;color:#fff">' + l + '</option>'; }).join('') + '</select>' +
             '<div style="display:flex;gap:8px"><button id="qeCancel" class="btn" style="flex:1">Cancel</button>' +
             '<button id="qeGo" class="btn btn--accent" style="flex:1">Export</button></div></div>';
         document.body.appendChild(overlay);
