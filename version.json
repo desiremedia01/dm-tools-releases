@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.1",
   "files": [
     {
       "path": "index.html",
@@ -64,12 +64,20 @@
     {
       "path": "assets/luts/conversion/Slog3.cube",
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/assets/luts/conversion/Slog3.cube"
+    },
+    {
+      "path": "js/musicDownloader.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/musicDownloader.js"
+    },
+    {
+      "path": "js/quickExport.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/quickExport.js"
     }
   ],
   "notes": [
-    "\ud83d\udd0a <b>Auto SFX</b> \u2014 one click adds whooshes on speed ramps, day-to-night sound, and ambience (birds/crickets/pool) across your edited sequence.",
-    "\ud83c\udfa8 <b>Color Grade</b> \u2014 builds the 3 AG adjustment layers per segment, covers .aep comps, cuts Grade/Creative at every clip change, crossfades through day-to-nights, and drops Creative to 70% on drone and night shots.",
-    "\u2728 <b>Auto Correct</b> \u2014 automatically corrects exposure, contrast, highlights and shadows per clip, anchored to Desire Media's delivered projects. Applies instantly \u2014 undo with Cmd+Z.",
-    "\ud83d\udc1e <b>Report Bug</b> \u2014 found an issue? Send it straight to us from the panel."
+    "\ud83c\udfb5 <b>Download Audio</b> \u2014 new tab. Paste a Spotify / YouTube / SoundCloud link, see the waveform, then click to drop it at the playhead or drag it straight onto the timeline. Saved to the project's assets folder.",
+    "\ud83d\udd0a <b>Sound Effects</b> \u2014 click a sound to place it at the playhead, or drag it onto the timeline.",
+    "\u2728 <b>New SFX</b> \u2014 \"Sunlight\" impact added to Transitions.",
+    "\u26a1 <b>Quick Export</b> \u2014 export your in/out range fast, straight from the source with an optional LUT, then reveal it in Finder."
   ]
 }

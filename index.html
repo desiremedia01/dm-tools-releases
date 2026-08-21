@@ -95,11 +95,21 @@
                     <button class="btn" data-action="soundboard">Sound Effects</button>
                     <button class="btn" id="prMakeProxies">Make Proxies</button>
                     <button class="btn" id="prReelsFolder">Organize Reels</button>
-                    <button class="btn" id="prAutoSfx">Auto SFX</button>
                     <button class="btn" id="prEnhanceSpeech">Enhance Speech</button>
-                    <button class="btn" id="prAutoCorrect">Auto Correct</button>
-                    <button class="btn" id="prGrowCorpus" style="display:none;background:#4a5a7a">Grow Corpus</button>
-                    <button class="btn" id="prReframe" style="display:none;background:#4a5a7a">Reframe → 9:16</button>
+                    <button class="btn" id="prQuickExport">Quick Export</button>
+                </div>
+            </section>
+
+            <!-- Download Audio Section (PR only) -->
+            <section class="section" id="downloadSection" style="display:none">
+                <div class="section-header">
+                    <span class="section-title">Download Audio</span>
+                    <div class="section-line"></div>
+                </div>
+                <div style="display:flex;gap:8px;align-items:center">
+                    <input type="text" id="mdUrlInput" placeholder="Paste Spotify / YouTube / SoundCloud link..."
+                        style="flex:1;box-sizing:border-box;background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:8px;font-size:12px">
+                    <button class="btn btn--accent" id="prMusicDownload" style="flex:0 0 auto">Download</button>
                 </div>
             </section>
 
@@ -484,11 +494,10 @@
     <script src="js/updater.js"></script>
     <script src="js/main.js"></script>
     <script src="js/stagingSequence.js"></script>
-    <script src="js/autoSfx.js"></script>
     <script src="js/enhanceSpeech.js"></script>
+    <script src="js/quickExport.js"></script>
+    <script src="js/musicDownloader.js"></script>
     <script src="js/colorGrade.js"></script>
-    <script src="js/autoGrade.js"></script>
-    <script src="js/reframe.js"></script>
     <script src="js/reportBug.js"></script>
     <script>
     /* Reveal AI Video section in Premiere Pro only */

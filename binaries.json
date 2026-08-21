@@ -5,6 +5,11 @@
       "path": "bin/ffmpeg",
       "size": 80269896,
       "exec": true
+    },
+    {
+      "path": "bin/yt-dlp",
+      "size": 37146048,
+      "exec": true
     }
   ]
 }
