@@ -1,5 +1,5 @@
 {
-  "version": "1.6.2",
+  "version": "1.7.0",
   "files": [
     {
       "path": "index.html",
@@ -72,12 +72,17 @@
     {
       "path": "js/quickExport.js",
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/quickExport.js"
+    },
+    {
+      "path": "js/quickStill.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/quickStill.js"
     }
   ],
   "notes": [
-    "\ud83c\udfb5 <b>Download Audio</b> \u2014 new tab. Paste a Spotify / YouTube / SoundCloud link, see the waveform, then click to drop it at the playhead or drag it straight onto the timeline. Saved to the project's assets folder.",
-    "\ud83d\udd0a <b>Sound Effects</b> \u2014 click a sound to place it at the playhead, or drag it onto the timeline.",
-    "\u2728 <b>New SFX</b> \u2014 \"Sunlight\" impact added to Transitions.",
-    "\u26a1 <b>Quick Export</b> \u2014 export your in/out range fast, straight from the source with an optional LUT \u2014 great for quick Higgsfield jobs. Reveals in Finder when done."
+    "\ud83d\udd27 <b>Higgsfield fix</b> \u2014 AI Video (Timelapse & O1 Edit) works again. Higgsfield changed their servers and every request was being blocked; just click Connect once to sign back in.",
+    "\ud83c\udf05 <b>Timelapse</b> \u2014 the shadow timelapse now holds a constant colour temperature \u2014 no more yellow/golden shift at the end.",
+    "\ud83d\udcf8 <b>Quick Still</b> \u2014 new button. Grab the frame at the playhead into the project's assets folder, with an optional LUT (Slog3 preselected). Files auto-number 1, 2, 3\u2026 and it works on .aep clips too.",
+    "\ud83c\udfb5 <b>Download Audio</b> \u2014 added a Paste button (and a clipboard fallback when Cmd+V doesn't register); tracks now save into the project's assets folder.",
+    "\ud83c\udfa8 <b>Color Grade</b> \u2014 fixed drone/camera detection and day-to-night crossfades on .aep projects."
   ]
 }

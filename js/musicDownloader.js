@@ -127,11 +127,27 @@
 
     var btn = document.getElementById('prMusicDownload');
     var urlInput = document.getElementById('mdUrlInput');
+    var pasteBtn = document.getElementById('mdPasteBtn');
     if (!btn) return;
+
+    // CEP/Chromium sometimes swallows Cmd/Ctrl+V in panel inputs. Read the macOS
+    // clipboard directly via pbpaste as a reliable fallback.
+    function clipboardText() {
+        try { return require('child_process').execSync('pbpaste', { timeout: 2000 }).toString().trim(); } catch (e) { return ''; }
+    }
+
+    if (pasteBtn) {
+        pasteBtn.addEventListener('click', function () {
+            var t = clipboardText();
+            if (t && urlInput) { urlInput.value = t; urlInput.focus(); setStatus('Pasted from clipboard', 'success'); }
+            else setStatus('Clipboard is empty', 'error');
+        });
+    }
 
     function startDownload() {
         if (!ytdlp()) { setStatus('yt-dlp not found on this machine', 'error'); return; }
         var url = (urlInput && urlInput.value || '').trim();
+        if (!url) { url = clipboardText(); if (url && urlInput) urlInput.value = url; }   // fall back to clipboard
         if (!url) { setStatus('Paste a link first', 'error'); if (urlInput) urlInput.focus(); return; }
         if (/open\.spotify\.com\/track/i.test(url)) {
             setStatus('Looking up track on Spotify...', 'busy');
