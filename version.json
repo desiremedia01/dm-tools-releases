@@ -1,5 +1,5 @@
 {
-  "version": "1.7.1",
+  "version": "1.7.2",
   "files": [
     {
       "path": "index.html",
@@ -79,6 +79,6 @@
     }
   ],
   "notes": [
-    "\ud83d\udd0c <b>Disconnect Higgsfield</b> \u2014 new button in AI Video to sign out of Higgsfield manually, so you can reconnect whenever you need a fresh session."
+    "\ud83c\udf05 <b>Timelapse fix</b> \u2014 timelapses now generate reliably instead of spinning forever. Higgsfield was suggesting a preset instead of creating the job; DM Tools now detects that and generates the video directly."
   ]
 }
