@@ -1,5 +1,5 @@
 {
-  "version": "1.7.0",
+  "version": "1.7.1",
   "files": [
     {
       "path": "index.html",
@@ -79,10 +79,6 @@
     }
   ],
   "notes": [
-    "\ud83d\udd27 <b>Higgsfield fix</b> \u2014 AI Video (Timelapse & O1 Edit) works again. Higgsfield changed their servers and every request was being blocked; just click Connect once to sign back in.",
-    "\ud83c\udf05 <b>Timelapse</b> \u2014 the shadow timelapse now holds a constant colour temperature \u2014 no more yellow/golden shift at the end.",
-    "\ud83d\udcf8 <b>Quick Still</b> \u2014 new button. Grab the frame at the playhead into the project's assets folder, with an optional LUT (Slog3 preselected). Files auto-number 1, 2, 3\u2026 and it works on .aep clips too.",
-    "\ud83c\udfb5 <b>Download Audio</b> \u2014 added a Paste button (and a clipboard fallback when Cmd+V doesn't register); tracks now save into the project's assets folder.",
-    "\ud83c\udfa8 <b>Color Grade</b> \u2014 fixed drone/camera detection and day-to-night crossfades on .aep projects."
+    "\ud83d\udd0c <b>Disconnect Higgsfield</b> \u2014 new button in AI Video to sign out of Higgsfield manually, so you can reconnect whenever you need a fresh session."
   ]
 }
