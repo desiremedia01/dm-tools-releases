@@ -2,6 +2,10 @@
   "version": "1.7.3",
   "files": [
     {
+      "path": "js/CSInterface.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/CSInterface.js"
+    },
+    {
       "path": "index.html",
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/index.html"
     },
