@@ -1,5 +1,5 @@
 {
-  "version": "1.7.2",
+  "version": "1.7.3",
   "files": [
     {
       "path": "index.html",
@@ -76,9 +76,15 @@
     {
       "path": "js/quickStill.js",
       "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/quickStill.js"
+    },
+    {
+      "path": "js/auth.js",
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/main/js/auth.js"
     }
   ],
   "notes": [
-    "\ud83c\udf05 <b>Timelapse fix</b> \u2014 timelapses now generate reliably instead of spinning forever. Higgsfield was suggesting a preset instead of creating the job; DM Tools now detects that and generates the video directly."
+    "\ud83d\udd10 <b>Sign-in fix</b> \u2014 Google sign-in now opens the browser reliably on every Mac. If it still doesn't, the sign-in link is copied to your clipboard \u2014 just paste it into your browser.",
+    "\ud83d\udd04 <b>Updates before sign-in</b> \u2014 DM Tools now updates itself even while you're on the login screen.",
+    "\ud83d\udd0a <b>New SFX</b> \u2014 \"Light Switch\" added to Others."
   ]
 }

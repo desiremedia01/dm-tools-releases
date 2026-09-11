@@ -573,6 +573,7 @@ var SOUND_LIBRARY = [
             { id: "camera_shutter", label: "Camera Shutter", file: "assets/sounds/others/camera_shutter.mp3" },
             { id: "click",          label: "Click",          file: "assets/sounds/others/click.mp3" },
             { id: "door_open",      label: "Door Open",      file: "assets/sounds/others/door_open.mp3" },
+            { id: "light_switch",   label: "Light Switch",   file: "assets/sounds/others/light_switch.mp3" },
             { id: "plop",           label: "Plop",           file: "assets/sounds/others/plop.mp3" }
         ]
     }
@@ -691,7 +692,7 @@ function authShowApp(email) {
 authLoginBtn.addEventListener('click', function() {
     authLoginBtn.disabled = true;
     authStatus.style.color = 'var(--text-2)';
-    authStatus.textContent = 'Opening Google...';
+    authStatus.textContent = 'Opening Google... (if nothing opens, the link is in your clipboard — paste it into your browser)';
 
     DmAuth.login(function(email) {
         authShowApp(email);
@@ -914,10 +915,12 @@ document.addEventListener('DOMContentLoaded', function() {
     detectHost();
     var vb = document.getElementById('versionBadge');
     if (vb) vb.textContent = 'v' + DmUpdater.version;
+    // Run the update check regardless of sign-in state: a machine stuck at the
+    // login screen must still be able to receive fixes (e.g. a broken sign-in).
+    runUpdateCheck();
     DmAuth.checkAuth(function(email) {
         authShowApp(email);
         setStatus('Ready', 'idle');
-        runUpdateCheck();
         setTimeout(function(){ try { DmBinSync.run(); } catch(e){} }, 3000);
         setTimeout(function(){ try { DmSoundSync.run(); } catch(e){} }, 6000);
     }, function() {

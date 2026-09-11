@@ -96,6 +96,10 @@
     {
       "path": "assets/sounds/others/plop.mp3",
       "size": 19479
+    },
+    {
+      "path": "assets/sounds/others/light_switch.mp3",
+      "size": 18953
     }
   ]
 }

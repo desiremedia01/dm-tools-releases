@@ -113,15 +113,21 @@
 
             var authUrl = 'https://accounts.google.com/o/oauth2/v2/auth?' + params;
 
-            try {
-                if (typeof CSInterface !== 'undefined') {
-                    new CSInterface().openURLInDefaultBrowser(authUrl);
-                } else {
-                    window.open(authUrl, '_blank');
-                }
-            } catch (e) {
-                onError('Error opening browser: ' + e); return;
+            /* Open the browser via the macOS `open` command first — it is the
+               reliable path. CSInterface.openURLInDefaultBrowser fails silently
+               on some Macs (fresh install / no default browser), which left the
+               panel "opening" forever. The link is also copied to the clipboard
+               so the user can paste it if nothing opens. */
+            var opened = false;
+            try { require('child_process').exec('open ' + JSON.stringify(authUrl)); opened = true; } catch (e0) {}
+            if (!opened) {
+                try {
+                    if (typeof CSInterface !== 'undefined') { new CSInterface().openURLInDefaultBrowser(authUrl); opened = true; }
+                    else { window.open(authUrl, '_blank'); opened = true; }
+                } catch (e1) {}
             }
+            try { var _pb = require('child_process').spawn('pbcopy'); _pb.stdin.write(authUrl); _pb.stdin.end(); } catch (e2) {}
+            if (!opened) { onError('Could not open the browser — the sign-in link is in your clipboard, paste it into Chrome/Safari.'); return; }
 
             /* Poll relay every 2s for up to 3 minutes */
             var attempts = 0;
