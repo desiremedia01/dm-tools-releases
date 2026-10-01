@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Desire Group Design System — Colours & Type
+   --------------------------------------------------------------------------
+   Editorial, minimal, considered. Black & white as primary palette,
+   beige (#E8E5E1) reserved exclusively for Desire Studio as a subtle accent.
+   No gradients. No drop shadows. No rounded pills. No emoji. No em dashes.
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   1. WEBFONTS
+   ------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------------------------------------------------
+   2. DESIGN TOKENS
+   ------------------------------------------------------------------------- */
+
+:root {
+  /* ---- Colour: core palette ----------------------------------------- */
+  --black:        #000000;
+  --white:        #FFFFFF;
+  --beige:        #E8E5E1;     /* Desire Studio accent ONLY */
+
+  /* ---- Colour: neutrals (greys) ------------------------------------- */
+  --ink:          #111111;     /* near-black for large surfaces */
+  --text:         #333333;     /* default body text */
+  --text-muted:   #6B6B6B;     /* secondary text, captions */
+  --rule:         #D9D7D3;     /* hairline dividers (0.25–0.5pt) */
+  --rule-strong:  #B8B6B1;
+  --surface-2:    #F7F6F4;     /* near-white "subtotal" rows */
+  --surface-1:    var(--white);
+
+  /* ---- Semantic foreground / background ----------------------------- */
+  --fg-1:         var(--black);          /* primary text on light */
+  --fg-2:         var(--text);           /* default body */
+  --fg-3:         var(--text-muted);     /* meta, captions */
+  --fg-on-dark:   var(--white);          /* primary text on black */
+  --fg-on-dark-2: rgba(255,255,255,0.72);/* secondary text on black */
+
+  --bg-page:      var(--white);
+  --bg-inverse:   var(--black);
+  --bg-studio:    var(--beige);          /* Studio-only accent surface */
+  --bg-row:       var(--surface-2);
+
+  /* ---- Border / divider --------------------------------------------- */
+  --border-hairline: 0.5px solid var(--rule);
+  --border-thin:     1px solid var(--rule);
+  --border-strong:   1px solid var(--black);
+
+  /* ---- Type: families ----------------------------------------------- */
+  --font-display: "Canela", "Cormorant Garamond", "Times New Roman", Georgia, serif;
+  --font-body:    "Metro Sans", "Inter", -apple-system, BlinkMacSystemFont,
+                  "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ---- Type: scale (web; documents use 10pt body) ------------------- */
+  --fs-display-1: clamp(64px, 9vw, 144px);   /* hero, gallery */
+  --fs-display-2: clamp(48px, 6vw, 96px);
+  --fs-h1:        clamp(40px, 4.4vw, 72px);
+  --fs-h2:        clamp(32px, 3.2vw, 52px);
+  --fs-h3:        28px;
+  --fs-h4:        22px;
+  --fs-eyebrow:   12px;                       /* uppercase, tracked */
+  --fs-body-lg:   18px;
+  --fs-body:      16px;
+  --fs-body-sm:   14px;
+  --fs-caption:   12px;
+
+  --lh-display: 0.95;
+  --lh-heading: 1.08;
+  --lh-body:    1.55;
+  --lh-tight:   1.2;
+
+  --tracking-tight:    -0.02em;
+  --tracking-normal:    0;
+  --tracking-loose:     0.04em;
+  --tracking-eyebrow:   0.18em;   /* eyebrows / nav / labels */
+
+  /* ---- Spacing (8pt base, generous editorial rhythm) ---------------- */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  48px;
+  --space-8:  64px;
+  --space-9:  96px;
+  --space-10: 128px;
+  --space-11: 192px;
+
+  /* ---- Layout ------------------------------------------------------- */
+  --container-max: 1440px;
+  --gutter:        clamp(20px, 4vw, 64px);
+  --column-gap:    24px;
+
+  /* ---- Radius (kept near-zero by design) ---------------------------- */
+  --radius-0: 0;
+  --radius-1: 1px;
+  --radius-2: 2px;     /* maximum allowed; no pills */
+
+  /* ---- Motion ------------------------------------------------------- */
+  --ease-out:   cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out:cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 120ms;
+  --dur-2: 220ms;
+  --dur-3: 380ms;
+  --dur-4: 600ms;
+
+  /* ---- States ------------------------------------------------------- */
+  --hover-fade:  0.65;       /* link / button hover opacity on dark or light */
+  --press-fade:  0.45;
+  --disabled:    0.35;
+}
+
+/* -------------------------------------------------------------------------
+   3. SEMANTIC ELEMENT STYLES
+   ------------------------------------------------------------------------- */
+
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  background: var(--bg-page);
+  font-weight: 400;
+  letter-spacing: var(--tracking-normal);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--fg-1);
+  font-weight: 100;          /* Canela Thin is the brand default */
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-5) 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--fs-h1); line-height: var(--lh-display); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+p {
+  margin: 0 0 var(--space-4) 0;
+  text-wrap: pretty;
+  max-width: 68ch;
+}
+
+small, .caption { font-size: var(--fs-caption); color: var(--fg-3); }
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: opacity var(--dur-1) var(--ease-out);
+}
+a:hover   { opacity: var(--hover-fade); }
+a:active  { opacity: var(--press-fade); }
+
+hr {
+  border: 0;
+  border-top: var(--border-hairline);
+  margin: var(--space-7) 0;
+}
+
+/* Eyebrows / labels: small, uppercase, tracked sans (a key brand signal) */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--fg-1);
+}
+
+/* Display heading utility -- extra-large Canela Thin */
+.display {
+  font-family: var(--font-display);
+  font-weight: 100;
+  font-size: var(--fs-display-1);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* -------------------------------------------------------------------------
+   4. SUB-BRAND THEMES
+   ------------------------------------------------------------------------- */
+
+/* DESIRE MEDIA -- predominantly white-on-black */
+[data-brand="media"] {
+  --bg-page:    var(--black);
+  --fg-1:       var(--white);
+  --fg-2:       rgba(255,255,255,0.86);
+  --fg-3:       rgba(255,255,255,0.60);
+  --rule:       rgba(255,255,255,0.22);
+  --rule-strong:rgba(255,255,255,0.40);
+  --surface-2:  #0E0E0E;
+  color: var(--fg-2);
+  background: var(--bg-page);
+}
+
+/* DESIRE STUDIO -- predominantly black-on-white, beige permitted */
+[data-brand="studio"] {
+  --bg-page:    var(--white);
+  --fg-1:       var(--black);
+  --fg-2:       var(--text);
+  --accent:     var(--beige);
+}
+
+/* -------------------------------------------------------------------------
+   5. EDITORIAL LAYOUT PRIMITIVES
+   ------------------------------------------------------------------------- */
+
+/* Title bar: black background, white bold text */
+.title-bar {
+  background: var(--black);
+  color: var(--white);
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--fs-eyebrow);
+}
+
+/* Section header: beige #E8E5E1 background, black bold text (Studio) */
+.section-header {
+  background: var(--beige);
+  color: var(--black);
+  padding: var(--space-4) var(--space-5);
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--fs-eyebrow);
+}
+
+/* Tables -- editorial, hairline rules */
+.dg-table { width: 100%; border-collapse: collapse; font-size: var(--fs-body-sm); }
+.dg-table th {
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  font-size: var(--fs-eyebrow);
+  padding: var(--space-3) var(--space-4);
+}
+.dg-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-hairline);
+  color: var(--fg-2);
+}
+.dg-table tr.subtotal td { background: var(--surface-2); font-weight: 700; }
+.dg-table tr.total td    { background: var(--black); color: var(--white); font-weight: 700; }

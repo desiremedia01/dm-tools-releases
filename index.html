@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DM Tools</title>
+    <link rel="stylesheet" href="brand/colors_and_type.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/desire-panel.css">
 </head>
 <body>
 
@@ -23,54 +25,26 @@
         <!-- Header -->
         <header class="header">
             <div class="header-brand">
-                <img src="assets/logodm.png" class="header-logo-img" alt="DM Tools">
+                <span class="product-title">DM TOOLS</span>
             </div>
             <div class="header-right">
                 <span class="host-badge" id="hostBadge">AE</span>
-                <span class="version" id="versionBadge">v1.0</span>
+                <button class="settings-button" id="settingsBtn" title="Settings" aria-label="Settings" aria-controls="settingsOverlay"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 3 1-2h4l1 2 3 2 2 0 2 4-1 2v3l1 2-2 4h-2l-3 2-1 1h-4l-1-1-3-2H4l-2-4 1-2v-3L2 9l2-4h2z"/><circle cx="12" cy="12" r="3"/></svg></button>
                 <button class="auth-logout-btn" id="undoBtn" title="Undo last effect" style="display:none;font-size:14px;padding:4px 8px;margin-right:4px">↶</button>
-                <button class="auth-logout-btn" id="authLogoutBtn" title="Sign out">⏏</button>
+                
             </div>
         </header>
 
+        <div id="trackedGuide" class="tracked-guide" style="display:none" role="region" aria-label="Tracked effect setup">
+            <div class="tracked-guide-heading"><strong id="trackedGuideTitle"></strong><button type="button" id="trackedGuideCancel" aria-label="Cancel setup">×</button></div>
+            <p id="trackedGuideText" aria-live="polite"></p>
+            <button type="button" class="btn" id="trackedGuideContinue">Continue</button>
+        </div>
         <!-- Scrollable Content -->
         <div class="content">
 
-            <!-- Tools Section (AE) -->
-            <section class="section" id="aeSection">
-                <div class="section-header">
-                    <span class="section-title">Tools</span>
-                    <div class="section-line"></div>
-                </div>
-                <div class="btn-grid">
-                    <button class="btn" data-action="warpComp">Warp / Comp</button>
-                    <button class="btn" data-action="motionBlur">Motion Blur</button>
-                    <button class="btn" data-action="dayToNight">Day to Night</button>
-                    <button class="btn" data-action="pinDrop">Pin Drop</button>
-                    <button class="btn" data-action="trackCamera">3D Track Camera</button>
-                    <button class="btn" data-action="stabilize">Stabilize Motion</button>
-                    <button class="btn" data-action="ccRepetile">CC RepeTile</button>
-                    <button class="btn" data-action="keyStroke">Key + Stroke</button>
-                    <button class="btn" data-action="directionShake">Direction Shake</button>
-                </div>
-            </section>
-
-            <!-- Speed Ramp Section (AE) -->
-            <section class="section" id="speedRampSection">
-                <div class="section-header">
-                    <span class="section-title">Speed Ramp</span>
-                    <div class="section-line"></div>
-                </div>
-
-
-                <div class="btn-grid btn-grid--3">
-                    <button class="btn btn--accent" data-action="introRamp">Intro</button>
-                    <button class="btn btn--accent" data-action="middleRamp">Middle</button>
-                    <button class="btn btn--accent" data-action="outroRamp">Outro</button>
-                </div>
-            </section>
-
-
+<div id="aeSection"><div class="section"><div class="section-header"><span class="section-title">Motion</span></div><div class="btn-grid"><button class="btn tool-btn " data-action="warpComp"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c6-4 12 4 18 0v14c-6 4-12-4-18 0zM9 4v14M15 6v14M3 12c6-4 12 4 18 0"/></svg><span>Warp / Comp</span></button><button class="btn tool-btn " data-action="motionBlur"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5h15M2 12h15M6 19h9"/></svg><span>Motion Blur</span></button><button class="btn tool-btn " data-action="directionShake"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c4-12 6-12 10-3s6 6 10-3"/></svg><span>Direction Shake</span></button><button class="btn tool-btn " data-action="stabilize"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><path d="M12 1v6m0 10v6M1 12h6m10 0h6"/></svg><span>Stabilize Motion</span></button></div></div><div class="section"><div class="section-header"><span class="section-title">Creative</span></div><div class="btn-grid"><button class="btn tool-btn " data-action="dayToNight"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="12" r="6"/><path d="M16 6a6 6 0 0 0 0 12 6 6 0 0 0 0-12M10 1v2M10 21v2M1 12h2M3 4l2 2M3 20l2-2"/></svg><span>Day to Night</span></button><button class="btn tool-btn " data-action="pinDrop"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9c0 5-7 12-7 12S5 14 5 9a7 7 0 1 1 14 0z"/><circle cx="12" cy="9" r="2"/></svg><span>Pin Drop</span></button><button class="btn tool-btn " data-action="keyStroke"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9H3V3h12v6"/><path d="M9 9h12v12H9z"/></svg><span>Key + Stroke</span></button><button class="btn tool-btn " data-action="ccRepetile"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM15 15h6v6h-6z"/></svg><span>CC RepeTile</span></button><button class="btn tool-btn tool-wide" data-action="trackCamera"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h14v14H2zM16 9l6-3v12l-6-3"/></svg><span>3D Track Camera</span><span class="tool-arrow" aria-hidden="true">›</span></button></div></div></div>
+<section class="section" id="speedRampSection"><div class="section-header"><span class="section-title">Speed Ramps</span></div><button class="btn tool-btn auto-ramp" data-action="autoRamp" title="Select 2 or more overlapping video layers"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c7 0 8-2 12-11s6 1 8 9"/></svg><span>Auto Ramp<small>Comp + Warp + Ramps + Blur</small></span><span class="tool-arrow" aria-hidden="true">›</span></button><div class="btn-grid ramp-presets"><button class="btn" data-action="introRamp">Intro</button><button class="btn" data-action="middleRamp">Middle</button><button class="btn" data-action="outroRamp">Outro</button></div></section>
             <!-- AI Video Section (PR only) -->
             <section class="section" id="aiSection" style="display:none">
                 <div class="section-header">
@@ -87,7 +61,7 @@
             <section class="section" id="prSection" style="display:none">
                 <div class="section-header">
                     <span class="section-title">Tools</span>
-                    <div class="section-line"></div>
+                    <div class="framing-shortcuts" role="group" aria-label="Clip framing"><button type="button" class="btn framing-shortcut" data-action="prFill" title="Fill — Fill the sequence frame" aria-label="Fill: Fill the sequence frame"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6M9 9 3 3m12 6 6-6M9 15l-6 6m12-6 6 6"/></svg></button><button type="button" class="btn framing-shortcut" data-action="prAlign" title="Align — Centre in the sequence" aria-label="Align: Centre in the sequence"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/><rect x="6" y="7" width="12" height="10"/><path d="M9 12h6m-3-3v6"/></svg></button></div>
                 </div>
                 <div class="btn-grid btn-grid--3">
                     <button class="btn" data-action="prWarpStabilizer">Warp Stabilizer</button>
@@ -480,21 +454,23 @@
 
 <!-- Collect Files Bar -->
         <div class="collect-bar" id="collectBar" style="display:none">
-            <button class="btn collect-btn" data-action="collectFiles">Collect Files</button>
+            <button class="btn collect-btn" data-action="collectFiles"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h7l3 3h10v13H2z"/></svg><span>Collect Files</span></button>
         </div>
 
 <!-- Status Bar -->
         <div class="status-bar" id="statusBar">
             <span class="status-dot" id="statusDot"></span>
             <span class="status-msg" id="statusMsg">Ready</span>
-            <button id="reportBugBtn" title="Report a bug" style="margin-left:auto;background:none;border:1px solid rgba(255,255,255,0.15);border-radius:5px;color:rgba(255,255,255,0.55);font-size:10px;padding:2px 7px;cursor:pointer;flex-shrink:0">🐞 Report Bug</button>
+            <button id="reportBugBtn" title="Report a bug">Report bug</button>
         </div>
 
     </div>
 
+<div class="pd-overlay settings-overlay" id="settingsOverlay" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><form id="settingsForm"><div class="pd-header"><span class="section-title" id="settingsTitle">Settings</span><button type="button" class="settings-close" id="settingsClose" aria-label="Close settings">×</button></div><div class="pd-body"><p class="settings-note">Defaults for new effects. Existing layers keep their current values.</p><div id="aeSettingsFields"><label class="setting-row" for="setting-intro"><span>Intro intensity (%)</span><input id="setting-intro" name="intro" type="number" min="0" max="100" step="1" required></label><label class="setting-row" for="setting-middle"><span>Middle intensity (%)</span><input id="setting-middle" name="middle" type="number" min="0" max="100" step="1" required></label><label class="setting-row" for="setting-outro"><span>Outro intensity (%)</span><input id="setting-outro" name="outro" type="number" min="0" max="100" step="1" required></label><label class="setting-row" for="setting-shakeIntensity"><span>Shake intensity (%)</span><input id="setting-shakeIntensity" name="shakeIntensity" type="number" min="0" max="500" step="1" required></label><label class="setting-row" for="setting-shakeDuration"><span>Shake duration (s)</span><input id="setting-shakeDuration" name="shakeDuration" type="number" min="0.05" max="5" step="0.01" required></label></div><label class="setting-row"><span>Compact layout</span><input id="setting-compact" name="compact" type="checkbox"></label><p id="settingsError" role="alert"></p><div class="settings-account"><span class="version" id="versionBadge">v1.0</span><button class="auth-logout-btn" id="authLogoutBtn" title="Sign out">Sign out</button></div></div><div class="pd-actions"><button class="btn" type="button" id="settingsReset">Reset defaults</button><button class="btn" type="submit">Save</button></div></form></div>
     <script src="js/CSInterface.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/updater.js"></script>
+    <script src="js/settings.js"></script>
     <script src="js/main.js"></script>
     <script src="js/stagingSequence.js"></script>
     <script src="js/enhanceSpeech.js"></script>
