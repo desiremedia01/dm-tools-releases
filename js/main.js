@@ -722,7 +722,7 @@ function authShowApp(email) {
 authLoginBtn.addEventListener('click', function() {
     authLoginBtn.disabled = true;
     authStatus.style.color = 'var(--text-2)';
-    authStatus.textContent = 'Preparing sign-in... Select your login setup file if requested.';
+    authStatus.textContent = 'Opening Google sign-in...';
 
     DmAuth.login(function(email) {
         authShowApp(email);

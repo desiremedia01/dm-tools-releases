@@ -11,10 +11,8 @@
         try { c=JSON.parse(fs.readFileSync(path.join(root,'oauth-client.json'),'utf8')); }
         catch (_) { throw new Error('Secure sign-in needs Google Desktop OAuth setup. Contact your administrator.'); }
         if (c.type!=='desktop' || typeof c.client_id!=='string' || !/^[A-Za-z0-9_-]+\.apps\.googleusercontent\.com$/.test(c.client_id)) throw new Error('Invalid Desktop OAuth configuration.');
-        var credential=DmSecureStore.get('google-client');
-        if(!credential||credential.client_id!==c.client_id||typeof credential.client_secret!=='string'||!credential.client_secret)
-            {var setupError=new Error('Select the DM Tools login setup file supplied by your administrator.');setupError.code='DM_SETUP_REQUIRED';throw setupError;}
-        c.client_secret=credential.client_secret;
+        // Native desktop client configuration ships with the app; user tokens stay in Keychain.
+        if(typeof c.client_secret!=='string'||!c.client_secret||c.client_secret.length>4096) throw new Error('Sign-in configuration is missing. Reinstall DM Tools.');
         return c;
     }
     function request(url, form, token) {
@@ -44,18 +42,6 @@
     function clearLegacy(){['dm_access_token','dm_refresh_token','dm_email','dm_expiry'].forEach(function(k){localStorage.removeItem(k);});}
     window.DmAuth={
         getEmail:function(){return email;},
-        importClientConfig:function(){
-            if(!window.cep||!window.cep.fs)throw new Error('Open DM Tools inside Adobe to import your login setup.');
-            var choice=window.cep.fs.showOpenDialogEx(false,false,'Select DM Tools login setup JSON','',['json'],'','Select');
-            if(!choice||choice.err||!choice.data||choice.data.length!==1)throw new Error('Login setup cancelled. Select the setup file to continue.');
-            var selected=choice.data[0],stat=fs.lstatSync(selected);
-            if(!stat.isFile()||stat.isSymbolicLink()||stat.size>65536)throw new Error('Invalid login setup file.');
-            var parsed;try{parsed=JSON.parse(fs.readFileSync(selected,'utf8'));}catch(_){throw new Error('The selected file is not valid login setup JSON.');}
-            var expected=JSON.parse(fs.readFileSync(path.join(root,'oauth-client.json'),'utf8'));
-            var client=parsed.installed;
-            if(!client||client.client_id!==expected.client_id||typeof client.client_secret!=='string'||!client.client_secret||client.client_secret.length>4096)throw new Error('This setup file belongs to a different Google client. Ask your administrator for the current DM Tools setup file.');
-            DmSecureStore.set('google-client',{client_id:client.client_id,client_secret:client.client_secret});
-        },
         logout:function(){if(activeCancel)activeCancel();email='';clearLegacy();DmSecureStore.remove('google');},
         checkAuth:function(valid,invalid){
             email='';clearLegacy();
@@ -67,7 +53,7 @@
         },
         login:function(success,error){
             if(activeCancel)activeCancel();
-            var c;try{c=config();}catch(e){if(e.code!=='DM_SETUP_REQUIRED'){error(e.message);return;}try{window.DmAuth.importClientConfig();c=config();}catch(setup){error(setup.message);return;}}
+            var c;try{c=config();}catch(e){error(e.message);return;}
             var verifier=crypto.randomBytes(48).toString('base64').replace(/\+/g,'-').replace(/\//g,'_').replace(/=/g,''),state=crypto.randomBytes(32).toString('hex');
             var challenge=crypto.createHash('sha256').update(verifier).digest('base64').replace(/\+/g,'-').replace(/\//g,'_').replace(/=/g,'');
             var done=false, processing=false,redirect,timer;
