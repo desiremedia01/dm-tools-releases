@@ -9,6 +9,13 @@ function validate(payload,current){
     if(!payload||!/^\d+\.\d+\.\d+$/.test(payload.version))fail('Invalid update version.');
     if(!Array.isArray(payload.files)||!payload.files.length||payload.files.length>400)fail('Invalid update file list.');
     if(!Array.isArray(payload.notes)||payload.notes.length>30||payload.notes.some(function(n){return typeof n!=='string'||n.length>2000;}))fail('Invalid update notes.');
+    if(payload.releases!==undefined){
+        if(!Array.isArray(payload.releases)||payload.releases.length>100)fail('Invalid release history.');
+        var versions={};payload.releases.forEach(function(r){
+            if(!r||!/^\d+\.\d+\.\d+$/.test(r.version)||versions[r.version]||!Array.isArray(r.notes)||r.notes.length>30||r.notes.some(function(n){return typeof n!=='string'||n.length>2000;}))fail('Invalid release history.');
+            versions[r.version]=true;
+        });
+    }
     var seen={},total=0;
     payload.files.forEach(function(f){
         if(!f||typeof f.path!=='string'||f.path.length>240||!/^(?:index\.html|version\.json|oauth-client\.json|update-public\.pem|(?:js|jsx|css|assets|bin|brand|calibration|CSXS)\/[A-Za-z0-9 _./-]+)$/.test(f.path))fail('Invalid update path.');
