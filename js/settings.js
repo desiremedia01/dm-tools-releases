@@ -1,1 +1,65 @@
-eval(decodeURIComponent(escape(atob('LyogTG9jYWwgZGVmYXVsdHM7IGhvc3Qgc2NyaXB0cyByZWNlaXZlIG9ubHkgdmFsaWRhdGVkIG51bWVyaWMgdmFsdWVzLiAqLwp2YXIgRG1TZXR0aW5ncyA9IChmdW5jdGlvbiAoKSB7CiAgICB2YXIga2V5ID0gJ2RtLXRvb2xzLnNldHRpbmdzLnYxJzsKICAgIHZhciBkZWZhdWx0cyA9IHtpbnRybzoxMDAsIG1pZGRsZToxMDAsIG91dHJvOjc1LCBzaGFrZUludGVuc2l0eToxMDAsIHNoYWtlRHVyYXRpb246MC4yOCwgY29tcGFjdDp0cnVlfTsKICAgIHZhciBsaW1pdHMgPSB7aW50cm86WzAsMTAwXSwgbWlkZGxlOlswLDEwMF0sIG91dHJvOlswLDEwMF0sIHNoYWtlSW50ZW5zaXR5OlswLDUwMF0sIHNoYWtlRHVyYXRpb246WzAuMDUsNV19OwogICAgZnVuY3Rpb24gbm9ybWFsaXNlKHJhdykgewogICAgICAgIHZhciByZXN1bHQgPSB7fTsKICAgICAgICBPYmplY3Qua2V5cyhsaW1pdHMpLmZvckVhY2goZnVuY3Rpb24gKGspIHsKICAgICAgICAgICAgdmFyIG4gPSByYXcgJiYgcmF3W2tdOwogICAgICAgICAgICByZXN1bHRba10gPSB0eXBlb2YgbiA9PT0gJ251bWJlcicgJiYgaXNGaW5pdGUobikgJiYgbiA+PSBsaW1pdHNba11bMF0gJiYgbiA8PSBsaW1pdHNba11bMV0gPyBuIDogZGVmYXVsdHNba107CiAgICAgICAgfSk7CiAgICAgICAgcmVzdWx0LmNvbXBhY3QgPSByYXcgJiYgdHlwZW9mIHJhdy5jb21wYWN0ID09PSAnYm9vbGVhbicgPyByYXcuY29tcGFjdCA6IGRlZmF1bHRzLmNvbXBhY3Q7CiAgICAgICAgcmV0dXJuIHJlc3VsdDsKICAgIH0KICAgIHZhciBjdXJyZW50ID0gbm9ybWFsaXNlKG51bGwpOwogICAgdHJ5IHsgY3VycmVudCA9IG5vcm1hbGlzZShKU09OLnBhcnNlKGxvY2FsU3RvcmFnZS5nZXRJdGVtKGtleSkpKTsgfSBjYXRjaCAoZSkge30KICAgIC8vIEFkb3B0IHRoZSBuZXcgY29tcGFjdCBkZWZhdWx0IG9uY2UsIHByZXNlcnZpbmcgYWxsIGVmZmVjdCBkZWZhdWx0cy4KICAgIC8vIExhdGVyIGV4cGxpY2l0IGxheW91dCBjaG9pY2VzIHJlbWFpbiBzYXZlZCBub3JtYWxseS4KICAgIHRyeSB7CiAgICAgICAgaWYgKGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdkbS10b29scy5jb21wYWN0LWRlZmF1bHQudjInKSAhPT0gJ2FwcGxpZWQnKSB7CiAgICAgICAgICAgIGN1cnJlbnQuY29tcGFjdCA9IHRydWU7CiAgICAgICAgICAgIGxvY2FsU3RvcmFnZS5zZXRJdGVtKGtleSwgSlNPTi5zdHJpbmdpZnkoY3VycmVudCkpOwogICAgICAgICAgICBsb2NhbFN0b3JhZ2Uuc2V0SXRlbSgnZG0tdG9vbHMuY29tcGFjdC1kZWZhdWx0LnYyJywgJ2FwcGxpZWQnKTsKICAgICAgICB9CiAgICB9IGNhdGNoIChlKSB7fQogICAgZnVuY3Rpb24gYXBwbHkoKSB7IGRvY3VtZW50LmJvZHkuY2xhc3NMaXN0LnRvZ2dsZSgnY29tcGFjdC1sYXlvdXQnLCBjdXJyZW50LmNvbXBhY3QpOyB9CiAgICBmdW5jdGlvbiBmaWxsKHZhbHVlcykgewogICAgICAgIE9iamVjdC5rZXlzKGRlZmF1bHRzKS5mb3JFYWNoKGZ1bmN0aW9uIChrKSB7CiAgICAgICAgICAgIHZhciBlbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzZXR0aW5nLScgKyBrKTsKICAgICAgICAgICAgaWYgKGsgPT09ICdjb21wYWN0JykgZWwuY2hlY2tlZCA9IHZhbHVlc1trXTsgZWxzZSBlbC52YWx1ZSA9IHZhbHVlc1trXTsKICAgICAgICB9KTsKICAgIH0KICAgIHZhciBvdmVybGF5ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3NldHRpbmdzT3ZlcmxheScpOwogICAgZnVuY3Rpb24gY2xvc2UoKSB7IG92ZXJsYXkuY2xhc3NMaXN0LnJlbW92ZSgndmlzaWJsZScpOyBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc2V0dGluZ3NCdG4nKS5mb2N1cygpOyB9CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc2V0dGluZ3NCdG4nKS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uICgpIHsKICAgICAgICBmaWxsKGN1cnJlbnQpOwogICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzZXR0aW5nc0Vycm9yJykudGV4dENvbnRlbnQgPSAnJzsKICAgICAgICBvdmVybGF5LmNsYXNzTGlzdC5hZGQoJ3Zpc2libGUnKTsKICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc2V0dGluZ3NDbG9zZScpLmZvY3VzKCk7CiAgICB9KTsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzZXR0aW5nc0Nsb3NlJykuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBjbG9zZSk7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc2V0dGluZ3NSZXNldCcpLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24gKCkgeyBmaWxsKGRlZmF1bHRzKTsgfSk7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc2V0dGluZ3NGb3JtJykuYWRkRXZlbnRMaXN0ZW5lcignc3VibWl0JywgZnVuY3Rpb24gKGUpIHsKICAgICAgICBlLnByZXZlbnREZWZhdWx0KCk7CiAgICAgICAgaWYgKCF0aGlzLmNoZWNrVmFsaWRpdHkoKSkgeyB0aGlzLnJlcG9ydFZhbGlkaXR5KCk7IHJldHVybjsgfQogICAgICAgIHZhciBuZXh0ID0ge307CiAgICAgICAgT2JqZWN0LmtleXMobGltaXRzKS5mb3JFYWNoKGZ1bmN0aW9uIChrKSB7IG5leHRba10gPSBOdW1iZXIoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3NldHRpbmctJyArIGspLnZhbHVlKTsgfSk7CiAgICAgICAgbmV4dC5jb21wYWN0ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3NldHRpbmctY29tcGFjdCcpLmNoZWNrZWQ7CiAgICAgICAgdHJ5IHsgbG9jYWxTdG9yYWdlLnNldEl0ZW0oa2V5LCBKU09OLnN0cmluZ2lmeShub3JtYWxpc2UobmV4dCkpKTsgfQogICAgICAgIGNhdGNoIChlcnIpIHsgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3NldHRpbmdzRXJyb3InKS50ZXh0Q29udGVudCA9ICdDb3VsZCBub3Qgc2F2ZSBzZXR0aW5ncy4gUGxlYXNlIHRyeSBhZ2Fpbi4nOyByZXR1cm47IH0KICAgICAgICBjdXJyZW50ID0gbm9ybWFsaXNlKG5leHQpOyBhcHBseSgpOyBjbG9zZSgpOwogICAgICAgIGlmICh0eXBlb2Ygc2V0U3RhdHVzID09PSAnZnVuY3Rpb24nKSBzZXRTdGF0dXMoJ1NldHRpbmdzIHNhdmVkJywgJ3N1Y2Nlc3MnKTsKICAgIH0pOwogICAgb3ZlcmxheS5hZGRFdmVudExpc3RlbmVyKCdrZXlkb3duJywgZnVuY3Rpb24gKGUpIHsKICAgICAgICBpZiAoZS5rZXkgPT09ICdFc2NhcGUnKSB7IGUucHJldmVudERlZmF1bHQoKTsgY2xvc2UoKTsgfQogICAgICAgIGlmIChlLmtleSA9PT0gJ1RhYicpIHsKICAgICAgICAgICAgdmFyIGl0ZW1zID0gQXJyYXkucHJvdG90eXBlLmZpbHRlci5jYWxsKG92ZXJsYXkucXVlcnlTZWxlY3RvckFsbCgnYnV0dG9uLGlucHV0JyksIGZ1bmN0aW9uKGVsKSB7IHJldHVybiBlbC5vZmZzZXRQYXJlbnQgIT09IG51bGwgJiYgIWVsLmRpc2FibGVkOyB9KTsKICAgICAgICAgICAgdmFyIGZpcnN0ID0gaXRlbXNbMF0sIGxhc3QgPSBpdGVtc1tpdGVtcy5sZW5ndGgtMV07CiAgICAgICAgICAgIGlmIChlLnNoaWZ0S2V5ICYmIGRvY3VtZW50LmFjdGl2ZUVsZW1lbnQgPT09IGZpcnN0KSB7IGUucHJldmVudERlZmF1bHQoKTsgbGFzdC5mb2N1cygpOyB9CiAgICAgICAgICAgIGVsc2UgaWYgKCFlLnNoaWZ0S2V5ICYmIGRvY3VtZW50LmFjdGl2ZUVsZW1lbnQgPT09IGxhc3QpIHsgZS5wcmV2ZW50RGVmYXVsdCgpOyBmaXJzdC5mb2N1cygpOyB9CiAgICAgICAgfQogICAgfSk7CiAgICBhcHBseSgpOwogICAgcmV0dXJuIHtnZXQ6ZnVuY3Rpb24gKCkgeyByZXR1cm4gbm9ybWFsaXNlKGN1cnJlbnQpOyB9fTsKfSkoKTsK'))));
+/* Local defaults; host scripts receive only validated numeric values. */
+var DmSettings = (function () {
+    var key = 'dm-tools.settings.v1';
+    var defaults = {intro:100, middle:100, outro:75, shakeIntensity:100, shakeDuration:0.28, compact:true};
+    var limits = {intro:[0,100], middle:[0,100], outro:[0,100], shakeIntensity:[0,500], shakeDuration:[0.05,5]};
+    function normalise(raw) {
+        var result = {};
+        Object.keys(limits).forEach(function (k) {
+            var n = raw && raw[k];
+            result[k] = typeof n === 'number' && isFinite(n) && n >= limits[k][0] && n <= limits[k][1] ? n : defaults[k];
+        });
+        result.compact = raw && typeof raw.compact === 'boolean' ? raw.compact : defaults.compact;
+        return result;
+    }
+    var current = normalise(null);
+    try { current = normalise(JSON.parse(localStorage.getItem(key))); } catch (e) {}
+    // Adopt the new compact default once, preserving all effect defaults.
+    // Later explicit layout choices remain saved normally.
+    try {
+        if (localStorage.getItem('dm-tools.compact-default.v2') !== 'applied') {
+            current.compact = true;
+            localStorage.setItem(key, JSON.stringify(current));
+            localStorage.setItem('dm-tools.compact-default.v2', 'applied');
+        }
+    } catch (e) {}
+    function apply() { document.body.classList.toggle('compact-layout', current.compact); }
+    function fill(values) {
+        Object.keys(defaults).forEach(function (k) {
+            var el = document.getElementById('setting-' + k);
+            if (k === 'compact') el.checked = values[k]; else el.value = values[k];
+        });
+    }
+    var overlay = document.getElementById('settingsOverlay');
+    function close() { overlay.classList.remove('visible'); document.getElementById('settingsBtn').focus(); }
+    document.getElementById('settingsBtn').addEventListener('click', function () {
+        fill(current);
+        document.getElementById('settingsError').textContent = '';
+        overlay.classList.add('visible');
+        document.getElementById('settingsClose').focus();
+    });
+    document.getElementById('settingsClose').addEventListener('click', close);
+    document.getElementById('settingsReset').addEventListener('click', function () { fill(defaults); });
+    document.getElementById('settingsForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!this.checkValidity()) { this.reportValidity(); return; }
+        var next = {};
+        Object.keys(limits).forEach(function (k) { next[k] = Number(document.getElementById('setting-' + k).value); });
+        next.compact = document.getElementById('setting-compact').checked;
+        try { localStorage.setItem(key, JSON.stringify(normalise(next))); }
+        catch (err) { document.getElementById('settingsError').textContent = 'Could not save settings. Please try again.'; return; }
+        current = normalise(next); apply(); close();
+        if (typeof setStatus === 'function') setStatus('Settings saved', 'success');
+    });
+    overlay.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { e.preventDefault(); close(); }
+        if (e.key === 'Tab') {
+            var items = Array.prototype.filter.call(overlay.querySelectorAll('button,input'), function(el) { return el.offsetParent !== null && !el.disabled; });
+            var first = items[0], last = items[items.length-1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    });
+    apply();
+    return {get:function () { return normalise(current); }};
+})();

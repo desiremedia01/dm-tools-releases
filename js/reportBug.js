@@ -1,1 +1,118 @@
-eval(decodeURIComponent(escape(atob('Lyog4pSA4pSAIFJlcG9ydCBCdWcg4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSACiAgIFNtYWxsIGJ1dHRvbiBpbiB0aGUgc3RhdHVzIGJhciDihpIgb3ZlcmxheSB3aXRoIGEgdGV4dGFyZWEg4oaSIFBPU1QgdG8gYQogICBHb29nbGUgQXBwcyBTY3JpcHQgV2ViIEFwcCB0aGF0IGVtYWlscyB0aGUgcmVwb3J0IChNYWlsQXBwKSB0byBNYXRoZXVzLgogICBBdXRvbWF0aWMgcGF5bG9hZDogcGx1Z2luIHZlcnNpb24sIE1hYyB1c2VybmFtZSwgaG9zdCAoUFBSTy9BRUZUKSwgb3BlbgogICBwcm9qZWN0IG5hbWUsIGxhc3Qgc3RhdHVzIGxpbmUuIE5ldHdvcmsgZmFpbHVyZSA9IGVycm9yIGluIHRoZSBzdGF0dXMKICAgYmFyLCBuZXZlciBibG9ja3MgdGhlIHBhbmVsLiAqLwooZnVuY3Rpb24gKCkgewogICAgaWYgKHR5cGVvZiBkb2N1bWVudCA9PT0gJ3VuZGVmaW5lZCcpIHJldHVybjsgLyogcGFuZWwgb25seSAqLwoKICAgIC8qIFdlYiBBcHAgVVJMIChzY3JpcHQuZ29vZ2xlLmNvbSDihpIgRGVwbG95IOKGkiBXZWIgQXBwIOKGkiBBbnlvbmUpLgogICAgICAgRW1wdHkgPSBmZWF0dXJlIG5vdCBjb25maWd1cmVkIHlldC4gKi8KICAgIHZhciBSRVBPUlRfVVJMID0gJ2h0dHBzOi8vc2NyaXB0Lmdvb2dsZS5jb20vbWFjcm9zL3MvQUtmeWNieGhDamlmdlJVZ3dDRHA4OEt1ZWZSVUppMjBJaUFna0lhSE5ncHR3UUNVXzgtaDdmbVRfLTRZRmwyZEZfTUxzMWRyb3cvZXhlYyc7CgogICAgZnVuY3Rpb24gbm9kZVJlcShtKSB7CiAgICAgICAgcmV0dXJuICh0eXBlb2Ygd2luZG93ICE9PSAndW5kZWZpbmVkJyAmJiB3aW5kb3cuY2VwX25vZGUpID8gd2luZG93LmNlcF9ub2RlLnJlcXVpcmUobSkgOiByZXF1aXJlKG0pOwogICAgfQoKICAgIGZ1bmN0aW9uIGdhdGhlckNvbnRleHQoY2IpIHsKICAgICAgICB2YXIgY3R4ID0geyB2ZXJzaW9uOiAnJywgdXNlcjogJycsIGhvc3Q6ICcnLCBwcm9qZWN0OiAnJywgbGFzdFN0YXR1czogJycgfTsKICAgICAgICB0cnkgeyBjdHgudmVyc2lvbiA9ICh0eXBlb2YgRG1VcGRhdGVyICE9PSAndW5kZWZpbmVkJyAmJiBEbVVwZGF0ZXIudmVyc2lvbikgPyBEbVVwZGF0ZXIudmVyc2lvbiA6ICcnOyB9IGNhdGNoIChlKSB7fQogICAgICAgIHRyeSB7IGN0eC51c2VyID0gbm9kZVJlcSgnb3MnKS51c2VySW5mbygpLnVzZXJuYW1lOyB9IGNhdGNoIChlKSB7fQogICAgICAgIHRyeSB7IGN0eC5ob3N0ID0gKHR5cGVvZiBIT1NUICE9PSAndW5kZWZpbmVkJyAmJiBIT1NUKSA/IEhPU1QgOiAnJzsgfSBjYXRjaCAoZSkge30KICAgICAgICB0cnkgeyB2YXIgZWwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3RhdHVzTXNnJyk7IGN0eC5sYXN0U3RhdHVzID0gZWwgPyBlbC50ZXh0Q29udGVudCA6ICcnOyB9IGNhdGNoIChlKSB7fQogICAgICAgIHRyeSB7CiAgICAgICAgICAgIHZhciBjcyA9IG5ldyBDU0ludGVyZmFjZSgpOwogICAgICAgICAgICBjcy5ldmFsU2NyaXB0KCcoZnVuY3Rpb24oKXt0cnl7cmV0dXJuIGFwcC5wcm9qZWN0Lm5hbWV8fCIiO31jYXRjaChlKXtyZXR1cm4gIiI7fX0oKSknLCBmdW5jdGlvbiAocikgewogICAgICAgICAgICAgICAgY3R4LnByb2plY3QgPSAociAmJiByICE9PSAnRXZhbFNjcmlwdCBlcnJvci4nKSA/IHIgOiAnJzsKICAgICAgICAgICAgICAgIGNiKGN0eCk7CiAgICAgICAgICAgIH0pOwogICAgICAgICAgICAvKiBuZXZlciBoYW5nIGlmIGV2YWxTY3JpcHQgZG9lc24ndCBhbnN3ZXIgKi8KICAgICAgICAgICAgc2V0VGltZW91dChmdW5jdGlvbiAoKSB7IGlmICghY3R4Ll9kb25lKSB7IGN0eC5fZG9uZSA9IHRydWU7IH0gfSwgMzAwMCk7CiAgICAgICAgfSBjYXRjaCAoZSkgeyBjYihjdHgpOyB9CiAgICB9CgogICAgLyogUE9TVCBKU09OIHZpYSBOb2RlIGh0dHBzIOKAlCBubyBDT1JTOyBBcHBzIFNjcmlwdCByZXBsaWVzIDMwMiBhZnRlciB0aGUKICAgICAgIG1haWwgaXMgc2VudCwgc28gMnh4LzN4eCBib3RoIGNvdW50IGFzIHN1Y2Nlc3MuICovCiAgICBmdW5jdGlvbiBwb3N0UmVwb3J0KHVybCwgcGF5bG9hZCwgY2IpIHsKICAgICAgICB2YXIgZG9uZSA9IGZhbHNlOwogICAgICAgIGZ1bmN0aW9uIGZpbmlzaChlcnIpIHsgaWYgKCFkb25lKSB7IGRvbmUgPSB0cnVlOyBjYihlcnIpOyB9IH0KICAgICAgICB0cnkgewogICAgICAgICAgICB2YXIgdSA9IG5ldyBVUkwodXJsKTsKICAgICAgICAgICAgdmFyIGh0dHBzID0gbm9kZVJlcSgnaHR0cHMnKTsKICAgICAgICAgICAgdmFyIGJvZHkgPSBKU09OLnN0cmluZ2lmeShwYXlsb2FkKTsKICAgICAgICAgICAgdmFyIHJlcSA9IGh0dHBzLnJlcXVlc3QoewogICAgICAgICAgICAgICAgaG9zdG5hbWU6IHUuaG9zdG5hbWUsCiAgICAgICAgICAgICAgICBwYXRoOiB1LnBhdGhuYW1lICsgdS5zZWFyY2gsCiAgICAgICAgICAgICAgICBtZXRob2Q6ICdQT1NUJywKICAgICAgICAgICAgICAgIGhlYWRlcnM6IHsgJ0NvbnRlbnQtVHlwZSc6ICd0ZXh0L3BsYWluO2NoYXJzZXQ9dXRmLTgnLCAnQ29udGVudC1MZW5ndGgnOiBCdWZmZXIuYnl0ZUxlbmd0aChib2R5KSB9LAogICAgICAgICAgICAgICAgdGltZW91dDogMTUwMDAKICAgICAgICAgICAgfSwgZnVuY3Rpb24gKHJlcykgewogICAgICAgICAgICAgICAgcmVzLnJlc3VtZSgpOwogICAgICAgICAgICAgICAgaWYgKHJlcy5zdGF0dXNDb2RlID49IDIwMCAmJiByZXMuc3RhdHVzQ29kZSA8IDQwMCkgZmluaXNoKG51bGwpOwogICAgICAgICAgICAgICAgZWxzZSBmaW5pc2goJ0hUVFAgJyArIHJlcy5zdGF0dXNDb2RlKTsKICAgICAgICAgICAgfSk7CiAgICAgICAgICAgIHJlcS5vbigndGltZW91dCcsIGZ1bmN0aW9uICgpIHsgdHJ5IHsgcmVxLmRlc3Ryb3koKTsgfSBjYXRjaCAoZSkge30gZmluaXNoKCd0aW1lb3V0Jyk7IH0pOwogICAgICAgICAgICByZXEub24oJ2Vycm9yJywgZnVuY3Rpb24gKGUpIHsgZmluaXNoKGUubWVzc2FnZSB8fCAnbmV0d29yayBlcnJvcicpOyB9KTsKICAgICAgICAgICAgcmVxLndyaXRlKGJvZHkpOwogICAgICAgICAgICByZXEuZW5kKCk7CiAgICAgICAgfSBjYXRjaCAoZSkgeyBmaW5pc2goZS5tZXNzYWdlIHx8ICdyZXF1ZXN0IGZhaWxlZCcpOyB9CiAgICB9CgogICAgZnVuY3Rpb24gY2xvc2VPdmVybGF5KCkgewogICAgICAgIHZhciBvdiA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkbUJ1Z092ZXJsYXknKTsKICAgICAgICBpZiAob3YpIG92LnJlbW92ZSgpOwogICAgfQoKICAgIGZ1bmN0aW9uIG9wZW5PdmVybGF5KCkgewogICAgICAgIGlmIChkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZG1CdWdPdmVybGF5JykpIHJldHVybjsKICAgICAgICB2YXIgb3YgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgICAgICBvdi5pZCA9ICdkbUJ1Z092ZXJsYXknOwogICAgICAgIG92LnN0eWxlLmNzc1RleHQgPSAncG9zaXRpb246Zml4ZWQ7dG9wOjA7bGVmdDowO3JpZ2h0OjA7Ym90dG9tOjA7YmFja2dyb3VuZDpyZ2JhKDAsMCwwLDAuNzUpO3otaW5kZXg6OTk5OTtkaXNwbGF5OmZsZXg7YWxpZ24taXRlbXM6Y2VudGVyO2p1c3RpZnktY29udGVudDpjZW50ZXI7cGFkZGluZzoxNnB4JzsKICAgICAgICBvdi5pbm5lckhUTUwgPQogICAgICAgICAgICAnPGRpdiBzdHlsZT0iYmFja2dyb3VuZDojMWUxZTFlO2JvcmRlcjoxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwwLjEyKTtib3JkZXItcmFkaXVzOjEwcHg7cGFkZGluZzoxOHB4IDIwcHg7d2lkdGg6MTAwJTttYXgtd2lkdGg6MzQwcHgiPicgKwogICAgICAgICAgICAnPGRpdiBzdHlsZT0iZm9udC1zaXplOjE0cHg7Zm9udC13ZWlnaHQ6NzAwO2NvbG9yOiNmZmY7bWFyZ2luLWJvdHRvbTo0cHgiPvCfkJ4gUmVwb3J0IGEgYnVnPC9kaXY+JyArCiAgICAgICAgICAgICc8ZGl2IHN0eWxlPSJmb250LXNpemU6MTFweDtjb2xvcjpyZ2JhKDI1NSwyNTUsMjU1LDAuNDUpO21hcmdpbi1ib3R0b206MTBweCI+V2hhdCBoYXBwZW5lZD8gV2hhdCBkaWQgeW91IGV4cGVjdD8gUGx1Z2luIHZlcnNpb24sIHVzZXIsIGhvc3QgYW5kIHByb2plY3QgYXJlIGF0dGFjaGVkIGF1dG9tYXRpY2FsbHkuPC9kaXY+JyArCiAgICAgICAgICAgICc8dGV4dGFyZWEgaWQ9ImRtQnVnVGV4dCIgcm93cz0iNSIgcGxhY2Vob2xkZXI9ImUuZy4gQXV0byBTRlggcHV0IGEgd2hvb3NoIGluIHRoZSB3cm9uZyBzcG90IGF0IDA6MjggaW4gdGhlIENpbnRyYSBwcm9qZWN0Li4uIiBzdHlsZT0id2lkdGg6MTAwJTtib3gtc2l6aW5nOmJvcmRlci1ib3g7YmFja2dyb3VuZDojMTQxNDE0O2NvbG9yOiNlZWU7Ym9yZGVyOjFweCBzb2xpZCByZ2JhKDI1NSwyNTUsMjU1LDAuMTUpO2JvcmRlci1yYWRpdXM6NnB4O3BhZGRpbmc6OHB4O2ZvbnQtc2l6ZToxMnB4O2ZvbnQtZmFtaWx5OmluaGVyaXQ7cmVzaXplOnZlcnRpY2FsIj48L3RleHRhcmVhPicgKwogICAgICAgICAgICAnPGRpdiBzdHlsZT0iZGlzcGxheTpmbGV4O2dhcDo4cHg7bWFyZ2luLXRvcDoxMnB4Ij4nICsKICAgICAgICAgICAgJzxidXR0b24gaWQ9ImRtQnVnQ2FuY2VsIiBjbGFzcz0iYnRuIiBzdHlsZT0iZmxleDoxIj5DYW5jZWw8L2J1dHRvbj4nICsKICAgICAgICAgICAgJzxidXR0b24gaWQ9ImRtQnVnU2VuZCIgY2xhc3M9ImJ0biBidG4tLWFjY2VudCIgc3R5bGU9ImZsZXg6MSI+U2VuZDwvYnV0dG9uPicgKwogICAgICAgICAgICAnPC9kaXY+PC9kaXY+JzsKICAgICAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKG92KTsKICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZG1CdWdDYW5jZWwnKS5vbmNsaWNrID0gY2xvc2VPdmVybGF5OwogICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkbUJ1Z1RleHQnKS5mb2N1cygpOwoKICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZG1CdWdTZW5kJykub25jbGljayA9IGZ1bmN0aW9uICgpIHsKICAgICAgICAgICAgdmFyIHR4dCA9IChkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZG1CdWdUZXh0JykudmFsdWUgfHwgJycpLnRyaW0oKTsKICAgICAgICAgICAgaWYgKCF0eHQpIHsgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2RtQnVnVGV4dCcpLmZvY3VzKCk7IHJldHVybjsgfQogICAgICAgICAgICBpZiAoIVJFUE9SVF9VUkwpIHsKICAgICAgICAgICAgICAgIGNsb3NlT3ZlcmxheSgpOwogICAgICAgICAgICAgICAgaWYgKHR5cGVvZiBzZXRTdGF0dXMgPT09ICdmdW5jdGlvbicpIHNldFN0YXR1cygnUmVwb3J0IEJ1Zzogbm90IGNvbmZpZ3VyZWQgeWV0IChtaXNzaW5nIGVuZHBvaW50IFVSTCknLCAnZXJyb3InKTsKICAgICAgICAgICAgICAgIHJldHVybjsKICAgICAgICAgICAgfQogICAgICAgICAgICB2YXIgc2VuZEJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkbUJ1Z1NlbmQnKTsKICAgICAgICAgICAgc2VuZEJ0bi5kaXNhYmxlZCA9IHRydWU7IHNlbmRCdG4udGV4dENvbnRlbnQgPSAnU2VuZGluZy4uLic7CiAgICAgICAgICAgIGdhdGhlckNvbnRleHQoZnVuY3Rpb24gKGN0eCkgewogICAgICAgICAgICAgICAgdmFyIHBheWxvYWQgPSB7CiAgICAgICAgICAgICAgICAgICAgdGV4dDogdHh0LAogICAgICAgICAgICAgICAgICAgIHZlcnNpb246IGN0eC52ZXJzaW9uLAogICAgICAgICAgICAgICAgICAgIHVzZXI6IGN0eC51c2VyLAogICAgICAgICAgICAgICAgICAgIGhvc3Q6IGN0eC5ob3N0LAogICAgICAgICAgICAgICAgICAgIHByb2plY3Q6IGN0eC5wcm9qZWN0LAogICAgICAgICAgICAgICAgICAgIGxhc3RTdGF0dXM6IGN0eC5sYXN0U3RhdHVzLAogICAgICAgICAgICAgICAgICAgIGF0OiBuZXcgRGF0ZSgpLnRvSVNPU3RyaW5nKCkKICAgICAgICAgICAgICAgIH07CiAgICAgICAgICAgICAgICBwb3N0UmVwb3J0KFJFUE9SVF9VUkwsIHBheWxvYWQsIGZ1bmN0aW9uIChlcnIpIHsKICAgICAgICAgICAgICAgICAgICBjbG9zZU92ZXJsYXkoKTsKICAgICAgICAgICAgICAgICAgICBpZiAodHlwZW9mIHNldFN0YXR1cyA9PT0gJ2Z1bmN0aW9uJykgewogICAgICAgICAgICAgICAgICAgICAgICBpZiAoZXJyKSBzZXRTdGF0dXMoJ1JlcG9ydCBCdWc6IHNlbmQgZmFpbGVkICgnICsgZXJyICsgJykg4oCUIHRyeSBhZ2FpbiBsYXRlcicsICdlcnJvcicpOwogICAgICAgICAgICAgICAgICAgICAgICBlbHNlIHNldFN0YXR1cygnQnVnIHJlcG9ydCBzZW50IOKAlCB0aGFuayB5b3UhIPCfkJ4nLCAnc3VjY2VzcycpOwogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0pOwogICAgICAgICAgICB9KTsKICAgICAgICB9OwogICAgfQoKICAgIHZhciBidG4gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncmVwb3J0QnVnQnRuJyk7CiAgICBpZiAoYnRuKSBidG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBvcGVuT3ZlcmxheSk7Cn0pKCk7Cg=='))));
+/* ── Report Bug ─────────────────────────────────────────────────────────
+   Small button in the status bar → overlay with a textarea → POST to a
+   Google Apps Script Web App that emails the report (MailApp) to Matheus.
+   Automatic payload: plugin version, Mac username, host (PPRO/AEFT), open
+   project name, last status line. Network failure = error in the status
+   bar, never blocks the panel. */
+(function () {
+    if (typeof document === 'undefined') return; /* panel only */
+
+    /* Web App URL (script.google.com → Deploy → Web App → Anyone).
+       Empty = feature not configured yet. */
+    var REPORT_URL = 'https://script.google.com/macros/s/AKfycbxhCjifvRUgwCDp88KuefRUJi20IiAgkIaHNgptwQCU_8-h7fmT_-4YFl2dF_MLs1drow/exec';
+
+    function nodeReq(m) {
+        return (typeof window !== 'undefined' && window.cep_node) ? window.cep_node.require(m) : require(m);
+    }
+
+    function gatherContext(cb) {
+        var ctx = { version: '', user: '', host: '', project: '', lastStatus: '' };
+        try { ctx.version = (typeof DmUpdater !== 'undefined' && DmUpdater.version) ? DmUpdater.version : ''; } catch (e) {}
+        try { ctx.user = nodeReq('os').userInfo().username; } catch (e) {}
+        try { ctx.host = (typeof HOST !== 'undefined' && HOST) ? HOST : ''; } catch (e) {}
+        try { var el = document.getElementById('statusMsg'); ctx.lastStatus = el ? el.textContent : ''; } catch (e) {}
+        try {
+            var cs = new CSInterface();
+            cs.evalScript('(function(){try{return app.project.name||"";}catch(e){return "";}}())', function (r) {
+                ctx.project = (r && r !== 'EvalScript error.') ? r : '';
+                cb(ctx);
+            });
+            /* never hang if evalScript doesn't answer */
+            setTimeout(function () { if (!ctx._done) { ctx._done = true; } }, 3000);
+        } catch (e) { cb(ctx); }
+    }
+
+    /* POST JSON via Node https — no CORS; Apps Script replies 302 after the
+       mail is sent, so 2xx/3xx both count as success. */
+    function postReport(url, payload, cb) {
+        var done = false;
+        function finish(err) { if (!done) { done = true; cb(err); } }
+        try {
+            var u = new URL(url);
+            var https = nodeReq('https');
+            var body = JSON.stringify(payload);
+            var req = https.request({
+                hostname: u.hostname,
+                path: u.pathname + u.search,
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8', 'Content-Length': Buffer.byteLength(body) },
+                timeout: 15000
+            }, function (res) {
+                res.resume();
+                if (res.statusCode >= 200 && res.statusCode < 400) finish(null);
+                else finish('HTTP ' + res.statusCode);
+            });
+            req.on('timeout', function () { try { req.destroy(); } catch (e) {} finish('timeout'); });
+            req.on('error', function (e) { finish(e.message || 'network error'); });
+            req.write(body);
+            req.end();
+        } catch (e) { finish(e.message || 'request failed'); }
+    }
+
+    function closeOverlay() {
+        var ov = document.getElementById('dmBugOverlay');
+        if (ov) ov.remove();
+    }
+
+    function openOverlay() {
+        if (document.getElementById('dmBugOverlay')) return;
+        var ov = document.createElement('div');
+        ov.id = 'dmBugOverlay';
+        ov.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.75);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px';
+        ov.innerHTML =
+            '<div style="background:#1e1e1e;border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:18px 20px;width:100%;max-width:340px">' +
+            '<div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">🐞 Report a bug</div>' +
+            '<div style="font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:10px">What happened? What did you expect? Plugin version, user, host and project are attached automatically.</div>' +
+            '<textarea id="dmBugText" rows="5" placeholder="e.g. Auto SFX put a whoosh in the wrong spot at 0:28 in the Cintra project..." style="width:100%;box-sizing:border-box;background:#141414;color:#eee;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:8px;font-size:12px;font-family:inherit;resize:vertical"></textarea>' +
+            '<div style="display:flex;gap:8px;margin-top:12px">' +
+            '<button id="dmBugCancel" class="btn" style="flex:1">Cancel</button>' +
+            '<button id="dmBugSend" class="btn btn--accent" style="flex:1">Send</button>' +
+            '</div></div>';
+        document.body.appendChild(ov);
+        document.getElementById('dmBugCancel').onclick = closeOverlay;
+        document.getElementById('dmBugText').focus();
+
+        document.getElementById('dmBugSend').onclick = function () {
+            var txt = (document.getElementById('dmBugText').value || '').trim();
+            if (!txt) { document.getElementById('dmBugText').focus(); return; }
+            if (!REPORT_URL) {
+                closeOverlay();
+                if (typeof setStatus === 'function') setStatus('Report Bug: not configured yet (missing endpoint URL)', 'error');
+                return;
+            }
+            var sendBtn = document.getElementById('dmBugSend');
+            sendBtn.disabled = true; sendBtn.textContent = 'Sending...';
+            gatherContext(function (ctx) {
+                var payload = {
+                    text: txt,
+                    version: ctx.version,
+                    user: ctx.user,
+                    host: ctx.host,
+                    project: ctx.project,
+                    lastStatus: ctx.lastStatus,
+                    at: new Date().toISOString()
+                };
+                postReport(REPORT_URL, payload, function (err) {
+                    closeOverlay();
+                    if (typeof setStatus === 'function') {
+                        if (err) setStatus('Report Bug: send failed (' + err + ') — try again later', 'error');
+                        else setStatus('Bug report sent — thank you! 🐞', 'success');
+                    }
+                });
+            });
+        };
+    }
+
+    var btn = document.getElementById('reportBugBtn');
+    if (btn) btn.addEventListener('click', openOverlay);
+})();

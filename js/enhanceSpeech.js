@@ -1,1 +1,136 @@
-eval(decodeURIComponent(escape(atob('Lyog4pSA4pSAIFNlbmQgdG8gQWRvYmUgUG9kY2FzdCAoRW5oYW5jZSBTcGVlY2gpIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgAogICBPMS1FZGl0LXN0eWxlIGZsb3c6IHB1bGwgdGhlIFNFTEVDVEVEIGF1ZGlvIGNsaXAocykgc3RyYWlnaHQgZnJvbSB0aGVpcgogICBzb3VyY2UgZmlsZXMgdmlhIEZGbXBlZyAobm8gcmVuZGVyKSBhbmQgY29tYmluZSB0aGVtIGludG8gT05FIG1wMywgZWFjaAogICBjbGlwIGF0IGl0cyBvd24gdGltZWxpbmUgb2Zmc2V0IChzaWxlbmNlIGluIHRoZSBnYXBzKSDigJQgc28gdGhlIGVuaGFuY2VkCiAgIGZpbGUgZHJvcHMgYmFjayBpbiBzeW5jIGF0IHRoZSBmaXJzdCBjbGlwJ3Mgc3RhcnQuIFNhdmVkIGluCiAgICJFbmhhbmNlZCBBdWRpby8iIGJlc2lkZSB0aGUgc291cmNlLCByZXZlYWxlZCBpbiBGaW5kZXIsIGFuZCBBZG9iZSBQb2RjYXN0CiAgIEVuaGFuY2Ugb3BlbnMgZm9yIG1hbnVhbCB1cGxvYWQgKGl0IGhhcyBubyBwdWJsaWMgQVBJKS4gKi8KKGZ1bmN0aW9uICgpIHsKICAgIGlmICh0eXBlb2YgZG9jdW1lbnQgPT09ICd1bmRlZmluZWQnKSByZXR1cm47CgogICAgLy8gV2F2ZHJvcCBidW5kbGVzIGZmbXBlZyA4LjEgd2hpY2ggb3BlbnMgY2FtZXJhcyB0aGUgc3RhdGljIDcuMCBidWlsZCByZWplY3RzCiAgICAvLyAoZS5nLiAnaW5mZTogdmVyc2lvbiA8IDIgbm90IHN1cHBvcnRlZCcpIOKAlCB0cnkgbmV3ZXN0IGZpcnN0LCBmYWxsIGJhY2sgZG93bi4KICAgIHZhciBGRk1QRUdfUEFUSFMgPSBbJy9BcHBsaWNhdGlvbnMvV2F2ZHJvcC5hcHAvQ29udGVudHMvUmVzb3VyY2VzL2ZmbXBlZycsCiAgICAgICAgJy9vcHQvaG9tZWJyZXcvYmluL2ZmbXBlZycsICcvdXNyL2xvY2FsL2Jpbi9mZm1wZWcnLAogICAgICAgICcvVXNlcnMvZGVzaXJlbWVkaWEvTGlicmFyeS9QeXRob24vMy45L2xpYi9weXRob24vc2l0ZS1wYWNrYWdlcy9zdGF0aWNfZmZtcGVnL2Jpbi9kYXJ3aW5fYXJtNjQvZmZtcGVnJ107CiAgICB2YXIgUE9EQ0FTVF9VUkwgPSAnaHR0cHM6Ly9wb2RjYXN0LmFkb2JlLmNvbS9lbmhhbmNlJzsKCiAgICBmdW5jdGlvbiBmZm1wZWdDYW5kaWRhdGVzKCkgewogICAgICAgIHZhciBvdXQgPSBbXTsKICAgICAgICB0cnkgeyB2YXIgYiA9IHdpbmRvdy5ETV9CVU5ETEVEX0ZGTVBFRyAmJiB3aW5kb3cuRE1fQlVORExFRF9GRk1QRUcoKTsgaWYgKGIpIG91dC5wdXNoKGIpOyB9IGNhdGNoIChlKSB7fQogICAgICAgIHRyeSB7CiAgICAgICAgICAgIHZhciBmcyA9IHJlcXVpcmUoJ2ZzJyk7CiAgICAgICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgRkZNUEVHX1BBVEhTLmxlbmd0aDsgaSsrKSB7CiAgICAgICAgICAgICAgICBpZiAoZnMuZXhpc3RzU3luYyhGRk1QRUdfUEFUSFNbaV0pICYmIG91dC5pbmRleE9mKEZGTVBFR19QQVRIU1tpXSkgPT09IC0xKSBvdXQucHVzaChGRk1QRUdfUEFUSFNbaV0pOwogICAgICAgICAgICB9CiAgICAgICAgfSBjYXRjaCAoZSkge30KICAgICAgICByZXR1cm4gb3V0OwogICAgfQoKICAgIGZ1bmN0aW9uIG9wZW5JbkJyb3dzZXIodXJsKSB7CiAgICAgICAgdHJ5IHsgaWYgKHdpbmRvdy5jZXAgJiYgd2luZG93LmNlcC51dGlsKSB7IHdpbmRvdy5jZXAudXRpbC5vcGVuVVJMSW5EZWZhdWx0QnJvd3Nlcih1cmwpOyByZXR1cm47IH0gfSBjYXRjaCAoZSkge30KICAgICAgICB0cnkgeyByZXF1aXJlKCdjaGlsZF9wcm9jZXNzJykuZXhlYygnb3BlbiAnICsgSlNPTi5zdHJpbmdpZnkodXJsKSk7IH0gY2F0Y2ggKGUyKSB7fQogICAgfQogICAgZnVuY3Rpb24gcmV2ZWFsSW5GaW5kZXIocGF0aCkgewogICAgICAgIHRyeSB7IHJlcXVpcmUoJ2NoaWxkX3Byb2Nlc3MnKS5leGVjKCdvcGVuIC1SICcgKyBKU09OLnN0cmluZ2lmeShwYXRoKSk7IH0gY2F0Y2ggKGUpIHt9CiAgICB9CgogICAgdmFyIGJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdwckVuaGFuY2VTcGVlY2gnKTsKICAgIGlmICghYnRuKSByZXR1cm47CiAgICBidG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbiAoKSB7CiAgICAgICAgaWYgKEhPU1QgIT09ICdQUFJPJykgeyBzZXRTdGF0dXMoJ0VuaGFuY2UgU3BlZWNoIG9ubHkgd29ya3MgaW4gUHJlbWllcmUnLCAnZXJyb3InKTsgcmV0dXJuOyB9CiAgICAgICAgdmFyIGZmTGlzdCA9IGZmbXBlZ0NhbmRpZGF0ZXMoKTsKICAgICAgICBpZiAoIWZmTGlzdC5sZW5ndGgpIHsgc2V0U3RhdHVzKCdGRm1wZWcgbm90IGZvdW5kIG9uIHRoaXMgbWFjaGluZScsICdlcnJvcicpOyByZXR1cm47IH0KICAgICAgICBidG4uZGlzYWJsZWQgPSB0cnVlOwogICAgICAgIHNldFN0YXR1cygnUmVhZGluZyBzZWxlY3RlZCBhdWRpby4uLicsICdidXN5Jyk7CgogICAgICAgIC8vIEZpcnN0IGxpbmUgIlNFUVx0PG5hbWU+IiwgdGhlbiBvbmUgbGluZSBwZXIgc2VsZWN0ZWQgYXVkaW8gY2xpcDoKICAgICAgICAvLyAicGF0aFx0aW5TZWNcdG91dFNlY1x0bmFtZVx0c3RhcnRTZWMiIChubyBKU09OIOKAlCBFUzMtc2FmZSkKICAgICAgICB2YXIganN4UmVhZCA9ICcoZnVuY3Rpb24oKXsnICsKICAgICAgICAgICAgJ3ZhciBzZXE9YXBwLnByb2plY3QuYWN0aXZlU2VxdWVuY2U7JyArCiAgICAgICAgICAgICdpZighc2VxKXJldHVybiAiRVJSOk5vIGFjdGl2ZSBzZXF1ZW5jZSI7JyArCiAgICAgICAgICAgICdmdW5jdGlvbiBTKHQpe3RyeXtpZih0PT1udWxsKXJldHVybiAwO2lmKHR5cGVvZiB0LnNlY29uZHM9PT0ibnVtYmVyIiYmIWlzTmFOKHQuc2Vjb25kcykpcmV0dXJuIHQuc2Vjb25kcztpZih0LnRpY2tzIT1udWxsKXJldHVybiBwYXJzZUZsb2F0KHQudGlja3MpLzI1NDAxNjAwMDAwMDt2YXIgcD1wYXJzZUZsb2F0KHQpO3JldHVybiBpc05hTihwKT8wOnA7fWNhdGNoKGUpe3JldHVybiAwO319JyArCiAgICAgICAgICAgICd2YXIgbGluZXM9WyJTRVFcXHQiK1N0cmluZyhzZXEubmFtZXx8IlNlcXVlbmNlIildOycgKwogICAgICAgICAgICAnZm9yKHZhciBhPTA7YTxzZXEuYXVkaW9UcmFja3MubnVtVHJhY2tzO2ErKyl7dmFyIHRyPXNlcS5hdWRpb1RyYWNrc1thXTsnICsKICAgICAgICAgICAgJ2Zvcih2YXIgYz0wO2M8dHIuY2xpcHMubnVtSXRlbXM7YysrKXt2YXIgY2w9dHIuY2xpcHNbY107JyArCiAgICAgICAgICAgICd0cnl7aWYoIWNsLmlzU2VsZWN0ZWQoKSljb250aW51ZTt2YXIgcD0iIjt0cnl7cD1jbC5wcm9qZWN0SXRlbT9jbC5wcm9qZWN0SXRlbS5nZXRNZWRpYVBhdGgoKToiIjt9Y2F0Y2goZXApe30nICsKICAgICAgICAgICAgJ2lmKCFwKWNvbnRpbnVlO2xpbmVzLnB1c2gocCsiXFx0IitTKGNsLmluUG9pbnQpKyJcXHQiK1MoY2wub3V0UG9pbnQpKyJcXHQiK1N0cmluZyhjbC5uYW1lfHwiIikrIlxcdCIrUyhjbC5zdGFydCkpO31jYXRjaChlKXt9fX0nICsKICAgICAgICAgICAgJ2lmKGxpbmVzLmxlbmd0aDwyKXJldHVybiAiRVJSOlNlbGVjdCB0aGUgYXVkaW8gY2xpcChzKSBvbiB0aGUgdGltZWxpbmUgZmlyc3QiOycgKwogICAgICAgICAgICAncmV0dXJuIGxpbmVzLmpvaW4oIlxcbiIpO30oKSknOwoKICAgICAgICBldmFsU2NyaXB0KGpzeFJlYWQsIGZ1bmN0aW9uIChyZXMpIHsKICAgICAgICAgICAgaWYgKCFyZXMgfHwgcmVzLmluZGV4T2YoJ0VSUjonKSA9PT0gMCkgewogICAgICAgICAgICAgICAgc2V0U3RhdHVzKHJlcyA/IHJlcy5yZXBsYWNlKCdFUlI6JywgJycpIDogJ0NvdWxkIG5vdCByZWFkIHNlbGVjdGlvbicsICdlcnJvcicpOwogICAgICAgICAgICAgICAgYnRuLmRpc2FibGVkID0gZmFsc2U7IHJldHVybjsKICAgICAgICAgICAgfQogICAgICAgICAgICB2YXIgcm93cyA9IHJlcy5zcGxpdCgnXG4nKTsKICAgICAgICAgICAgdmFyIHNlcU5hbWUgPSAocm93c1swXS5zcGxpdCgnXHQnKVsxXSB8fCAnU2VxdWVuY2UnKS5yZXBsYWNlKC9bXkEtWmEtejAtOSBfLV0vZywgJ18nKS50cmltKCkgfHwgJ1NlcXVlbmNlJzsKICAgICAgICAgICAgdmFyIGNsaXBzID0gcm93cy5zbGljZSgxKS5tYXAoZnVuY3Rpb24gKGwpIHsKICAgICAgICAgICAgICAgIHZhciBwID0gbC5zcGxpdCgnXHQnKTsKICAgICAgICAgICAgICAgIHJldHVybiB7IHBhdGg6IHBbMF0sIGluU2VjOiBwYXJzZUZsb2F0KHBbMV0pIHx8IDAsIG91dFNlYzogcGFyc2VGbG9hdChwWzJdKSB8fCAwLCBuYW1lOiBwWzNdIHx8ICcnLCBzdGFydDogcGFyc2VGbG9hdChwWzRdKSB8fCAwIH07CiAgICAgICAgICAgIH0pLmZpbHRlcihmdW5jdGlvbiAoYykgeyByZXR1cm4gYy5wYXRoICYmIGMub3V0U2VjID4gYy5pblNlYzsgfSk7CgogICAgICAgICAgICAvLyBBIGxpbmtlZCBjYW1lcmEgY2xpcCBvZnRlbiBzaG93cyB1cCBvbiAyIGF1ZGlvIHRyYWNrcyAoY2gxICsgY2gyKSDigJQKICAgICAgICAgICAgLy8gYm90aCByZWFkIHRoZSBzYW1lIGF1ZGlvIGhlcmUsIHNvIGtlZXAgb25lIG9yIGl0IHBsYXlzIHR3aWNlIGFzIGxvdWQuCiAgICAgICAgICAgIHZhciB1bmlxID0gW107CiAgICAgICAgICAgIGNsaXBzLmZvckVhY2goZnVuY3Rpb24gKGMpIHsKICAgICAgICAgICAgICAgIHZhciBkdXAgPSB1bmlxLnNvbWUoZnVuY3Rpb24gKHUpIHsgcmV0dXJuIHUucGF0aCA9PT0gYy5wYXRoICYmIE1hdGguYWJzKHUuaW5TZWMgLSBjLmluU2VjKSA8IDAuMDIgJiYgTWF0aC5hYnModS5zdGFydCAtIGMuc3RhcnQpIDwgMC4wMjsgfSk7CiAgICAgICAgICAgICAgICBpZiAoIWR1cCkgdW5pcS5wdXNoKGMpOwogICAgICAgICAgICB9KTsKICAgICAgICAgICAgY2xpcHMgPSB1bmlxLnNvcnQoZnVuY3Rpb24gKGEsIGIpIHsgcmV0dXJuIGEuc3RhcnQgLSBiLnN0YXJ0OyB9KTsKICAgICAgICAgICAgaWYgKCFjbGlwcy5sZW5ndGgpIHsgc2V0U3RhdHVzKCdObyB2YWxpZCBhdWRpbyBjbGlwIHNlbGVjdGVkJywgJ2Vycm9yJyk7IGJ0bi5kaXNhYmxlZCA9IGZhbHNlOyByZXR1cm47IH0KCiAgICAgICAgICAgIHZhciBmcyA9IHJlcXVpcmUoJ2ZzJyksIHBhdGggPSByZXF1aXJlKCdwYXRoJyksIGNwID0gcmVxdWlyZSgnY2hpbGRfcHJvY2VzcycpOwogICAgICAgICAgICB2YXIgdDAgPSBjbGlwc1swXS5zdGFydDsKICAgICAgICAgICAgdmFyIHNwYW4gPSAwOwogICAgICAgICAgICBjbGlwcy5mb3JFYWNoKGZ1bmN0aW9uIChjKSB7IHNwYW4gPSBNYXRoLm1heChzcGFuLCAoYy5zdGFydCAtIHQwKSArIChjLm91dFNlYyAtIGMuaW5TZWMpKTsgfSk7CgogICAgICAgICAgICBmdW5jdGlvbiBtbXNzKHNlYykgeyB2YXIgbSA9IE1hdGguZmxvb3Ioc2VjIC8gNjApLCBzID0gTWF0aC5mbG9vcihzZWMgLSBtICogNjApOyByZXR1cm4gKG0gPCAxMCA/ICcwJyA6ICcnKSArIG0gKyAnbScgKyAocyA8IDEwID8gJzAnIDogJycpICsgcyArICdzJzsgfQogICAgICAgICAgICB2YXIgb3V0RGlyID0gcGF0aC5qb2luKHBhdGguZGlybmFtZShjbGlwc1swXS5wYXRoKSwgJ0VuaGFuY2VkIEF1ZGlvJyk7CiAgICAgICAgICAgIHRyeSB7IGZzLm1rZGlyU3luYyhvdXREaXIsIHsgcmVjdXJzaXZlOiB0cnVlIH0pOyB9IGNhdGNoIChlKSB7fQogICAgICAgICAgICB2YXIgc3RlbSA9IHNlcU5hbWUgKyAnX3NwZWVjaF9hdF8nICsgbW1zcyh0MCk7CiAgICAgICAgICAgIHZhciBvdXRQYXRoID0gcGF0aC5qb2luKG91dERpciwgc3RlbSArICcubXAzJyk7CiAgICAgICAgICAgIGZvciAodmFyIG4gPSAyOyBmcy5leGlzdHNTeW5jKG91dFBhdGgpOyBuKyspIG91dFBhdGggPSBwYXRoLmpvaW4ob3V0RGlyLCBzdGVtICsgJ18nICsgbiArICcubXAzJyk7CiAgICAgICAgICAgIHZhciB0bXBQYXRoID0gcGF0aC5qb2luKG91dERpciwgJy50bXBfc3BlZWNoXycgKyBEYXRlLm5vdygpICsgJy5tcDMnKTsKCiAgICAgICAgICAgIC8vIElucHV0czogZWFjaCBjbGlwIHNlZWtlZCBpbiBpdHMgb3duIHNvdXJjZS4gRmlsdGVyOiBtb25vIDQ4aywgZGVsYXllZAogICAgICAgICAgICAvLyB0byBpdHMgdGltZWxpbmUgb2Zmc2V0LCB0aGVuIG1peGVkIGF0IHVuaXR5IGdhaW4gKG5vIGxldmVsIGRyb3ApLgogICAgICAgICAgICB2YXIgaW5BcmdzID0gW10sIGNoYWlucyA9IFtdLCBsYWJlbHMgPSAnJzsKICAgICAgICAgICAgY2xpcHMuZm9yRWFjaChmdW5jdGlvbiAoYywgaSkgewogICAgICAgICAgICAgICAgaW5BcmdzLnB1c2goJy1zcycsIGMuaW5TZWMudG9GaXhlZCgzKSwgJy10JywgKGMub3V0U2VjIC0gYy5pblNlYykudG9GaXhlZCgzKSwgJy1pJywgYy5wYXRoKTsKICAgICAgICAgICAgICAgIHZhciBtcyA9IE1hdGgubWF4KDAsIE1hdGgucm91bmQoKGMuc3RhcnQgLSB0MCkgKiAxMDAwKSk7CiAgICAgICAgICAgICAgICBjaGFpbnMucHVzaCgnWycgKyBpICsgJzphOjBdYXJlc2FtcGxlPTQ4MDAwLGFmb3JtYXQ9c2FtcGxlX2ZtdHM9Zmx0cDpjaGFubmVsX2xheW91dHM9bW9ubycgKwogICAgICAgICAgICAgICAgICAgIChtcyA+IDAgPyAnLGFkZWxheT1kZWxheXM9JyArIG1zICsgJzphbGw9MScgOiAnJykgKyAnW2EnICsgaSArICddJyk7CiAgICAgICAgICAgICAgICBsYWJlbHMgKz0gJ1thJyArIGkgKyAnXSc7CiAgICAgICAgICAgIH0pOwogICAgICAgICAgICB2YXIgZ3JhcGggPSBjaGFpbnMuam9pbignOycpICsgJzsnICsgKGNsaXBzLmxlbmd0aCA+IDEKICAgICAgICAgICAgICAgID8gbGFiZWxzICsgJ2FtaXg9aW5wdXRzPScgKyBjbGlwcy5sZW5ndGggKyAnOmR1cmF0aW9uPWxvbmdlc3Q6bm9ybWFsaXplPTBbb3V0XScKICAgICAgICAgICAgICAgIDogJ1thMF1hbnVsbFtvdXRdJyk7CgogICAgICAgICAgICBzZXRTdGF0dXMoJ0NvbWJpbmluZyAnICsgY2xpcHMubGVuZ3RoICsgJyBjbGlwJyArIChjbGlwcy5sZW5ndGggPiAxID8gJ3MnIDogJycpICsgJyBpbnRvIG9uZSBtcDMuLi4nLCAnYnVzeScpOwoKICAgICAgICAgICAgKGZ1bmN0aW9uIHRyeUZmKGZpKSB7CiAgICAgICAgICAgICAgICBpZiAoZmkgPj0gZmZMaXN0Lmxlbmd0aCkgeyBzZXRTdGF0dXMoJ0F1ZGlvIGV4cG9ydCBmYWlsZWQgKHNlZSAvdG1wL2RtX2VuaGFuY2UubG9nKScsICdlcnJvcicpOyBidG4uZGlzYWJsZWQgPSBmYWxzZTsgcmV0dXJuOyB9CiAgICAgICAgICAgICAgICB2YXIgYXJncyA9IFtmZkxpc3RbZmldLCAnLXknXS5jb25jYXQoaW5BcmdzLCBbJy1maWx0ZXJfY29tcGxleCcsIGdyYXBoLCAnLW1hcCcsICdbb3V0XScsICctdm4nLAogICAgICAgICAgICAgICAgICAgICctYWMnLCAnMScsICctYXInLCAnNDgwMDAnLCAnLWM6YScsICdsaWJtcDNsYW1lJywgJy1iOmEnLCAnMzIwaycsIHRtcFBhdGhdKTsKICAgICAgICAgICAgICAgIGNwLmV4ZWNGaWxlKCcvdXNyL2Jpbi9uaWNlJywgWyctbicsICcxMCddLmNvbmNhdChhcmdzKSwgeyB0aW1lb3V0OiA2MDAwMDAsIG1heEJ1ZmZlcjogMTYgKiAxMDI0ICogMTAyNCB9LCBmdW5jdGlvbiAoZXJyLCBzbywgc2UpIHsKICAgICAgICAgICAgICAgICAgICBpZiAoIWVyciAmJiBmcy5leGlzdHNTeW5jKHRtcFBhdGgpICYmIGZzLnN0YXRTeW5jKHRtcFBhdGgpLnNpemUgPiAxMDAwKSB7CiAgICAgICAgICAgICAgICAgICAgICAgIHRyeSB7IGZzLnJlbmFtZVN5bmModG1wUGF0aCwgb3V0UGF0aCk7IH0KICAgICAgICAgICAgICAgICAgICAgICAgY2F0Y2ggKGUyKSB7IHNldFN0YXR1cygnQXVkaW8gZXhwb3J0IGZhaWxlZCAocmVuYW1lKScsICdlcnJvcicpOyBidG4uZGlzYWJsZWQgPSBmYWxzZTsgcmV0dXJuOyB9CiAgICAgICAgICAgICAgICAgICAgICAgIHJldmVhbEluRmluZGVyKG91dFBhdGgpOwogICAgICAgICAgICAgICAgICAgICAgICBvcGVuSW5Ccm93c2VyKFBPRENBU1RfVVJMKTsKICAgICAgICAgICAgICAgICAgICAgICAgdmFyIG1zZyA9ICcxIG1wMyAoJyArIGNsaXBzLmxlbmd0aCArICcgY2xpcCcgKyAoY2xpcHMubGVuZ3RoID4gMSA/ICdzJyA6ICcnKSArICcsICcgKyBtbXNzKHNwYW4pLnJlcGxhY2UoJ20nLCAnbSAnKSArCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAnKSDihpIgZHJhZyBpbnRvIEFkb2JlIFBvZGNhc3QgwrcgcGxhY2UgdGhlIGVuaGFuY2VkIGZpbGUgYmFjayBhdCAnICsgbW1zcyh0MCkucmVwbGFjZSgnbScsICc6JykucmVwbGFjZSgncycsICcnKTsKICAgICAgICAgICAgICAgICAgICAgICAgaWYgKHNwYW4gPiAxODAwKSBtc2cgKz0gJyDimqAgb3ZlciAzMCBtaW4gKEFkb2JlIFBvZGNhc3QgZnJlZSBsaW1pdCknOwogICAgICAgICAgICAgICAgICAgICAgICBzZXRTdGF0dXMobXNnLCAnc3VjY2VzcycpOwogICAgICAgICAgICAgICAgICAgICAgICBidG4uZGlzYWJsZWQgPSBmYWxzZTsKICAgICAgICAgICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgICAgICAgICB0cnkgeyBmcy53cml0ZUZpbGVTeW5jKCcvdG1wL2RtX2VuaGFuY2UubG9nJywgJ2ZmbXBlZzogJyArIGZmTGlzdFtmaV0gKyAnXG5hcmdzOiAnICsgSlNPTi5zdHJpbmdpZnkoYXJncykgKyAnXG5cbicgKyBTdHJpbmcoc2UgfHwgKGVyciAmJiBlcnIubWVzc2FnZSkgfHwgJycpLnNsaWNlKC00MDAwKSk7IH0gY2F0Y2ggKGUpIHt9CiAgICAgICAgICAgICAgICAgICAgICAgIHRyeSB7IGZzLnVubGlua1N5bmModG1wUGF0aCk7IH0gY2F0Y2ggKGUpIHt9CiAgICAgICAgICAgICAgICAgICAgICAgIHRyeUZmKGZpICsgMSk7ICAgLy8gbmV4dCBmZm1wZWcgYnVpbGQKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgfSkoMCk7CiAgICAgICAgfSk7CiAgICB9KTsKfSkoKTsK'))));
+/* ── Send to Adobe Podcast (Enhance Speech) ───────────────────────────
+   O1-Edit-style flow: pull the SELECTED audio clip(s) straight from their
+   source files via FFmpeg (no render) and combine them into ONE mp3, each
+   clip at its own timeline offset (silence in the gaps) — so the enhanced
+   file drops back in sync at the first clip's start. Saved in
+   "Enhanced Audio/" beside the source, revealed in Finder, and Adobe Podcast
+   Enhance opens for manual upload (it has no public API). */
+(function () {
+    if (typeof document === 'undefined') return;
+
+    // Wavdrop bundles ffmpeg 8.1 which opens cameras the static 7.0 build rejects
+    // (e.g. 'infe: version < 2 not supported') — try newest first, fall back down.
+    var FFMPEG_PATHS = ['/Applications/Wavdrop.app/Contents/Resources/ffmpeg',
+        '/opt/homebrew/bin/ffmpeg', '/usr/local/bin/ffmpeg',
+        '/Users/desiremedia/Library/Python/3.9/lib/python/site-packages/static_ffmpeg/bin/darwin_arm64/ffmpeg'];
+    var PODCAST_URL = 'https://podcast.adobe.com/enhance';
+
+    function ffmpegCandidates() {
+        var out = [];
+        try { var b = window.DM_BUNDLED_FFMPEG && window.DM_BUNDLED_FFMPEG(); if (b) out.push(b); } catch (e) {}
+        try {
+            var fs = require('fs');
+            for (var i = 0; i < FFMPEG_PATHS.length; i++) {
+                if (fs.existsSync(FFMPEG_PATHS[i]) && out.indexOf(FFMPEG_PATHS[i]) === -1) out.push(FFMPEG_PATHS[i]);
+            }
+        } catch (e) {}
+        return out;
+    }
+
+    function openInBrowser(url) {
+        try { if (window.cep && window.cep.util) { window.cep.util.openURLInDefaultBrowser(url); return; } } catch (e) {}
+        try { require('child_process').execFile('/usr/bin/open', [url]); } catch (e2) {}
+    }
+    function revealInFinder(path) {
+        try { require('child_process').execFile('/usr/bin/open', ['-R', path]); } catch (e) {}
+    }
+
+    var btn = document.getElementById('prEnhanceSpeech');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+        if (HOST !== 'PPRO') { setStatus('Enhance Speech only works in Premiere', 'error'); return; }
+        var ffList = ffmpegCandidates();
+        if (!ffList.length) { setStatus('FFmpeg not found on this machine', 'error'); return; }
+        btn.disabled = true;
+        setStatus('Reading selected audio...', 'busy');
+
+        // First line "SEQ\t<name>", then one line per selected audio clip:
+        // "path\tinSec\toutSec\tname\tstartSec" (no JSON — ES3-safe)
+        var jsxRead = '(function(){' +
+            'var seq=app.project.activeSequence;' +
+            'if(!seq)return "ERR:No active sequence";' +
+            'function S(t){try{if(t==null)return 0;if(typeof t.seconds==="number"&&!isNaN(t.seconds))return t.seconds;if(t.ticks!=null)return parseFloat(t.ticks)/254016000000;var p=parseFloat(t);return isNaN(p)?0:p;}catch(e){return 0;}}' +
+            'var lines=["SEQ\\t"+String(seq.name||"Sequence")];' +
+            'for(var a=0;a<seq.audioTracks.numTracks;a++){var tr=seq.audioTracks[a];' +
+            'for(var c=0;c<tr.clips.numItems;c++){var cl=tr.clips[c];' +
+            'try{if(!cl.isSelected())continue;var p="";try{p=cl.projectItem?cl.projectItem.getMediaPath():"";}catch(ep){}' +
+            'if(!p)continue;lines.push(p+"\\t"+S(cl.inPoint)+"\\t"+S(cl.outPoint)+"\\t"+String(cl.name||"")+"\\t"+S(cl.start));}catch(e){}}}' +
+            'if(lines.length<2)return "ERR:Select the audio clip(s) on the timeline first";' +
+            'return lines.join("\\n");}())';
+
+        evalScript(jsxRead, function (res) {
+            if (!res || res.indexOf('ERR:') === 0) {
+                setStatus(res ? res.replace('ERR:', '') : 'Could not read selection', 'error');
+                btn.disabled = false; return;
+            }
+            var rows = res.split('\n');
+            var seqName = (rows[0].split('\t')[1] || 'Sequence').replace(/[^A-Za-z0-9 _-]/g, '_').trim() || 'Sequence';
+            var clips = rows.slice(1).map(function (l) {
+                var p = l.split('\t');
+                return { path: p[0], inSec: parseFloat(p[1]) || 0, outSec: parseFloat(p[2]) || 0, name: p[3] || '', start: parseFloat(p[4]) || 0 };
+            }).filter(function (c) { return c.path && c.outSec > c.inSec; });
+
+            // A linked camera clip often shows up on 2 audio tracks (ch1 + ch2) —
+            // both read the same audio here, so keep one or it plays twice as loud.
+            var uniq = [];
+            clips.forEach(function (c) {
+                var dup = uniq.some(function (u) { return u.path === c.path && Math.abs(u.inSec - c.inSec) < 0.02 && Math.abs(u.start - c.start) < 0.02; });
+                if (!dup) uniq.push(c);
+            });
+            clips = uniq.sort(function (a, b) { return a.start - b.start; });
+            if (!clips.length) { setStatus('No valid audio clip selected', 'error'); btn.disabled = false; return; }
+
+            var fs = require('fs'), path = require('path'), cp = require('child_process');
+            var t0 = clips[0].start;
+            var span = 0;
+            clips.forEach(function (c) { span = Math.max(span, (c.start - t0) + (c.outSec - c.inSec)); });
+
+            function mmss(sec) { var m = Math.floor(sec / 60), s = Math.floor(sec - m * 60); return (m < 10 ? '0' : '') + m + 'm' + (s < 10 ? '0' : '') + s + 's'; }
+            var outDir = path.join(path.dirname(clips[0].path), 'Enhanced Audio');
+            try { fs.mkdirSync(outDir, { recursive: true }); } catch (e) {}
+            var stem = seqName + '_speech_at_' + mmss(t0);
+            var outPath = path.join(outDir, stem + '.mp3');
+            for (var n = 2; fs.existsSync(outPath); n++) outPath = path.join(outDir, stem + '_' + n + '.mp3');
+            var tmpPath = path.join(outDir, '.tmp_speech_' + Date.now() + '.mp3');
+
+            // Inputs: each clip seeked in its own source. Filter: mono 48k, delayed
+            // to its timeline offset, then mixed at unity gain (no level drop).
+            var inArgs = [], chains = [], labels = '';
+            clips.forEach(function (c, i) {
+                inArgs.push('-ss', c.inSec.toFixed(3), '-t', (c.outSec - c.inSec).toFixed(3), '-i', c.path);
+                var ms = Math.max(0, Math.round((c.start - t0) * 1000));
+                chains.push('[' + i + ':a:0]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=mono' +
+                    (ms > 0 ? ',adelay=delays=' + ms + ':all=1' : '') + '[a' + i + ']');
+                labels += '[a' + i + ']';
+            });
+            var graph = chains.join(';') + ';' + (clips.length > 1
+                ? labels + 'amix=inputs=' + clips.length + ':duration=longest:normalize=0[out]'
+                : '[a0]anull[out]');
+
+            setStatus('Combining ' + clips.length + ' clip' + (clips.length > 1 ? 's' : '') + ' into one mp3...', 'busy');
+
+            (function tryFf(fi) {
+                if (fi >= ffList.length) { setStatus('Audio export failed (see /tmp/dm_enhance.log)', 'error'); btn.disabled = false; return; }
+                var args = [ffList[fi], '-y'].concat(inArgs, ['-filter_complex', graph, '-map', '[out]', '-vn',
+                    '-ac', '1', '-ar', '48000', '-c:a', 'libmp3lame', '-b:a', '320k', tmpPath]);
+                cp.execFile('/usr/bin/nice', ['-n', '10'].concat(args), { timeout: 600000, maxBuffer: 16 * 1024 * 1024 }, function (err, so, se) {
+                    if (!err && fs.existsSync(tmpPath) && fs.statSync(tmpPath).size > 1000) {
+                        try { fs.renameSync(tmpPath, outPath); }
+                        catch (e2) { setStatus('Audio export failed (rename)', 'error'); btn.disabled = false; return; }
+                        revealInFinder(outPath);
+                        openInBrowser(PODCAST_URL);
+                        var msg = '1 mp3 (' + clips.length + ' clip' + (clips.length > 1 ? 's' : '') + ', ' + mmss(span).replace('m', 'm ') +
+                            ') → drag into Adobe Podcast · place the enhanced file back at ' + mmss(t0).replace('m', ':').replace('s', '');
+                        if (span > 1800) msg += ' ⚠ over 30 min (Adobe Podcast free limit)';
+                        setStatus(msg, 'success');
+                        btn.disabled = false;
+                    } else {
+                        try { fs.writeFileSync('/tmp/dm_enhance.log', 'ffmpeg: ' + ffList[fi] + '\nargs: ' + JSON.stringify(args) + '\n\n' + String(se || (err && err.message) || '').slice(-4000)); } catch (e) {}
+                        try { fs.unlinkSync(tmpPath); } catch (e) {}
+                        tryFf(fi + 1);   // next ffmpeg build
+                    }
+                });
+            })(0);
+        });
+    });
+})();

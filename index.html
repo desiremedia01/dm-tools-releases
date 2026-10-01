@@ -1,504 +1,448 @@
 <!DOCTYPE html>
+
 <html lang="en-AU">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DM Tools</title>
-    <link rel="stylesheet" href="brand/colors_and_type.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/desire-panel.css">
+<meta content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' data: blob: https:; connect-src https: http://127.0.0.1:11434; object-src 'none'; frame-src 'none'; base-uri 'none'; form-action 'none'" http-equiv="Content-Security-Policy"/><meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DM Tools</title>
+<link href="brand/colors_and_type.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="css/desire-panel.css" rel="stylesheet"/>
 </head>
 <body>
-
-    <!-- Auth Overlay -->
-    <div class="auth-overlay" id="authOverlay">
-        <div class="auth-box">
-            <img src="assets/logo.png" class="auth-logo-img" alt="DM Tools">
-            <div class="auth-domain">Restricted to @desiremedia.com.au</div>
-            <button class="btn btn--accent auth-login-btn" id="authLoginBtn">Sign in with Google</button>
-            <div class="auth-status" id="authStatus"></div>
-        </div>
-    </div>
-
-    <div class="app">
-
-        <!-- Header -->
-        <header class="header">
-            <div class="header-brand">
-                <span class="product-title">DM TOOLS</span>
-            </div>
-            <div class="header-right">
-                <span class="host-badge" id="hostBadge">AE</span>
-                <button class="settings-button" id="settingsBtn" title="Settings" aria-label="Settings" aria-controls="settingsOverlay"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 3 1-2h4l1 2 3 2 2 0 2 4-1 2v3l1 2-2 4h-2l-3 2-1 1h-4l-1-1-3-2H4l-2-4 1-2v-3L2 9l2-4h2z"/><circle cx="12" cy="12" r="3"/></svg></button>
-                <button class="auth-logout-btn" id="undoBtn" title="Undo last effect" style="display:none;font-size:14px;padding:4px 8px;margin-right:4px">↶</button>
-                
-            </div>
-        </header>
-
-        <div id="trackedGuide" class="tracked-guide" style="display:none" role="region" aria-label="Tracked effect setup">
-            <div class="tracked-guide-heading"><strong id="trackedGuideTitle"></strong><button type="button" id="trackedGuideCancel" aria-label="Cancel setup">×</button></div>
-            <p id="trackedGuideText" aria-live="polite"></p>
-            <button type="button" class="btn" id="trackedGuideContinue">Continue</button>
-        </div>
-        <!-- Scrollable Content -->
-        <div class="content">
-
-<div id="aeSection"><div class="section"><div class="section-header"><span class="section-title">Motion</span></div><div class="btn-grid"><button class="btn tool-btn " data-action="warpComp"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c6-4 12 4 18 0v14c-6 4-12-4-18 0zM9 4v14M15 6v14M3 12c6-4 12 4 18 0"/></svg><span>Warp / Comp</span></button><button class="btn tool-btn " data-action="motionBlur"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5h15M2 12h15M6 19h9"/></svg><span>Motion Blur</span></button><button class="btn tool-btn " data-action="directionShake"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c4-12 6-12 10-3s6 6 10-3"/></svg><span>Direction Shake</span></button><button class="btn tool-btn " data-action="stabilize"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/><path d="M12 1v6m0 10v6M1 12h6m10 0h6"/></svg><span>Stabilize Motion</span></button></div></div><div class="section"><div class="section-header"><span class="section-title">Creative</span></div><div class="btn-grid"><button class="btn tool-btn " data-action="dayToNight"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="12" r="6"/><path d="M16 6a6 6 0 0 0 0 12 6 6 0 0 0 0-12M10 1v2M10 21v2M1 12h2M3 4l2 2M3 20l2-2"/></svg><span>Day to Night</span></button><button class="btn tool-btn " data-action="pinDrop"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 9c0 5-7 12-7 12S5 14 5 9a7 7 0 1 1 14 0z"/><circle cx="12" cy="9" r="2"/></svg><span>Pin Drop</span></button><button class="btn tool-btn " data-action="keyStroke"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9H3V3h12v6"/><path d="M9 9h12v12H9z"/></svg><span>Key + Stroke</span></button><button class="btn tool-btn " data-action="ccRepetile"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM15 15h6v6h-6z"/></svg><span>CC RepeTile</span></button><button class="btn tool-btn tool-wide" data-action="trackCamera"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h14v14H2zM16 9l6-3v12l-6-3"/></svg><span>3D Track Camera</span><span class="tool-arrow" aria-hidden="true">›</span></button></div></div></div>
-<section class="section" id="speedRampSection"><div class="section-header"><span class="section-title">Speed Ramps</span></div><button class="btn tool-btn auto-ramp" data-action="autoRamp" title="Select 2 or more overlapping video layers"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c7 0 8-2 12-11s6 1 8 9"/></svg><span>Auto Ramp<small>Comp + Warp + Ramps + Blur</small></span><span class="tool-arrow" aria-hidden="true">›</span></button><div class="btn-grid ramp-presets"><button class="btn" data-action="introRamp">Intro</button><button class="btn" data-action="middleRamp">Middle</button><button class="btn" data-action="outroRamp">Outro</button></div></section>
-            <!-- AI Video Section (PR only) -->
-            <section class="section" id="aiSection" style="display:none">
-                <div class="section-header">
-                    <span class="section-title">AI Video</span>
-                    <div class="section-line"></div>
-                </div>
-                <div class="btn-grid">
-                    <button class="btn" id="vgModeTimelapse">Timelapse</button>
-                    <button class="btn" id="vgModeO1Edit">O1 Edit</button>
-                </div>
-            </section>
-
-            <!-- Premiere Section -->
-            <section class="section" id="prSection" style="display:none">
-                <div class="section-header">
-                    <span class="section-title">Tools</span>
-                    <div class="framing-shortcuts" role="group" aria-label="Clip framing"><button type="button" class="btn framing-shortcut" data-action="prFill" title="Fill — Fill the sequence frame" aria-label="Fill: Fill the sequence frame"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6M9 9 3 3m12 6 6-6M9 15l-6 6m12-6 6 6"/></svg></button><button type="button" class="btn framing-shortcut" data-action="prAlign" title="Align — Centre in the sequence" aria-label="Align: Centre in the sequence"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/><rect x="6" y="7" width="12" height="10"/><path d="M9 12h6m-3-3v6"/></svg></button></div>
-                </div>
-                <div class="btn-grid btn-grid--3">
-                    <button class="btn" data-action="prWarpStabilizer">Warp Stabilizer</button>
-                    <button class="btn" data-action="prColorGrade">Color Grade</button>
-                    <button class="btn" data-action="soundboard">Sound Effects</button>
-                    <button class="btn" id="prMakeProxies">Make Proxies</button>
-                    <button class="btn" id="prReelsFolder">Organize Reels</button>
-                    <button class="btn" id="prEnhanceSpeech">Enhance Speech</button>
-                    <button class="btn" id="prQuickExport">Quick Export</button>
-                    <button class="btn" id="prQuickStill">Quick Still</button>
-                </div>
-            </section>
-
-            <!-- Download Audio Section (PR only) -->
-            <section class="section" id="downloadSection" style="display:none">
-                <div class="section-header">
-                    <span class="section-title">Download Audio</span>
-                    <div class="section-line"></div>
-                </div>
-                <div style="display:flex;gap:8px;align-items:center">
-                    <input type="text" id="mdUrlInput" placeholder="Paste Spotify / YouTube / SoundCloud link..."
-                        style="flex:1;box-sizing:border-box;background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:8px;font-size:12px">
-                    <button class="btn" id="mdPasteBtn" title="Paste from clipboard" style="flex:0 0 auto;padding:8px 10px">Paste</button>
-                    <button class="btn btn--accent" id="prMusicDownload" style="flex:0 0 auto">Download</button>
-                </div>
-            </section>
-
-            <!-- AI Video Jobs Panel -->
-            <section class="section vg-jobs-panel" id="vgJobsPanel" style="display:none">
-                <div class="section-header">
-                    <span class="section-title">AI Video Jobs</span>
-                    <div class="section-line"></div>
-                </div>
-                <div class="vg-jobs-list" id="vgJobsList"></div>
-            </section>
-
-        </div>
-
-        <!-- Pin Drop Form (full-panel overlay) -->
-        <div class="pd-overlay" id="pinDropOverlay">
-            <div class="pd-header">
-                <span class="section-title">Pin Drop</span>
-            </div>
-            <div class="pd-body">
-                <div class="pd-toggle">
-                    <button class="pd-toggle-btn active" id="pdModeAddress">Address</button>
-                    <button class="pd-toggle-btn" id="pdModeKollosche">Kollosche</button>
-                    <button class="pd-toggle-btn" id="pdModeTown">Town</button>
-                </div>
-
-                <div id="pdAddressFields">
-                    <label class="pd-label">Address</label>
-                    <input type="text" class="pd-input" id="pinDropAddress" placeholder="Enter address...">
-                    <label class="pd-label" style="margin-top:8px">Font</label>
-                    <input type="text" class="pd-input" id="pinDropFontSearch" placeholder="Search fonts...">
-                    <select class="pd-select" id="pinDropFont" size="5"></select>
-                </div>
-
-                <div id="pdLogoFields" style="display:none">
-                    <div class="pd-logo-preview">
-                        <img src="assets/kollosche-pin.png" class="pd-logo-img" alt="Kollosche">
-                    </div>
-                </div>
-
-                <div id="pdTownFields" style="display:none">
-                    <div class="pd-logo-preview">
-                        <span style="color:var(--text-muted);font-size:12px">Town Real Estate — Drone Pin.mp4</span>
-                    </div>
-                </div>
-            </div>
-            <div class="pd-actions">
-                <button class="btn" id="pinDropCancelBtn">Cancel</button>
-                <button class="btn btn--accent" id="pinDropCreateBtn">Create</button>
-            </div>
-        </div>
-
+<!-- Auth Overlay -->
+<div class="auth-overlay" id="authOverlay">
+<div class="auth-box">
+<img alt="DM Tools" class="auth-logo-img" src="assets/logo.png"/>
+<div class="auth-domain">Restricted to @desiremedia.com.au</div>
+<button class="btn btn--accent auth-login-btn" id="authLoginBtn">Sign in with Google</button>
+<div class="auth-status" id="authStatus"></div>
+</div>
+</div>
+<div class="app">
+<!-- Header -->
+<header class="header">
+<div class="header-brand">
+<span class="product-title">DM TOOLS</span>
+</div>
+<div class="header-right">
+<span class="host-badge" id="hostBadge">AE</span>
+<button aria-controls="settingsOverlay" aria-label="Settings" class="settings-button" id="settingsBtn" title="Settings"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="m9 3 1-2h4l1 2 3 2 2 0 2 4-1 2v3l1 2-2 4h-2l-3 2-1 1h-4l-1-1-3-2H4l-2-4 1-2v-3L2 9l2-4h2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+<button class="auth-logout-btn" id="undoBtn" style="display:none;font-size:14px;padding:4px 8px;margin-right:4px" title="Undo last effect">↶</button>
+</div>
+</header>
+<div aria-label="Tracked effect setup" class="tracked-guide" id="trackedGuide" role="region" style="display:none">
+<div class="tracked-guide-heading"><strong id="trackedGuideTitle"></strong><button aria-label="Cancel setup" id="trackedGuideCancel" type="button">×</button></div>
+<p aria-live="polite" id="trackedGuideText"></p>
+<button class="btn" id="trackedGuideContinue" type="button">Continue</button>
+</div>
+<!-- Scrollable Content -->
+<div class="content">
+<div id="aeSection"><div class="section"><div class="section-header"><span class="section-title">Motion</span></div><div class="btn-grid"><button class="btn tool-btn" data-action="warpComp"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M3 5c6-4 12 4 18 0v14c-6 4-12-4-18 0zM9 4v14M15 6v14M3 12c6-4 12 4 18 0"></path></svg><span>Warp / Comp</span></button><button class="btn tool-btn" data-action="motionBlur"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M6 5h15M2 12h15M6 19h9"></path></svg><span>Motion Blur</span></button><button class="btn tool-btn" data-action="directionShake"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 15c4-12 6-12 10-3s6 6 10-3"></path></svg><span>Direction Shake</span></button><button class="btn tool-btn" data-action="stabilize"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path d="M12 1v6m0 10v6M1 12h6m10 0h6"></path></svg><span>Stabilize Motion</span></button></div></div><div class="section"><div class="section-header"><span class="section-title">Creative</span></div><div class="btn-grid"><button class="btn tool-btn" data-action="dayToNight"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><circle cx="10" cy="12" r="6"></circle><path d="M16 6a6 6 0 0 0 0 12 6 6 0 0 0 0-12M10 1v2M10 21v2M1 12h2M3 4l2 2M3 20l2-2"></path></svg><span>Day to Night</span></button><button class="btn tool-btn" data-action="pinDrop"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M19 9c0 5-7 12-7 12S5 14 5 9a7 7 0 1 1 14 0z"></path><circle cx="12" cy="9" r="2"></circle></svg><span>Pin Drop</span></button><button class="btn tool-btn" data-action="keyStroke"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M9 9H3V3h12v6"></path><path d="M9 9h12v12H9z"></path></svg><span>Key + Stroke</span></button><button class="btn tool-btn" data-action="ccRepetile"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM15 15h6v6h-6z"></path></svg><span>CC RepeTile</span></button><button class="btn tool-btn tool-wide" data-action="trackCamera"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 5h14v14H2zM16 9l6-3v12l-6-3"></path></svg><span>3D Track Camera</span><span aria-hidden="true" class="tool-arrow">›</span></button></div></div></div>
+<section class="section" id="speedRampSection"><div class="section-header"><span class="section-title">Speed Ramps</span></div><button class="btn tool-btn auto-ramp" data-action="autoRamp" title="Select 2 or more overlapping video layers"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 18c7 0 8-2 12-11s6 1 8 9"></path></svg><span>Auto Ramp<small>Comp + Warp + Ramps + Blur</small></span><span aria-hidden="true" class="tool-arrow">›</span></button><div class="btn-grid ramp-presets"><button class="btn" data-action="introRamp">Intro</button><button class="btn" data-action="middleRamp">Middle</button><button class="btn" data-action="outroRamp">Outro</button></div></section>
+<!-- AI Video Section (PR only) -->
+<section class="section" id="aiSection" style="display:none">
+<div class="section-header">
+<span class="section-title">AI Video</span>
+<div class="section-line"></div>
+</div>
+<div class="btn-grid">
+<button class="btn" id="vgModeTimelapse">Timelapse</button>
+<button class="btn" id="vgModeO1Edit">O1 Edit</button>
+</div>
+</section>
+<!-- Premiere Section -->
+<section class="section" id="prSection" style="display:none">
+<div class="section-header">
+<span class="section-title">Tools</span>
+<div aria-label="Clip framing" class="framing-shortcuts" role="group"><button aria-label="Fill: Fill the sequence frame" class="btn framing-shortcut" data-action="prFill" title="Fill — Fill the sequence frame" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="16"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6M9 9 3 3m12 6 6-6M9 15l-6 6m12-6 6 6"></path></svg></button><button aria-label="Align: Centre in the sequence" class="btn framing-shortcut" data-action="prAlign" title="Align — Centre in the sequence" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="16"><path d="M12 2v4m0 12v4M2 12h4m12 0h4"></path><rect height="10" width="12" x="6" y="7"></rect><path d="M9 12h6m-3-3v6"></path></svg></button></div>
+</div>
+<div class="btn-grid btn-grid--3">
+<button class="btn" data-action="prWarpStabilizer">Warp Stabilizer</button>
+<button class="btn" data-action="prColorGrade">Color Grade</button>
+<button class="btn" data-action="soundboard">Sound Effects</button>
+<button class="btn" id="prMakeProxies">Make Proxies</button>
+<button class="btn" id="prReelsFolder">Organize Reels</button>
+<button class="btn" id="prEnhanceSpeech">Enhance Speech</button>
+<button class="btn" id="prQuickExport">Quick Export</button>
+<button class="btn" id="prQuickStill">Quick Still</button>
+</div>
+</section>
+<!-- Download Audio Section (PR only) -->
+<section class="section" id="downloadSection" style="display:none">
+<div class="section-header">
+<span class="section-title">Download Audio</span>
+<div class="section-line"></div>
+</div>
+<div style="display:flex;gap:8px;align-items:center">
+<input id="mdUrlInput" placeholder="Paste Spotify / YouTube / SoundCloud link..." style="flex:1;box-sizing:border-box;background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:8px;font-size:12px" type="text"/>
+<button class="btn" id="mdPasteBtn" style="flex:0 0 auto;padding:8px 10px" title="Paste from clipboard">Paste</button>
+<button class="btn btn--accent" id="prMusicDownload" style="flex:0 0 auto">Download</button>
+</div>
+</section>
+<!-- AI Video Jobs Panel -->
+<section class="section vg-jobs-panel" id="vgJobsPanel" style="display:none">
+<div class="section-header">
+<span class="section-title">AI Video Jobs</span>
+<div class="section-line"></div>
+</div>
+<div class="vg-jobs-list" id="vgJobsList"></div>
+</section>
+</div>
+<!-- Pin Drop Form (full-panel overlay) -->
+<div class="pd-overlay" id="pinDropOverlay">
+<div class="pd-header">
+<span class="section-title">Pin Drop</span>
+</div>
+<div class="pd-body">
+<div class="pd-toggle">
+<button class="pd-toggle-btn active" id="pdModeAddress">Address</button>
+<button class="pd-toggle-btn" id="pdModeKollosche">Kollosche</button>
+<button class="pd-toggle-btn" id="pdModeTown">Town</button>
+</div>
+<div id="pdAddressFields">
+<label class="pd-label">Address</label>
+<input class="pd-input" id="pinDropAddress" placeholder="Enter address..." type="text"/>
+<label class="pd-label" style="margin-top:8px">Font</label>
+<input class="pd-input" id="pinDropFontSearch" placeholder="Search fonts..." type="text"/>
+<select class="pd-select" id="pinDropFont" size="5"></select>
+</div>
+<div id="pdLogoFields" style="display:none">
+<div class="pd-logo-preview">
+<img alt="Kollosche" class="pd-logo-img" src="assets/kollosche-pin.png"/>
+</div>
+</div>
+<div id="pdTownFields" style="display:none">
+<div class="pd-logo-preview">
+<span style="color:var(--text-muted);font-size:12px">Town Real Estate — Drone Pin.mp4</span>
+</div>
+</div>
+</div>
+<div class="pd-actions">
+<button class="btn" id="pinDropCancelBtn">Cancel</button>
+<button class="btn btn--accent" id="pinDropCreateBtn">Create</button>
+</div>
+</div>
 <!-- Soundboard Overlay -->
-        <div class="sb-overlay" id="sbOverlay">
-            <div class="sb-header">
-                <button class="sb-back" id="sbBackBtn">&#8592;</button>
-                <span class="section-title">Sound Effects</span>
-            </div>
-            <div class="sb-content" id="sbContent"></div>
-        </div>
-
+<div class="sb-overlay" id="sbOverlay">
+<div class="sb-header">
+<button class="sb-back" id="sbBackBtn">←</button>
+<span class="section-title">Sound Effects</span>
+</div>
+<div class="sb-content" id="sbContent"></div>
+</div>
 <!-- Color Grade Overlay -->
-        <div class="pd-overlay" id="colorGradeOverlay">
-            <div class="pd-header">
-                <span class="section-title">Color Grade</span>
-            </div>
-            <div class="pd-body">
-                <label class="pd-label">Drone Conversion (DJI)</label>
-                <select class="pd-select" id="cgDroneSelect" size="3"></select>
-                <label class="pd-label" style="margin-top:8px">Camera Conversion</label>
-                <select class="pd-select" id="cgCameraSelect" size="3"></select>
-                <label class="pd-label" style="margin-top:8px">Creative</label>
-                <select class="pd-select" id="cgCreativeSelect" size="3"></select>
-            </div>
-            <div class="pd-actions">
-                <button class="btn" id="cgCancelBtn">Cancel</button>
-                <button class="btn btn--accent" id="cgApplyBtn">Apply</button>
-            </div>
-        </div>
-
+<div class="pd-overlay" id="colorGradeOverlay">
+<div class="pd-header">
+<span class="section-title">Color Grade</span>
+</div>
+<div class="pd-body">
+<label class="pd-label">Drone Conversion (DJI)</label>
+<select class="pd-select" id="cgDroneSelect" size="3"></select>
+<label class="pd-label" style="margin-top:8px">Camera Conversion</label>
+<select class="pd-select" id="cgCameraSelect" size="3"></select>
+<label class="pd-label" style="margin-top:8px">Creative</label>
+<select class="pd-select" id="cgCreativeSelect" size="3"></select>
+</div>
+<div class="pd-actions">
+<button class="btn" id="cgCancelBtn">Cancel</button>
+<button class="btn btn--accent" id="cgApplyBtn">Apply</button>
+</div>
+</div>
 <!-- Video Generator Overlay -->
-        <div class="vg-overlay" id="vgOverlay">
-
-            <div class="vg-header">
-                <button class="sb-back" id="vgBack">&#8592;</button>
-                <span class="section-title">Video Generator</span>
-                <span class="vg-meta" id="vgMeta"></span>
-                <button class="btn vg-hf-auth-btn" id="vgHfAuthBtn" style="display:none;font-size:11px;padding:4px 10px">Connect Higgsfield</button>
-            </div>
-
-            <!-- Step 1: Capture -->
-            <div class="vg-step" id="vgStep1">
-                <select class="ai-lut-select" id="vgLutSelect">
-                    <option value="">No LUT</option>
-                    <option value="Canon Clog2">Canon Clog2</option>
-                    <option value="Canon Clog3">Canon Clog3</option>
-                    <option value="DJI Air 3">DJI Air 3</option>
-                    <option value="DJI Avata 2">DJI Avata 2</option>
-                    <option value="DJI Mavic 3">DJI Mavic 3</option>
-                    <option value="DJI Mavic 4 Pro">DJI Mavic 4 Pro</option>
-                    <option value="RED Camera">RED Camera</option>
-                    <option value="Slog3">Slog3</option>
-                </select>
-                <div class="btn-grid">
-                    <button class="btn" id="vgCaptureBtn">From Timeline</button>
-                </div>
-                <div class="vg-dropzone-divider">or</div>
-                <div class="vg-dropzone" id="vgDropzone">
-                    <div class="vg-dropzone-icon">&#8679;</div>
-                    <div class="vg-dropzone-label">Drop image here</div>
-                    <div class="vg-dropzone-sub">JPG, PNG, WEBP</div>
-                    <input type="file" id="vgFileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
-                    <button class="btn vg-browse-btn" id="vgBrowseBtn">Browse</button>
-                </div>
-                <div class="vg-auth-row" id="vgAuthRow">
-                    <span class="vg-auth-status" id="vgAuthStatus">Checking Higgsfield auth...</span>
-                    <button class="btn vg-auth-btn" id="vgAuthBtn" style="display:none">Authenticate</button>
-                    <button class="btn vg-auth-btn" id="vgDisconnectBtn" title="Disconnect Higgsfield" style="display:none">Disconnect</button>
-                </div>
-            </div>
-
-            <!-- O1 Edit — Step 1: Export -->
-            <div class="vg-step" id="vgStep1O1" style="display:none">
-                <select class="ai-lut-select" id="vgLutSelectO1">
-                    <option value="">No LUT</option>
-                    <option value="Canon Clog2">Canon Clog2</option>
-                    <option value="Canon Clog3">Canon Clog3</option>
-                    <option value="DJI Air 3">DJI Air 3</option>
-                    <option value="DJI Avata 2">DJI Avata 2</option>
-                    <option value="DJI Mavic 3">DJI Mavic 3</option>
-                    <option value="DJI Mavic 4 Pro">DJI Mavic 4 Pro</option>
-                    <option value="RED Camera">RED Camera</option>
-                    <option value="Slog3">Slog3</option>
-                </select>
-                <div class="vg-section-label">Set in/out points on the timeline, then:</div>
-                <button class="btn btn--accent" id="vgO1ReadBtn">Read In/Out Points</button>
-                <div id="vgO1Error" style="display:none;color:#ff6b6b;font-size:11px;margin-top:6px;word-break:break-word"></div>
-                <div id="vgO1ClipInfo" style="display:none">
-                    <div class="vg-preview-meta" style="margin-top:6px">
-                        <span id="vgO1Duration" style="font-weight:700"></span>
-                        &nbsp;·&nbsp;
+<div class="vg-overlay" id="vgOverlay">
+<div class="vg-header">
+<button class="sb-back" id="vgBack">←</button>
+<span class="section-title">Video Generator</span>
+<span class="vg-meta" id="vgMeta"></span>
+<button class="btn vg-hf-auth-btn" id="vgHfAuthBtn" style="display:none;font-size:11px;padding:4px 10px">Connect Higgsfield</button>
+</div>
+<!-- Step 1: Capture -->
+<div class="vg-step" id="vgStep1">
+<select class="ai-lut-select" id="vgLutSelect">
+<option value="">No LUT</option>
+<option value="Canon Clog2">Canon Clog2</option>
+<option value="Canon Clog3">Canon Clog3</option>
+<option value="DJI Air 3">DJI Air 3</option>
+<option value="DJI Avata 2">DJI Avata 2</option>
+<option value="DJI Mavic 3">DJI Mavic 3</option>
+<option value="DJI Mavic 4 Pro">DJI Mavic 4 Pro</option>
+<option value="RED Camera">RED Camera</option>
+<option value="Slog3">Slog3</option>
+</select>
+<div class="btn-grid">
+<button class="btn" id="vgCaptureBtn">From Timeline</button>
+</div>
+<div class="vg-dropzone-divider">or</div>
+<div class="vg-dropzone" id="vgDropzone">
+<div class="vg-dropzone-icon">⇧</div>
+<div class="vg-dropzone-label">Drop image here</div>
+<div class="vg-dropzone-sub">JPG, PNG, WEBP</div>
+<input accept="image/jpeg,image/png,image/webp" id="vgFileInput" style="display:none" type="file"/>
+<button class="btn vg-browse-btn" id="vgBrowseBtn">Browse</button>
+</div>
+<div class="vg-auth-row" id="vgAuthRow">
+<span class="vg-auth-status" id="vgAuthStatus">Checking Higgsfield auth...</span>
+<button class="btn vg-auth-btn" id="vgAuthBtn" style="display:none">Authenticate</button>
+<button class="btn vg-auth-btn" id="vgDisconnectBtn" style="display:none" title="Disconnect Higgsfield">Disconnect</button>
+</div>
+</div>
+<!-- O1 Edit — Step 1: Export -->
+<div class="vg-step" id="vgStep1O1" style="display:none">
+<select class="ai-lut-select" id="vgLutSelectO1">
+<option value="">No LUT</option>
+<option value="Canon Clog2">Canon Clog2</option>
+<option value="Canon Clog3">Canon Clog3</option>
+<option value="DJI Air 3">DJI Air 3</option>
+<option value="DJI Avata 2">DJI Avata 2</option>
+<option value="DJI Mavic 3">DJI Mavic 3</option>
+<option value="DJI Mavic 4 Pro">DJI Mavic 4 Pro</option>
+<option value="RED Camera">RED Camera</option>
+<option value="Slog3">Slog3</option>
+</select>
+<div class="vg-section-label">Set in/out points on the timeline, then:</div>
+<button class="btn btn--accent" id="vgO1ReadBtn">Read In/Out Points</button>
+<div id="vgO1Error" style="display:none;color:#ff6b6b;font-size:11px;margin-top:6px;word-break:break-word"></div>
+<div id="vgO1ClipInfo" style="display:none">
+<div class="vg-preview-meta" style="margin-top:6px">
+<span id="vgO1Duration" style="font-weight:700"></span>
+                         · 
                         <span id="vgO1Source" style="opacity:0.55;font-size:10px;word-break:break-all"></span>
+</div>
+</div>
+<div id="vgO1ExportReady" style="display:none;margin-top:10px">
+<div style="font-size:10px;color:#aaa;margin-bottom:4px">Clip:</div>
+<div id="vgO1ExportPath" style="font-size:10px;word-break:break-all;color:#fff;background:rgba(255,255,255,0.07);padding:5px 7px;border-radius:5px;margin-bottom:4px"></div>
+<div id="vgO1RefRow" style="display:none;margin-bottom:8px">
+<div style="font-size:10px;color:#aaa;margin-bottom:4px">Reference image:</div>
+<div id="vgO1RefPath" style="font-size:10px;word-break:break-all;color:#fff;background:rgba(255,255,255,0.07);padding:5px 7px;border-radius:5px;margin-bottom:4px"></div>
+<button class="btn" id="vgO1RevealRef" style="width:100%">Reveal Ref in Finder</button>
+</div>
+<div style="display:flex;gap:6px;margin-bottom:6px">
+<button class="btn btn--accent" id="vgO1OpenHighgsfield" style="flex:1">Open Higgsfield</button>
+<button class="btn" id="vgO1RevealFinder" style="flex:1">Reveal Clip</button>
+</div>
+<div style="font-size:10px;color:#aaa;line-height:1.5">Upload clip + ref image to Higgsfield e use <b style="color:#fff">Kling O1 Edit</b>.</div>
+</div>
+</div>
+<!-- O1 Edit — Step 2: Preset + Reference Image -->
+<div class="vg-step" id="vgStep2O1" style="display:none">
+<!-- Sub: preset selection -->
+<div id="vgO1PresetSelect">
+<div class="vg-section-label">Choose Effect</div>
+<div class="btn-grid btn-grid--1">
+<button class="btn vg-o1-preset-btn" id="vgO1PresetWeather">Make It Sunny</button>
+<button class="btn vg-o1-preset-btn" id="vgO1PresetTwilight">Twilight</button>
+<button class="btn vg-o1-preset-btn" id="vgO1PresetCars">Add Cars</button>
+</div>
+</div>
+<!-- Sub: weather options -->
+<div id="vgO1WeatherOpts" style="display:none">
+<div class="vg-section-label">Make It Sunny — Prompt</div>
+<textarea class="vg-textarea" id="vgO1WeatherPrompt" rows="3"></textarea>
+<div class="vg-adjust-wrap">
+<div class="vg-adjust-label">Adjust prompt</div>
+<div class="vg-adjust-row">
+<textarea class="vg-adjust-input" id="vgO1WeatherAdjust" placeholder="Describe a tweak in your words — e.g. 'warmer light, fewer clouds'" rows="2"></textarea>
+<button class="btn btn--accent vg-adjust-btn" id="vgO1WeatherAdjustBtn">Apply</button>
+</div>
+</div>
+<button class="btn btn--accent" id="vgO1WeatherGenerate" style="width:100%;margin-top:8px">Create Reference Image</button>
+<div class="vg-analyse-status" id="vgO1WeatherStatus" style="display:none">Generating sunny reference — takes ~30-60s...</div>
+</div>
+<!-- Sub: twilight options -->
+<div id="vgO1TwilightOpts" style="display:none">
+<div class="vg-section-label">Twilight — Prompt</div>
+<textarea class="vg-textarea" id="vgO1TwilightPrompt" rows="3"></textarea>
+<div class="vg-adjust-wrap">
+<div class="vg-adjust-label">Adjust prompt</div>
+<div class="vg-adjust-row">
+<textarea class="vg-adjust-input" id="vgO1TwilightAdjust" placeholder="Describe a tweak in your words — e.g. 'warmer window glow, deeper blue sky'" rows="2"></textarea>
+<button class="btn btn--accent vg-adjust-btn" id="vgO1TwilightAdjustBtn">Apply</button>
+</div>
+</div>
+<div class="vg-section-label" style="margin-top:8px">Reference Source</div>
+<div class="btn-grid">
+<button class="btn" id="vgO1TwilightNightRef">Use Night Clip</button>
+<button class="btn btn--accent" id="vgO1TwilightGenerate">Generate Twilight</button>
+</div>
+<div class="vg-analyse-status" id="vgO1TwilightStatus" style="display:none">
+<span class="vg-spin">◠</span> Generating twilight reference...
                     </div>
-                </div>
-                <div id="vgO1ExportReady" style="display:none;margin-top:10px">
-                    <div style="font-size:10px;color:#aaa;margin-bottom:4px">Clip:</div>
-                    <div id="vgO1ExportPath" style="font-size:10px;word-break:break-all;color:#fff;background:rgba(255,255,255,0.07);padding:5px 7px;border-radius:5px;margin-bottom:4px"></div>
-                    <div id="vgO1RefRow" style="display:none;margin-bottom:8px">
-                        <div style="font-size:10px;color:#aaa;margin-bottom:4px">Reference image:</div>
-                        <div id="vgO1RefPath" style="font-size:10px;word-break:break-all;color:#fff;background:rgba(255,255,255,0.07);padding:5px 7px;border-radius:5px;margin-bottom:4px"></div>
-                        <button class="btn" id="vgO1RevealRef" style="width:100%">Reveal Ref in Finder</button>
-                    </div>
-                    <div style="display:flex;gap:6px;margin-bottom:6px">
-                        <button class="btn btn--accent" id="vgO1OpenHighgsfield" style="flex:1">Open Higgsfield</button>
-                        <button class="btn" id="vgO1RevealFinder" style="flex:1">Reveal Clip</button>
-                    </div>
-                    <div style="font-size:10px;color:#aaa;line-height:1.5">Upload clip + ref image to Higgsfield e use <b style="color:#fff">Kling O1 Edit</b>.</div>
-                </div>
-            </div>
-
-            <!-- O1 Edit — Step 2: Preset + Reference Image -->
-            <div class="vg-step" id="vgStep2O1" style="display:none">
-
-                <!-- Sub: preset selection -->
-                <div id="vgO1PresetSelect">
-                    <div class="vg-section-label">Choose Effect</div>
-                    <div class="btn-grid btn-grid--1">
-                        <button class="btn vg-o1-preset-btn" id="vgO1PresetWeather">Make It Sunny</button>
-                        <button class="btn vg-o1-preset-btn" id="vgO1PresetTwilight">Twilight</button>
-                        <button class="btn vg-o1-preset-btn" id="vgO1PresetCars">Add Cars</button>
-                    </div>
-                </div>
-
-                <!-- Sub: weather options -->
-                <div id="vgO1WeatherOpts" style="display:none">
-                    <div class="vg-section-label">Make It Sunny — Prompt</div>
-                    <textarea class="vg-textarea" id="vgO1WeatherPrompt" rows="3"></textarea>
-                    <div class="vg-adjust-wrap">
-                        <div class="vg-adjust-label">Adjust prompt</div>
-                        <div class="vg-adjust-row">
-                            <textarea class="vg-adjust-input" id="vgO1WeatherAdjust" rows="2" placeholder="Describe a tweak in your words — e.g. 'warmer light, fewer clouds'"></textarea>
-                            <button class="btn btn--accent vg-adjust-btn" id="vgO1WeatherAdjustBtn">Apply</button>
-                        </div>
-                    </div>
-                    <button class="btn btn--accent" id="vgO1WeatherGenerate" style="width:100%;margin-top:8px">Create Reference Image</button>
-                    <div class="vg-analyse-status" id="vgO1WeatherStatus" style="display:none">Generating sunny reference — takes ~30-60s...</div>
-                </div>
-
-                <!-- Sub: twilight options -->
-                <div id="vgO1TwilightOpts" style="display:none">
-                    <div class="vg-section-label">Twilight — Prompt</div>
-                    <textarea class="vg-textarea" id="vgO1TwilightPrompt" rows="3"></textarea>
-                    <div class="vg-adjust-wrap">
-                        <div class="vg-adjust-label">Adjust prompt</div>
-                        <div class="vg-adjust-row">
-                            <textarea class="vg-adjust-input" id="vgO1TwilightAdjust" rows="2" placeholder="Describe a tweak in your words — e.g. 'warmer window glow, deeper blue sky'"></textarea>
-                            <button class="btn btn--accent vg-adjust-btn" id="vgO1TwilightAdjustBtn">Apply</button>
-                        </div>
-                    </div>
-                    <div class="vg-section-label" style="margin-top:8px">Reference Source</div>
-                    <div class="btn-grid">
-                        <button class="btn" id="vgO1TwilightNightRef">Use Night Clip</button>
-                        <button class="btn btn--accent" id="vgO1TwilightGenerate">Generate Twilight</button>
-                    </div>
-                    <div class="vg-analyse-status" id="vgO1TwilightStatus" style="display:none">
-                        <span class="vg-spin">&#9696;</span> Generating twilight reference...
-                    </div>
-                    <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:8px;line-height:1.5">
+<div style="font-size:10px;color:rgba(255,255,255,0.35);margin-top:8px;line-height:1.5">
                         Use Night Clip: position playhead on the night footage, then click.
                     </div>
-                </div>
-
-                <!-- Sub: cars options -->
-                <div id="vgO1CarsOpts" style="display:none">
-                    <div class="vg-section-label">Add Cars — Prompt</div>
-                    <textarea class="vg-textarea" id="vgO1CarsPrompt" rows="3">A luxury car in the driveway, rear of the car facing the camera</textarea>
-                    <div class="vg-adjust-wrap">
-                        <div class="vg-adjust-label">Adjust prompt</div>
-                        <div class="vg-adjust-row">
-                            <textarea class="vg-adjust-input" id="vgO1CarsAdjust" rows="2" placeholder="Describe a tweak in your words — e.g. 'black SUV, parked not driving'"></textarea>
-                            <button class="btn btn--accent vg-adjust-btn" id="vgO1CarsAdjustBtn">Apply</button>
-                        </div>
+</div>
+<!-- Sub: cars options -->
+<div id="vgO1CarsOpts" style="display:none">
+<div class="vg-section-label">Add Cars — Prompt</div>
+<textarea class="vg-textarea" id="vgO1CarsPrompt" rows="3">A luxury car in the driveway, rear of the car facing the camera</textarea>
+<div class="vg-adjust-wrap">
+<div class="vg-adjust-label">Adjust prompt</div>
+<div class="vg-adjust-row">
+<textarea class="vg-adjust-input" id="vgO1CarsAdjust" placeholder="Describe a tweak in your words — e.g. 'black SUV, parked not driving'" rows="2"></textarea>
+<button class="btn btn--accent vg-adjust-btn" id="vgO1CarsAdjustBtn">Apply</button>
+</div>
+</div>
+<div class="vg-analyse-status" id="vgO1CarsStatus" style="display:none">
+<span class="vg-spin">◠</span> Generating cars reference...
                     </div>
-                    <div class="vg-analyse-status" id="vgO1CarsStatus" style="display:none">
-                        <span class="vg-spin">&#9696;</span> Generating cars reference...
-                    </div>
-                    <button class="btn btn--accent" id="vgO1CarsGenerate" style="margin-top:8px">Generate</button>
+<button class="btn btn--accent" id="vgO1CarsGenerate" style="margin-top:8px">Generate</button>
+</div>
+<!-- Sub: reference image approval -->
+<div id="vgO1ApproveWrap" style="display:none">
+<div class="vg-section-label">Reference Image</div>
+<div class="vg-preview-wrap">
+<img alt="" class="vg-preview-img" id="vgO1RefPreview" src=""/>
+</div>
+<div class="btn-grid" style="margin-top:8px">
+<button class="btn" id="vgO1Regenerate">Regenerate</button>
+<button class="btn btn--accent" id="vgO1Approve">Approve →</button>
+</div>
+</div>
+<!-- Sub: ready to upload -->
+<div id="vgO1ReadyWrap" style="display:none">
+<div class="vg-section-label">Ready to Upload</div>
+<div id="vgO1ReadyFolderPath" style="font-size:10px;word-break:break-all;color:#fff;background:rgba(255,255,255,0.07);padding:5px 7px;border-radius:5px;margin-bottom:8px"></div>
+<div style="font-size:10px;color:#aaa;margin-bottom:3px">Prompt:</div>
+<textarea id="vgO1ReadyPrompt" readonly="" rows="3" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);color:#fff;border:none;border-radius:5px;padding:5px 7px;font-size:10px;resize:none;cursor:text;margin-bottom:8px"></textarea>
+<div style="display:flex;gap:6px;margin-bottom:6px">
+<button class="btn btn--accent" id="vgO1ReadyOpen" style="flex:1">Open Higgsfield</button>
+<button class="btn" id="vgO1ReadyReveal" style="flex:1">Reveal in Finder</button>
+</div>
+<div style="display:flex;gap:6px;margin-bottom:6px">
+<button class="btn" id="vgO1NewGeneration" style="width:100%">New Generation</button>
+</div>
+<div style="font-size:10px;color:#aaa;line-height:1.5">Use <b style="color:#fff">Kling O1 Edit</b>: upload the clip as video and the ref image from the folder above.</div>
+</div>
+</div>
+<!-- Step 2b: End Frame Generation (start → end mode) -->
+<div class="vg-step" id="vgStep2End" style="display:none">
+<div class="vg-section-label">Start Frame</div>
+<div class="vg-preview-wrap">
+<img alt="" class="vg-preview-img" id="vgSeStartPreview" src=""/>
+<div class="vg-preview-meta" id="vgSeStartMeta"></div>
+</div>
+<div class="vg-section-label" style="margin-top:2px">End Frame Prompt</div>
+<div class="vg-presets">
+<button class="vg-preset-btn" data-preset="renovation">Renovation</button>
+<button class="vg-preset-btn" data-preset="day_night">Day → Night</button>
+<button class="vg-preset-btn" data-preset="weather">Weather Change</button>
+</div>
+<textarea class="vg-textarea" id="vgEndPrompt" placeholder="Describe what you want the end frame to look like..." rows="4"></textarea>
+<button class="btn btn--accent" id="vgGenerateEndBtn">Generate End Frame</button>
+<div class="vg-analyse-status" id="vgEndFrameStatus" style="display:none">
+<span class="vg-spin">◠</span> Generating end frame...
                 </div>
-
-                <!-- Sub: reference image approval -->
-                <div id="vgO1ApproveWrap" style="display:none">
-                    <div class="vg-section-label">Reference Image</div>
-                    <div class="vg-preview-wrap">
-                        <img id="vgO1RefPreview" class="vg-preview-img" src="" alt="">
-                    </div>
-                    <div class="btn-grid" style="margin-top:8px">
-                        <button class="btn" id="vgO1Regenerate">Regenerate</button>
-                        <button class="btn btn--accent" id="vgO1Approve">Approve &#8594;</button>
-                    </div>
+<div id="vgEndPreviewWrap" style="display:none">
+<div class="vg-se-previews">
+<div class="vg-se-preview-item">
+<div class="vg-se-label">Start</div>
+<img alt="" class="vg-se-img" id="vgSeStart" src=""/>
+</div>
+<div class="vg-se-mid">
+<div class="vg-se-arrow">→</div>
+<button class="btn vg-se-swap-btn" id="vgSwapFramesBtn" title="Swap start and end">⇅</button>
+</div>
+<div class="vg-se-preview-item">
+<div class="vg-se-label">End</div>
+<img alt="" class="vg-se-img" id="vgSeEnd" src=""/>
+</div>
+</div>
+<button class="btn" id="vgRegenerateEndBtn" style="margin-top:6px;width:100%">Regenerate</button>
+</div>
+</div>
+<!-- Step 2: Template -->
+<div class="vg-step" id="vgStep2" style="display:none">
+<div class="vg-preview-wrap">
+<img alt="" class="vg-preview-img" id="vgPreviewImg" src=""/>
+<div class="vg-preview-meta" id="vgPreviewMeta"></div>
+</div>
+<div class="vg-section-label">Template</div>
+<div class="btn-grid btn-grid--1 vg-template-grid" id="vgTemplateGrid">
+<button class="btn vg-tmpl-btn" data-tmpl="weather">Weather Change</button>
+<button class="btn vg-tmpl-btn" data-tmpl="shadow">Shadow Timelapse</button>
+<button class="btn vg-tmpl-btn" data-tmpl="construction">Construction Timelapse</button>
+</div>
+<div class="vg-analyse-status" id="vgAnalyseStatus" style="display:none">
+<span class="vg-spin">◠</span> Analysing image...
                 </div>
-
-                <!-- Sub: ready to upload -->
-                <div id="vgO1ReadyWrap" style="display:none">
-                    <div class="vg-section-label">Ready to Upload</div>
-                    <div id="vgO1ReadyFolderPath" style="font-size:10px;word-break:break-all;color:#fff;background:rgba(255,255,255,0.07);padding:5px 7px;border-radius:5px;margin-bottom:8px"></div>
-                    <div style="font-size:10px;color:#aaa;margin-bottom:3px">Prompt:</div>
-                    <textarea id="vgO1ReadyPrompt" readonly rows="3" style="width:100%;box-sizing:border-box;background:rgba(255,255,255,0.07);color:#fff;border:none;border-radius:5px;padding:5px 7px;font-size:10px;resize:none;cursor:text;margin-bottom:8px"></textarea>
-                    <div style="display:flex;gap:6px;margin-bottom:6px">
-                        <button class="btn btn--accent" id="vgO1ReadyOpen" style="flex:1">Open Higgsfield</button>
-                        <button class="btn" id="vgO1ReadyReveal" style="flex:1">Reveal in Finder</button>
-                    </div>
-                    <div style="display:flex;gap:6px;margin-bottom:6px">
-                        <button class="btn" id="vgO1NewGeneration" style="width:100%">New Generation</button>
-                    </div>
-                    <div style="font-size:10px;color:#aaa;line-height:1.5">Use <b style="color:#fff">Kling O1 Edit</b>: upload the clip as video and the ref image from the folder above.</div>
-                </div>
-
-            </div>
-
-            <!-- Step 2b: End Frame Generation (start → end mode) -->
-            <div class="vg-step" id="vgStep2End" style="display:none">
-                <div class="vg-section-label">Start Frame</div>
-                <div class="vg-preview-wrap">
-                    <img id="vgSeStartPreview" class="vg-preview-img" src="" alt="">
-                    <div class="vg-preview-meta" id="vgSeStartMeta"></div>
-                </div>
-                <div class="vg-section-label" style="margin-top:2px">End Frame Prompt</div>
-                <div class="vg-presets">
-                    <button class="vg-preset-btn" data-preset="renovation">Renovation</button>
-                    <button class="vg-preset-btn" data-preset="day_night">Day &#8594; Night</button>
-                    <button class="vg-preset-btn" data-preset="weather">Weather Change</button>
-                </div>
-                <textarea class="vg-textarea" id="vgEndPrompt" rows="4" placeholder="Describe what you want the end frame to look like..."></textarea>
-                <button class="btn btn--accent" id="vgGenerateEndBtn">Generate End Frame</button>
-                <div class="vg-analyse-status" id="vgEndFrameStatus" style="display:none">
-                    <span class="vg-spin">&#9696;</span> Generating end frame...
-                </div>
-                <div id="vgEndPreviewWrap" style="display:none">
-                    <div class="vg-se-previews">
-                        <div class="vg-se-preview-item">
-                            <div class="vg-se-label">Start</div>
-                            <img id="vgSeStart" class="vg-se-img" src="" alt="">
-                        </div>
-                        <div class="vg-se-mid">
-                            <div class="vg-se-arrow">&#8594;</div>
-                            <button class="btn vg-se-swap-btn" id="vgSwapFramesBtn" title="Swap start and end">&#8645;</button>
-                        </div>
-                        <div class="vg-se-preview-item">
-                            <div class="vg-se-label">End</div>
-                            <img id="vgSeEnd" class="vg-se-img" src="" alt="">
-                        </div>
-                    </div>
-                    <button class="btn" id="vgRegenerateEndBtn" style="margin-top:6px;width:100%">Regenerate</button>
-                </div>
-            </div>
-
-            <!-- Step 2: Template -->
-            <div class="vg-step" id="vgStep2" style="display:none">
-                <div class="vg-preview-wrap">
-                    <img id="vgPreviewImg" class="vg-preview-img" src="" alt="">
-                    <div class="vg-preview-meta" id="vgPreviewMeta"></div>
-                </div>
-                <div class="vg-section-label">Template</div>
-                <div class="btn-grid btn-grid--1 vg-template-grid" id="vgTemplateGrid">
-                    <button class="btn vg-tmpl-btn" data-tmpl="weather">Weather Change</button>
-                    <button class="btn vg-tmpl-btn" data-tmpl="shadow">Shadow Timelapse</button>
-                    <button class="btn vg-tmpl-btn" data-tmpl="construction">Construction Timelapse</button>
-                </div>
-                <div class="vg-analyse-status" id="vgAnalyseStatus" style="display:none">
-                    <span class="vg-spin">&#9696;</span> Analysing image...
-                </div>
-            </div>
-
-            <!-- Step 3: Prompt -->
-            <div class="vg-step" id="vgStep3" style="display:none">
-                <div class="vg-step3-header">
-                    <div class="vg-section-label">Prompt <span class="vg-tmpl-name" id="vgTmplName"></span></div>
-                    <button class="btn vg-reanalyse-btn" id="vgReanalyseBtn">Re-analyse</button>
-                </div>
-                <div id="vgStep3Status" style="display:none;font-size:11px;padding:4px 0;color:var(--error)"></div>
-                <div class="vg-camera-row" id="vgCameraRow" style="display:none">
-                    <span class="vg-section-label" style="white-space:nowrap">Camera</span>
-                    <select class="vg-camera-select" id="vgCameraSelect">
-                        <option value="static">Static</option>
-                        <option value="push_in">Push In</option>
-                        <option value="push_out">Push Out</option>
-                        <option value="pan_left">Pan Left</option>
-                        <option value="pan_right">Pan Right</option>
-                        <option value="tilt_up">Tilt Up</option>
-                        <option value="tilt_down">Tilt Down</option>
-                        <option value="drone">Drone</option>
-                        <option value="handheld">Handheld</option>
-                    </select>
-                </div>
-                <textarea class="vg-textarea" id="vgPrompt" rows="11"></textarea>
-
-                <!-- Adjust prompt in plain language (Shadow only) -->
-                <div class="vg-adjust-wrap" id="vgAdjustWrap" style="display:none">
-                    <div class="vg-adjust-label">Adjust prompt</div>
-                    <div class="vg-adjust-row">
-                        <textarea class="vg-adjust-input" id="vgAdjustInput" rows="2" placeholder="Describe what you want changed — e.g. 'make the house get brighter as the sun hits the front'"></textarea>
-                        <button class="btn btn--accent vg-adjust-btn" id="vgAdjustBtn">Apply</button>
-                    </div>
-                </div>
-                <div class="vg-duration-row">
-                    <span class="vg-section-label">Duration</span>
-                    <input type="range" min="3" max="15" step="1" value="12" id="vgDuration" class="vg-duration-slider">
-                    <span class="vg-duration-val" id="vgDurationVal">12s</span>
-                </div>
-            </div>
-
-            <!-- Footer actions -->
-            <div class="vg-actions" id="vgActions">
-                <button class="btn" id="vgActionBack" style="display:none">Back</button>
-                <button class="btn btn--accent" id="vgActionNext" style="display:none">Next</button>
-                <div class="vg-progress-wrap" id="vgProgressWrap" style="display:none;width:100%;margin-bottom:8px">
-                    <div class="vg-progress-bar">
-                        <div class="vg-progress-fill" id="vgProgressFill"></div>
-                    </div>
-                    <div class="vg-progress-text" id="vgProgressText">0%</div>
-                </div>
-                <button class="btn btn--accent" id="vgActionGenerate" style="display:none">Generate</button>
-            </div>
-
-        </div>
-
+</div>
+<!-- Step 3: Prompt -->
+<div class="vg-step" id="vgStep3" style="display:none">
+<div class="vg-step3-header">
+<div class="vg-section-label">Prompt <span class="vg-tmpl-name" id="vgTmplName"></span></div>
+<button class="btn vg-reanalyse-btn" id="vgReanalyseBtn">Re-analyse</button>
+</div>
+<div id="vgStep3Status" style="display:none;font-size:11px;padding:4px 0;color:var(--error)"></div>
+<div class="vg-camera-row" id="vgCameraRow" style="display:none">
+<span class="vg-section-label" style="white-space:nowrap">Camera</span>
+<select class="vg-camera-select" id="vgCameraSelect">
+<option value="static">Static</option>
+<option value="push_in">Push In</option>
+<option value="push_out">Push Out</option>
+<option value="pan_left">Pan Left</option>
+<option value="pan_right">Pan Right</option>
+<option value="tilt_up">Tilt Up</option>
+<option value="tilt_down">Tilt Down</option>
+<option value="drone">Drone</option>
+<option value="handheld">Handheld</option>
+</select>
+</div>
+<textarea class="vg-textarea" id="vgPrompt" rows="11"></textarea>
+<!-- Adjust prompt in plain language (Shadow only) -->
+<div class="vg-adjust-wrap" id="vgAdjustWrap" style="display:none">
+<div class="vg-adjust-label">Adjust prompt</div>
+<div class="vg-adjust-row">
+<textarea class="vg-adjust-input" id="vgAdjustInput" placeholder="Describe what you want changed — e.g. 'make the house get brighter as the sun hits the front'" rows="2"></textarea>
+<button class="btn btn--accent vg-adjust-btn" id="vgAdjustBtn">Apply</button>
+</div>
+</div>
+<div class="vg-duration-row">
+<span class="vg-section-label">Duration</span>
+<input class="vg-duration-slider" id="vgDuration" max="15" min="3" step="1" type="range" value="12"/>
+<span class="vg-duration-val" id="vgDurationVal">12s</span>
+</div>
+</div>
+<!-- Footer actions -->
+<div class="vg-actions" id="vgActions">
+<button class="btn" id="vgActionBack" style="display:none">Back</button>
+<button class="btn btn--accent" id="vgActionNext" style="display:none">Next</button>
+<div class="vg-progress-wrap" id="vgProgressWrap" style="display:none;width:100%;margin-bottom:8px">
+<div class="vg-progress-bar">
+<div class="vg-progress-fill" id="vgProgressFill"></div>
+</div>
+<div class="vg-progress-text" id="vgProgressText">0%</div>
+</div>
+<button class="btn btn--accent" id="vgActionGenerate" style="display:none">Generate</button>
+</div>
+</div>
 <!-- Collect Files Bar -->
-        <div class="collect-bar" id="collectBar" style="display:none">
-            <button class="btn collect-btn" data-action="collectFiles"><svg class="tool-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h7l3 3h10v13H2z"/></svg><span>Collect Files</span></button>
-        </div>
-
+<div class="collect-bar" id="collectBar" style="display:none">
+<button class="btn collect-btn" data-action="collectFiles"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 5h7l3 3h10v13H2z"></path></svg><span>Collect Files</span></button>
+</div>
 <!-- Status Bar -->
-        <div class="status-bar" id="statusBar">
-            <span class="status-dot" id="statusDot"></span>
-            <span class="status-msg" id="statusMsg">Ready</span>
-            <button id="reportBugBtn" title="Report a bug">Report bug</button>
-        </div>
-
-    </div>
-
-<div class="pd-overlay settings-overlay" id="settingsOverlay" role="dialog" aria-modal="true" aria-labelledby="settingsTitle"><form id="settingsForm"><div class="pd-header"><span class="section-title" id="settingsTitle">Settings</span><button type="button" class="settings-close" id="settingsClose" aria-label="Close settings">×</button></div><div class="pd-body"><p class="settings-note">Defaults for new effects. Existing layers keep their current values.</p><div id="aeSettingsFields"><label class="setting-row" for="setting-intro"><span>Intro intensity (%)</span><input id="setting-intro" name="intro" type="number" min="0" max="100" step="1" required></label><label class="setting-row" for="setting-middle"><span>Middle intensity (%)</span><input id="setting-middle" name="middle" type="number" min="0" max="100" step="1" required></label><label class="setting-row" for="setting-outro"><span>Outro intensity (%)</span><input id="setting-outro" name="outro" type="number" min="0" max="100" step="1" required></label><label class="setting-row" for="setting-shakeIntensity"><span>Shake intensity (%)</span><input id="setting-shakeIntensity" name="shakeIntensity" type="number" min="0" max="500" step="1" required></label><label class="setting-row" for="setting-shakeDuration"><span>Shake duration (s)</span><input id="setting-shakeDuration" name="shakeDuration" type="number" min="0.05" max="5" step="0.01" required></label></div><label class="setting-row"><span>Compact layout</span><input id="setting-compact" name="compact" type="checkbox"></label><p id="settingsError" role="alert"></p><div class="settings-account"><span class="version" id="versionBadge">v1.0</span><button class="auth-logout-btn" id="authLogoutBtn" title="Sign out">Sign out</button></div></div><div class="pd-actions"><button class="btn" type="button" id="settingsReset">Reset defaults</button><button class="btn" type="submit">Save</button></div></form></div>
-    <script src="js/CSInterface.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/updater.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/stagingSequence.js"></script>
-    <script src="js/enhanceSpeech.js"></script>
-    <script src="js/quickExport.js"></script>
-    <script src="js/quickStill.js"></script>
-    <script src="js/musicDownloader.js"></script>
-    <script src="js/autoSfx.js"></script>
-    <script src="js/colorGrade.js"></script>
-    <script src="js/reportBug.js"></script>
-    <script>
-    /* Reveal AI Video section in Premiere Pro only */
-    (function revealAI() {
-        function check() {
-            try {
-                var env  = (typeof cs !== 'undefined' && cs) ? cs.getHostEnvironment() : null;
-                var host = env ? env.appName : (typeof HOST !== 'undefined' ? HOST : '');
-                if (host === 'PPRO') {
-                    var sec = document.getElementById('aiSection');
-                    if (sec) { sec.style.display = ''; return true; }
-                }
-            } catch (e) {}
-            return false;
-        }
-        if (!check()) {
-            setTimeout(function(){ if (!check()) setTimeout(check, 500); }, 100);
-        }
-    })();
-    </script>
-    <script src="js/video-gen.js"></script>
+<div class="status-bar" id="statusBar">
+<span class="status-dot" id="statusDot"></span>
+<span class="status-msg" id="statusMsg">Ready</span>
+<button id="reportBugBtn" title="Report a bug">Report bug</button>
+</div>
+</div>
+<div aria-labelledby="settingsTitle" aria-modal="true" class="pd-overlay settings-overlay" id="settingsOverlay" role="dialog"><form id="settingsForm"><div class="pd-header"><span class="section-title" id="settingsTitle">Settings</span><button aria-label="Close settings" class="settings-close" id="settingsClose" type="button">×</button></div><div class="pd-body"><p class="settings-note">Defaults for new effects. Existing layers keep their current values.</p><div id="aeSettingsFields"><label class="setting-row" for="setting-intro"><span>Intro intensity (%)</span><input id="setting-intro" max="100" min="0" name="intro" required="" step="1" type="number"/></label><label class="setting-row" for="setting-middle"><span>Middle intensity (%)</span><input id="setting-middle" max="100" min="0" name="middle" required="" step="1" type="number"/></label><label class="setting-row" for="setting-outro"><span>Outro intensity (%)</span><input id="setting-outro" max="100" min="0" name="outro" required="" step="1" type="number"/></label><label class="setting-row" for="setting-shakeIntensity"><span>Shake intensity (%)</span><input id="setting-shakeIntensity" max="500" min="0" name="shakeIntensity" required="" step="1" type="number"/></label><label class="setting-row" for="setting-shakeDuration"><span>Shake duration (s)</span><input id="setting-shakeDuration" max="5" min="0.05" name="shakeDuration" required="" step="0.01" type="number"/></label></div><label class="setting-row"><span>Compact layout</span><input id="setting-compact" name="compact" type="checkbox"/></label><p id="settingsError" role="alert"></p><div class="settings-account"><span class="version" id="versionBadge">v1.0</span><button class="auth-logout-btn" id="authLogoutBtn" title="Sign out">Sign out</button></div></div><div class="pd-actions"><button class="btn" id="settingsReset" type="button">Reset defaults</button><button class="btn" type="submit">Save</button></div></form></div>
+<script src="js/CSInterface.js"></script>
+<script src="js/secure-store.js"></script><script src="js/auth.js"></script>
+<script src="js/secure-update.js"></script><script src="js/updater.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/main.js"></script>
+<script src="js/stagingSequence.js"></script>
+<script src="js/enhanceSpeech.js"></script>
+<script src="js/quickExport.js"></script>
+<script src="js/quickStill.js"></script>
+<script src="js/musicDownloader.js"></script>
+<script src="js/autoSfx.js"></script>
+<script src="js/colorGrade.js"></script>
+<script src="js/reportBug.js"></script>
+<script src="js/inline-15.js"></script>
+<script src="js/video-gen.js"></script>
 </body>
 </html>
