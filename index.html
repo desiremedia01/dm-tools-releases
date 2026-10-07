@@ -27,8 +27,8 @@
 </div>
 <div class="header-right">
 <span class="host-badge" id="hostBadge">AE</span>
-<button aria-controls="settingsOverlay" aria-label="Settings" class="settings-button" id="settingsBtn" title="Settings"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="m9 3 1-2h4l1 2 3 2 2 0 2 4-1 2v3l1 2-2 4h-2l-3 2-1 1h-4l-1-1-3-2H4l-2-4 1-2v-3L2 9l2-4h2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
-<button class="auth-logout-btn" id="undoBtn" style="display:none;font-size:14px;padding:4px 8px;margin-right:4px" title="Undo last effect">↶</button>
+<button aria-controls="settingsOverlay" aria-label="Settings" class="settings-button" id="settingsBtn" data-help="Adjust your personal tool defaults and panel layout."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="m9 3 1-2h4l1 2 3 2 2 0 2 4-1 2v3l1 2-2 4h-2l-3 2-1 1h-4l-1-1-3-2H4l-2-4 1-2v-3L2 9l2-4h2z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+<button aria-label="Undo last adjustment" class="settings-button" id="undoBtn" style="display:none;font-size:14px;padding:4px 8px;margin-right:4px" title="Undo last effect" type="button">↶</button>
 </div>
 </header>
 <div aria-label="Tracked effect setup" class="tracked-guide" id="trackedGuide" role="region" style="display:none">
@@ -38,8 +38,8 @@
 </div>
 <!-- Scrollable Content -->
 <div class="content">
-<div id="aeSection"><div class="section"><div class="section-header"><span class="section-title">Motion</span></div><div class="btn-grid"><button class="btn tool-btn" data-action="warpComp"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M3 5c6-4 12 4 18 0v14c-6 4-12-4-18 0zM9 4v14M15 6v14M3 12c6-4 12 4 18 0"></path></svg><span>Warp / Comp</span></button><button class="btn tool-btn" data-action="motionBlur"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M6 5h15M2 12h15M6 19h9"></path></svg><span>Motion Blur</span></button><button class="btn tool-btn" data-action="directionShake"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 15c4-12 6-12 10-3s6 6 10-3"></path></svg><span>Direction Shake</span></button><button class="btn tool-btn" data-action="stabilize"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path d="M12 1v6m0 10v6M1 12h6m10 0h6"></path></svg><span>Stabilize Motion</span></button></div></div><div class="section"><div class="section-header"><span class="section-title">Creative</span></div><div class="btn-grid"><button class="btn tool-btn" data-action="dayToNight"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><circle cx="10" cy="12" r="6"></circle><path d="M16 6a6 6 0 0 0 0 12 6 6 0 0 0 0-12M10 1v2M10 21v2M1 12h2M3 4l2 2M3 20l2-2"></path></svg><span>Day to Night</span></button><button class="btn tool-btn" data-action="pinDrop"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M19 9c0 5-7 12-7 12S5 14 5 9a7 7 0 1 1 14 0z"></path><circle cx="12" cy="9" r="2"></circle></svg><span>Pin Drop</span></button><button class="btn tool-btn" data-action="keyStroke"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M9 9H3V3h12v6"></path><path d="M9 9h12v12H9z"></path></svg><span>Key + Stroke</span></button><button class="btn tool-btn" data-action="ccRepetile"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM15 15h6v6h-6z"></path></svg><span>CC RepeTile</span></button><button class="btn tool-btn tool-wide" data-action="trackCamera"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 5h14v14H2zM16 9l6-3v12l-6-3"></path></svg><span>3D Track Camera</span><span aria-hidden="true" class="tool-arrow">›</span></button></div></div></div>
-<section class="section" id="speedRampSection"><div class="section-header"><span class="section-title">Speed Ramps</span></div><button class="btn tool-btn auto-ramp" data-action="autoRamp" title="Select 2 or more overlapping video layers"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 18c7 0 8-2 12-11s6 1 8 9"></path></svg><span>Auto Ramp<small>Comp + Warp + Ramps + Blur</small></span><span aria-hidden="true" class="tool-arrow">›</span></button><div class="btn-grid ramp-presets"><button class="btn" data-action="introRamp">Intro</button><button class="btn" data-action="middleRamp">Middle</button><button class="btn" data-action="outroRamp">Outro</button></div></section>
+<div id="aeSection"><div class="section"><div class="section-header"><span class="section-title">Motion</span></div><div class="btn-grid"><button class="btn tool-btn" data-action="warpComp" data-help="Select video layers to pre-compose them and apply Warp Stabilizer."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M3 5c6-4 12 4 18 0v14c-6 4-12-4-18 0zM9 4v14M15 6v14M3 12c6-4 12 4 18 0"></path></svg><span>Warp / Comp</span></button><button class="btn tool-btn" data-action="motionBlur" data-help="Open a composition to add motion blur around animated sections."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M6 5h15M2 12h15M6 19h9"></path></svg><span>Motion Blur</span></button><button class="btn tool-btn" data-action="directionShake" data-help="Select a layer to add directional shake. Adjust intensity and duration afterward."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 15c4-12 6-12 10-3s6 6 10-3"></path></svg><span>Direction Shake</span></button><button class="btn tool-btn" data-action="stabilize" data-help="Select a video layer to open motion stabilization in the Tracker panel."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><circle cx="12" cy="12" r="7"></circle><path d="M12 1v6m0 10v6M1 12h6m10 0h6"></path></svg><span>Stabilize Motion</span></button></div></div><div class="section"><div class="section-header"><span class="section-title">Creative</span></div><div class="btn-grid"><button class="btn tool-btn" data-action="dayToNight" data-help="Select a layer and position the playhead to create a gradient wipe transition."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><circle cx="10" cy="12" r="6"></circle><path d="M16 6a6 6 0 0 0 0 12 6 6 0 0 0 0-12M10 1v2M10 21v2M1 12h2M3 4l2 2M3 20l2-2"></path></svg><span>Day to Night</span></button><button class="btn tool-btn" data-action="pinDrop" data-help="Select footage and follow the camera-tracking steps to place a pin or logo."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M19 9c0 5-7 12-7 12S5 14 5 9a7 7 0 1 1 14 0z"></path><circle cx="12" cy="9" r="2"></circle></svg><span>Pin Drop</span></button><button class="btn tool-btn" data-action="keyStroke" data-help="Select footage and follow the tracking steps to create an outline."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M9 9H3V3h12v6"></path><path d="M9 9h12v12H9z"></path></svg><span>Outline</span></button><button class="btn tool-btn" data-action="ccRepetile" data-help="Select a layer to extend its edges and fill empty areas."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M3 3h6v6H3zM15 3h6v6h-6zM3 15h6v6H3zM15 15h6v6h-6z"></path></svg><span>CC RepeTile</span></button><button class="btn tool-btn" id="textAnimationBtn" type="button" data-help="Select a layer with speech, click Transcribe, then edit and apply animated text."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-width="1.4" viewBox="0 0 24 24"><path d="M4 5h16M12 5v15M8 20h8M4 5v4M20 5v4"/></svg><span>Text Animation</span></button><button class="btn tool-btn" data-action="trackCamera" data-help="Select a video layer to start 3D camera tracking."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 5h14v14H2zM16 9l6-3v12l-6-3"></path></svg><span>3D Track Camera</span></button></div></div></div>
+<section class="section" id="speedRampSection"><div class="section-header"><span class="section-title">Speed Ramps</span></div><button class="btn tool-btn auto-ramp" data-action="autoRamp" data-help="Select two or more overlapping video layers to apply stabilization, speed ramps and motion blur."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 18c7 0 8-2 12-11s6 1 8 9"></path></svg><span>Auto Ramp<small>Comp + Warp + Ramps + Blur</small></span><span aria-hidden="true" class="tool-arrow">›</span></button><div class="btn-grid ramp-presets"><button class="btn" data-action="introRamp" data-help="Select video layers to apply an opening speed ramp.">Intro</button><button class="btn" data-action="middleRamp" data-help="Select video layers to apply a middle speed ramp.">Middle</button><button class="btn" data-action="outroRamp" data-help="Select video layers to apply an ending speed ramp.">Outro</button></div></section>
 <!-- AI Video Section (PR only) -->
 <section class="section" id="aiSection" style="display:none">
 <div class="section-header">
@@ -47,25 +47,35 @@
 <div class="section-line"></div>
 </div>
 <div class="btn-grid">
-<button class="btn" id="vgModeTimelapse">Timelapse</button>
-<button class="btn" id="vgModeO1Edit">O1 Edit</button>
+<button class="btn" id="vgModeTimelapse" data-help="Choose a source image and follow the steps to create an AI timelapse.">Timelapse</button>
+<button class="btn" id="vgModeO1Edit" data-help="Set sequence In and Out points, then follow the steps to prepare an AI video edit.">O1 Edit</button>
 </div>
 </section>
 <!-- Premiere Section -->
 <section class="section" id="prSection" style="display:none">
 <div class="section-header">
 <span class="section-title">Tools</span>
-<div aria-label="Clip framing" class="framing-shortcuts" role="group"><button aria-label="Fill: Fill the sequence frame" class="btn framing-shortcut" data-action="prFill" title="Fill — Fill the sequence frame" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="16"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6M9 9 3 3m12 6 6-6M9 15l-6 6m12-6 6 6"></path></svg></button><button aria-label="Align: Centre in the sequence" class="btn framing-shortcut" data-action="prAlign" title="Align — Centre in the sequence" type="button"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="16"><path d="M12 2v4m0 12v4M2 12h4m12 0h4"></path><rect height="10" width="12" x="6" y="7"></rect><path d="M9 12h6m-3-3v6"></path></svg></button></div>
+<div aria-label="Clip framing" class="framing-shortcuts" role="group"><button aria-label="Fill: Fill the sequence frame" class="btn framing-shortcut" data-action="prFill" type="button" data-help="Select video clips to scale them up until they fill the sequence frame."><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="16"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6M9 9 3 3m12 6 6-6M9 15l-6 6m12-6 6 6"></path></svg></button><button aria-label="Align: Centre in the sequence" class="btn framing-shortcut" data-action="prAlign" type="button" data-help="Select video, text or graphic clips to center them in the sequence."><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="16"><path d="M12 2v4m0 12v4M2 12h4m12 0h4"></path><rect height="10" width="12" x="6" y="7"></rect><path d="M9 12h6m-3-3v6"></path></svg></button>
+<div aria-label="Clip Position and Scale" class="clip-position" id="prPosition" role="group">
+<label class="clip-position-axis"><input aria-describedby="prPositionNote" aria-label="Position X in pixels" autocomplete="off" disabled id="prPositionX" inputmode="decimal" placeholder="—" readonly spellcheck="false" type="text"/><span>X</span></label>
+<label class="clip-position-axis"><input aria-describedby="prPositionNote" aria-label="Position Y in pixels" autocomplete="off" disabled id="prPositionY" inputmode="decimal" placeholder="—" readonly spellcheck="false" type="text"/><span>Y</span></label>
+<label class="clip-position-axis clip-scale"><input aria-describedby="prPositionNote" aria-label="Scale in percent" autocomplete="off" disabled id="prScale" inputmode="decimal" placeholder="—" readonly spellcheck="false" type="text"/><span>%</span></label>
+<button aria-label="Undo Position or Scale" class="btn framing-shortcut" disabled id="prTransformUndo" type="button" data-help="Undo your last Position or Scale adjustment.">↶</button>
 </div>
+</div>
+</div>
+
+<p class="clip-position-note" hidden id="prPositionNote" role="status"></p>
 <div class="btn-grid btn-grid--3">
-<button class="btn" data-action="prWarpStabilizer">Warp Stabilizer</button>
-<button class="btn" data-action="prColorGrade">Color Grade</button>
-<button class="btn" data-action="soundboard">Sound Effects</button>
-<button class="btn" id="prMakeProxies">Make Proxies</button>
-<button class="btn" id="prReelsFolder">Organize Reels</button>
-<button class="btn" id="prEnhanceSpeech">Enhance Speech</button>
-<button class="btn" id="prQuickExport">Quick Export</button>
-<button class="btn" id="prQuickStill">Quick Still</button>
+<button class="btn" data-action="prWarpStabilizer" data-help="Select video clips to apply stabilization.">Warp Stabilizer</button>
+<button class="btn" data-action="prColorGrade" data-help="Choose your camera profile and look, then apply the color grade.">Color Grade</button>
+<button class="btn" data-action="soundboard" data-help="Browse sounds and place one at the playhead.">Sound Effects</button>
+<button class="btn" data-action="prLowpass" type="button" data-help="Select audio clips to add Lowpass. Adjust the cutoff in Effect Controls.">Lowpass</button>
+<button class="btn" id="prMakeProxies" data-help="Select media in the Project panel to create proxy files.">Make Proxies</button>
+<button class="btn" id="prReelsFolder" data-help="Select a folder in the Project panel to organize portrait clips into a Reels subfolder.">Organize Reels</button>
+<button class="btn" id="prEnhanceSpeech" data-help="Select audio clips to prepare a file for Adobe Podcast Enhance Speech.">Enhance Speech</button>
+<button class="btn" id="prQuickExport" data-help="Set sequence In and Out points to export that section.">Quick Export</button>
+<button class="btn" id="prQuickStill" data-help="Position the playhead on the frame you want to export as an image.">Quick Still</button>
 </div>
 </section>
 <!-- Download Audio Section (PR only) -->
@@ -77,7 +87,7 @@
 <div style="display:flex;gap:8px;align-items:center">
 <input id="mdUrlInput" placeholder="Paste Spotify / YouTube / SoundCloud link..." style="flex:1;box-sizing:border-box;background:rgba(255,255,255,0.08);color:#fff;border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:8px;font-size:12px" type="text"/>
 <button class="btn" id="mdPasteBtn" style="flex:0 0 auto;padding:8px 10px" title="Paste from clipboard">Paste</button>
-<button class="btn btn--accent" id="prMusicDownload" style="flex:0 0 auto">Download</button>
+<button class="btn btn--accent" id="prMusicDownload" style="flex:0 0 auto" data-help="Paste an audio link to download and import it into your project.">Download</button>
 </div>
 </section>
 <!-- AI Video Jobs Panel -->
@@ -419,13 +429,13 @@
 </div>
 <!-- Collect Files Bar -->
 <div class="collect-bar" id="collectBar" style="display:none">
-<button class="btn collect-btn" data-action="collectFiles"><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 5h7l3 3h10v13H2z"></path></svg><span>Collect Files</span></button>
+<button class="btn collect-btn" data-action="collectFiles" data-help="Collect the project and its media into a folder."><svg aria-hidden="true" class="tool-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M2 5h7l3 3h10v13H2z"></path></svg><span>Collect Files</span></button>
 </div>
 <!-- Status Bar -->
 <div class="status-bar" id="statusBar">
 <span class="status-dot" id="statusDot"></span>
 <span class="status-msg" id="statusMsg">Ready</span>
-<button id="reportBugBtn" title="Report a bug">Report bug</button>
+<button id="reportBugBtn" data-help="Report a problem with DM Tools.">Report bug</button>
 </div>
 </div>
 <div aria-labelledby="settingsTitle" aria-modal="true" class="pd-overlay settings-overlay" id="settingsOverlay" role="dialog"><form id="settingsForm"><div class="pd-header"><span class="section-title" id="settingsTitle">Settings</span><button aria-label="Close settings" class="settings-close" id="settingsClose" type="button">×</button></div><div class="pd-body"><p class="settings-note">Defaults for new effects. Existing layers keep their current values.</p><div id="aeSettingsFields"><label class="setting-row" for="setting-intro"><span>Intro intensity (%)</span><input id="setting-intro" max="100" min="0" name="intro" required="" step="1" type="number"/></label><label class="setting-row" for="setting-middle"><span>Middle intensity (%)</span><input id="setting-middle" max="100" min="0" name="middle" required="" step="1" type="number"/></label><label class="setting-row" for="setting-outro"><span>Outro intensity (%)</span><input id="setting-outro" max="100" min="0" name="outro" required="" step="1" type="number"/></label><label class="setting-row" for="setting-shakeIntensity"><span>Shake intensity (%)</span><input id="setting-shakeIntensity" max="500" min="0" name="shakeIntensity" required="" step="1" type="number"/></label><label class="setting-row" for="setting-shakeDuration"><span>Shake duration (s)</span><input id="setting-shakeDuration" max="5" min="0.05" name="shakeDuration" required="" step="0.01" type="number"/></label></div><label class="setting-row"><span>Compact layout</span><input id="setting-compact" name="compact" type="checkbox"/></label><p id="settingsError" role="alert"></p><div class="settings-account"><span class="version" id="versionBadge">v1.0</span><button class="auth-logout-btn" id="authLogoutBtn" title="Sign out">Sign out</button></div></div><div class="pd-actions"><button class="btn" id="settingsReset" type="button">Reset defaults</button><button class="btn" type="submit">Save</button></div></form></div>
@@ -434,6 +444,10 @@
 <script src="js/secure-update.js"></script><script src="js/updater.js"></script>
 <script src="js/settings.js"></script>
 <script src="js/main.js"></script>
+<script src="js/clip-position.js"></script>
+<script src="js/transcribe-service.js"></script>
+<script src="js/transcribe-settings.js"></script>
+<script src="js/text-animation.js"></script>
 <script src="js/stagingSequence.js"></script>
 <script src="js/enhanceSpeech.js"></script>
 <script src="js/quickExport.js"></script>
@@ -444,5 +458,6 @@
 <script src="js/reportBug.js"></script>
 <script src="js/inline-15.js"></script>
 <script src="js/video-gen.js"></script>
+<script src="js/tooltips.js"></script>
 </body>
 </html>

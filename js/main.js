@@ -202,8 +202,19 @@ var actions = {
         });
     },
     prAlign: function() {
+        if (window.DmClipPosition && window.DmClipPosition.align) { window.DmClipPosition.align(); return; }
         setStatus('Centring clips...', 'busy');
-        evalScript('$.evalFile(' + JSON.stringify(getPrJsxPath()) + '); prFrameSelected("align");', function(res) { handleResult(res); });
+        evalScript('$.evalFile(' + JSON.stringify(getPrJsxPath()) + '); prFrameSelected("align");', function(res) { handleResult(res); if (window.DmClipPosition) window.DmClipPosition.refresh(); });
+    },
+    prLowpass: function() {
+        var button = document.querySelector('[data-action="prLowpass"]');
+        if (button && button.disabled) return;
+        if (button) button.disabled = true;
+        setStatus('Adding Lowpass to selected audio...', 'busy');
+        evalScript('$.evalFile(' + JSON.stringify(getPrJsxPath()) + '); prLowpassSelected();', function(res) {
+            if (button) button.disabled = false;
+            handleResult(res);
+        });
     },
     prWarpStabilizer: function() {
         setStatus('Applying Warp Stabilizer...', 'busy');
@@ -348,6 +359,10 @@ document.querySelectorAll('[data-action]').forEach(function(btn) {
 /* ── Undo Button ──────────────────────────────────── */
 document.getElementById('undoBtn').addEventListener('click', function() {
     if (!_lastEffect) return;
+    if (HOST === 'PPRO' && _lastEffect.type === 'Position' && window.DmClipPosition) {
+        window.DmClipPosition.undo();
+        return;
+    }
     setStatus('Undoing ' + _lastEffect.type + '...', 'busy');
     var undoScript = HOST === 'PPRO'
         ? '$.evalFile(' + JSON.stringify(getPrJsxPath()) + '); undoLastEffect("' + (_lastEffect.compName || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '", "' + (_lastEffect.layerName || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"') + '");'
