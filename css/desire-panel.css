@@ -106,3 +106,13 @@ html.dm-position-dragging,html.dm-position-dragging * {cursor:ew-resize!importan
 /* Help bubbles are rendered inside the Adobe panel. */
 .dm-tool-tip { position:fixed; z-index:2147483647; pointer-events:none; box-sizing:border-box; padding:9px 11px; border:1px solid #555; border-radius:6px; background:#303030; color:#f1f1f1; font:12px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif; white-space:normal; overflow-wrap:break-word; box-shadow:0 4px 14px #0006; }
 .dm-tool-tip[hidden] { display:none; }
+
+/* Isolated update notice, independent of brand heading styles. */
+.dm-update-overlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box;background:rgba(0,0,0,.7);font-family:Arial,sans-serif;color:#ddd}
+.dm-update-card{box-sizing:border-box;width:100%;max-width:420px;max-height:100%;overflow:auto;background:#202020;border:1px solid #414141;border-radius:12px;padding:24px;box-shadow:0 16px 48px #0008}
+.dm-update-eyebrow{display:block;font-size:10px;letter-spacing:1.2px;color:#999;margin-bottom:10px}
+.dm-update-card h3{font-family:Arial,sans-serif!important;font-weight:600!important;font-size:21px!important;line-height:1.25!important;letter-spacing:0!important;color:#eee!important;margin:0 0 20px!important}
+.dm-update-notes p{font-family:inherit;font-size:12px;line-height:1.6;color:#ccc;margin:0 0 14px}
+.dm-update-card .dm-update-hint{font-family:inherit;font-size:11px;line-height:1.5;color:#999;border-top:1px solid #3a3a3a;padding-top:16px;margin:20px 0 16px}
+.dm-update-close{display:block;margin-left:auto;background:#ddd;color:#202020;border:0;border-radius:6px;padding:8px 18px;font-family:inherit;font-size:12px;cursor:pointer}
+.dm-update-close:hover{background:#fff}

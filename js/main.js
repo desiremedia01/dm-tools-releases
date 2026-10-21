@@ -763,10 +763,14 @@ document.addEventListener('DOMContentLoaded', function () {
     detectHost();
     var vb=document.getElementById('versionBadge');if(vb)vb.textContent=DmUpdater.version;
     DmUpdater.check(function(version,failed,notes){
-        var ov=document.createElement('div');ov.className='pd-overlay visible';
-        var title=document.createElement('h3');title.textContent='DM Tools '+version;ov.appendChild(title);
-        notes.forEach(function(note){var p=document.createElement('p');p.textContent=note.replace(/<[^>]*>/g,'');ov.appendChild(p);});
-        var close=document.createElement('button');close.className='btn';close.textContent='Reopen the panel to apply';close.onclick=function(){ov.remove();};ov.appendChild(close);document.body.appendChild(ov);
+        var ov=document.createElement('div');ov.className='dm-update-overlay';
+        var card=document.createElement('div');card.className='dm-update-card';card.setAttribute('role','dialog');card.setAttribute('aria-modal','true');card.setAttribute('aria-labelledby','dmUpdateTitle');ov.appendChild(card);
+        var eyebrow=document.createElement('span');eyebrow.className='dm-update-eyebrow';eyebrow.textContent='UPDATE INSTALLED';card.appendChild(eyebrow);
+        var title=document.createElement('h3');title.id='dmUpdateTitle';title.textContent='DM Tools '+version;card.appendChild(title);
+        var content=document.createElement('div');content.className='dm-update-notes';card.appendChild(content);
+        notes.forEach(function(note){var plain=note.replace(/<[^>]*>/g,'');if(plain==='DM Tools '+version)return;var p=document.createElement('p');p.textContent=plain;content.appendChild(p);});
+        var hint=document.createElement('p');hint.className='dm-update-hint';hint.textContent='Close and reopen DM Tools to load the new version.';card.appendChild(hint);
+        var close=document.createElement('button');close.type='button';close.className='dm-update-close';close.textContent='Got it';close.onclick=function(){ov.remove();};card.appendChild(close);document.body.appendChild(ov);close.focus();
     },function(){},function(message){setStatus(message,'error');});
     DmAuth.checkAuth(function(email){authShowApp(email);setStatus('Ready','idle');},authShowLogin);
 });
