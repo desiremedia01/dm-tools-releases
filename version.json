@@ -1,333 +1,333 @@
 {
-  "version": "1.10.0",
+  "version": "1.10.1",
   "files": [
     {
       "path": "js/CSInterface.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/CSInterface.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/CSInterface.js"
     },
     {
       "path": "index.html",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/index.html"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/index.html"
     },
     {
       "path": "css/style.css",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/css/style.css"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/css/style.css"
     },
     {
       "path": "js/main.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/main.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/main.js"
     },
     {
       "path": "js/updater.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/updater.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/updater.js"
     },
     {
       "path": "js/video-gen.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/video-gen.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/video-gen.js"
     },
     {
       "path": "jsx/ae-tools.jsx",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/jsx/ae-tools.jsx"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/jsx/ae-tools.jsx"
     },
     {
       "path": "jsx/pr-tools.jsx",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/jsx/pr-tools.jsx"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/jsx/pr-tools.jsx"
     },
     {
       "path": "js/stagingSequence.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/stagingSequence.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/stagingSequence.js"
     },
     {
       "path": "js/enhanceSpeech.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/enhanceSpeech.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/enhanceSpeech.js"
     },
     {
       "path": "js/autoSfx.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/autoSfx.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/autoSfx.js"
     },
     {
       "path": "js/colorGrade.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/colorGrade.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/colorGrade.js"
     },
     {
       "path": "js/autoGrade.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/autoGrade.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/autoGrade.js"
     },
     {
       "path": "js/gradeMiner.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/gradeMiner.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/gradeMiner.js"
     },
     {
       "path": "js/reportBug.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/reportBug.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/reportBug.js"
     },
     {
       "path": "calibration/gradeStats.json",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/calibration/gradeStats.json"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/calibration/gradeStats.json"
     },
     {
       "path": "assets/luts/conversion/Slog3.cube",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/luts/conversion/Slog3.cube"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/luts/conversion/Slog3.cube"
     },
     {
       "path": "js/musicDownloader.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/musicDownloader.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/musicDownloader.js"
     },
     {
       "path": "js/quickExport.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/quickExport.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/quickExport.js"
     },
     {
       "path": "js/quickStill.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/quickStill.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/quickStill.js"
     },
     {
       "path": "js/auth.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/auth.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/auth.js"
     },
     {
       "path": "css/desire-panel.css",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/css/desire-panel.css"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/css/desire-panel.css"
     },
     {
       "path": "js/settings.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/settings.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/settings.js"
     },
     {
       "path": "brand/colors_and_type.css",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/brand/colors_and_type.css"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/brand/colors_and_type.css"
     },
     {
       "path": "assets/logo.png",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/logo.png"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/logo.png"
     },
     {
       "path": "assets/kollosche-pin.png",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/kollosche-pin.png"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/kollosche-pin.png"
     },
     {
       "path": "assets/grade/AG_Conversion_Clog3.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_Clog3.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_Clog3.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Conversion_Air3.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_Air3.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_Air3.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Conversion_Mavic4.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_Mavic4.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_Mavic4.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Grade.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Grade.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Grade.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Conversion_Dlog.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_Dlog.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_Dlog.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Creative_Kodak Killer.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Creative_Kodak%20Killer.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Creative_Kodak%20Killer.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Creative_Mother Earth.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Creative_Mother%20Earth.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Creative_Mother%20Earth.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Conversion_Clog2.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_Clog2.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_Clog2.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Conversion_RED.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_RED.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_RED.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Conversion_Flog2.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_Flog2.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_Flog2.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Conversion_Avata.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_Avata.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_Avata.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Creative_M31.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Creative_M31.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Creative_M31.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Creative_Noir.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Creative_Noir.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Creative_Noir.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Conversion_Slog3.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_Slog3.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_Slog3.prproj.b64"
     },
     {
       "path": "assets/grade/AG_Conversion_Mavic3.prproj.b64",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/grade/AG_Conversion_Mavic3.prproj.b64"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/grade/AG_Conversion_Mavic3.prproj.b64"
     },
     {
       "path": "js/secure-store.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/secure-store.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/secure-store.js"
     },
     {
       "path": "js/secure-update.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/secure-update.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/secure-update.js"
     },
     {
       "path": "oauth-client.json",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/oauth-client.json"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/oauth-client.json"
     },
     {
       "path": "update-public.pem",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/update-public.pem"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/update-public.pem"
     },
     {
       "path": "CSXS/manifest.xml",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/CSXS/manifest.xml"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/CSXS/manifest.xml"
     },
     {
       "path": "js/inline-15.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/inline-15.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/inline-15.js"
     },
     {
       "path": "js/transcribe-service.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/transcribe-service.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/transcribe-service.js"
     },
     {
       "path": "js/reframe.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/reframe.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/reframe.js"
     },
     {
       "path": "js/text-animation.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/text-animation.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/text-animation.js"
     },
     {
       "path": "js/tooltips.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/tooltips.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/tooltips.js"
     },
     {
       "path": "js/musicAnalysis.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/musicAnalysis.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/musicAnalysis.js"
     },
     {
       "path": "js/transcribe-context.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/transcribe-context.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/transcribe-context.js"
     },
     {
       "path": "js/transcribe-local.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/transcribe-local.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/transcribe-local.js"
     },
     {
       "path": "js/autoAssembly.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/autoAssembly.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/autoAssembly.js"
     },
     {
       "path": "js/text-editor-model.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/text-editor-model.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/text-editor-model.js"
     },
     {
       "path": "js/transcribe-remap.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/transcribe-remap.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/transcribe-remap.js"
     },
     {
       "path": "js/clip-position.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/clip-position.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/clip-position.js"
     },
     {
       "path": "js/auditor.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/auditor.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/auditor.js"
     },
     {
       "path": "js/transcribe-settings.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/transcribe-settings.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/transcribe-settings.js"
     },
     {
       "path": "js/cutGrid.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/cutGrid.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/cutGrid.js"
     },
     {
       "path": "jsx/text-animation.jsx",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/jsx/text-animation.jsx"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/jsx/text-animation.jsx"
     },
     {
       "path": "jsx/transcribe.jsx",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/jsx/transcribe.jsx"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/jsx/transcribe.jsx"
     },
     {
       "path": "assets/text-animation/template.aep",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/text-animation/template.aep"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/text-animation/template.aep"
     },
     {
       "path": "assets/speech/whisper-LICENSE.txt",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/speech/whisper-LICENSE.txt"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/speech/whisper-LICENSE.txt"
     },
     {
       "path": "assets/speech/README.txt",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/speech/README.txt"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/speech/README.txt"
     },
     {
       "path": "bin/whisper-cli",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/bin/whisper-cli"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/bin/whisper-cli"
     },
     {
       "path": "bin/speech-ffmpeg",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/bin/speech-ffmpeg"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/bin/speech-ffmpeg"
     },
     {
       "path": "assets/speech/ffmpeg-LICENSE.txt",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/speech/ffmpeg-LICENSE.txt"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/speech/ffmpeg-LICENSE.txt"
     },
     {
       "path": "assets/speech/ffmpeg-README.txt",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/speech/ffmpeg-README.txt"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/speech/ffmpeg-README.txt"
     },
     {
       "path": "assets/speech/ffmpeg-source.tar.xz",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/speech/ffmpeg-source.tar.xz"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/speech/ffmpeg-source.tar.xz"
     },
     {
       "path": "assets/logodm.png",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/assets/logodm.png"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/assets/logodm.png"
     },
     {
       "path": "js/node-runtime.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/node-runtime.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/node-runtime.js"
     },
     {
       "path": "bin/yt-dlp",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/bin/yt-dlp"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/bin/yt-dlp"
     },
     {
       "path": "js/text-presets-model.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/text-presets-model.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/text-presets-model.js"
     },
     {
       "path": "js/text-presets.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/text-presets.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/text-presets.js"
     },
     {
       "path": "jsx/text-presets.jsx",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/jsx/text-presets.jsx"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/jsx/text-presets.jsx"
     },
     {
       "path": "css/text-presets.css",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/css/text-presets.css"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/css/text-presets.css"
     },
     {
       "path": "css/text-editor.css",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/css/text-editor.css"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/css/text-editor.css"
     },
     {
       "path": "js/motion-tools.js",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/js/motion-tools.js"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/js/motion-tools.js"
     },
     {
       "path": "jsx/motion-tools.jsx",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/jsx/motion-tools.jsx"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/jsx/motion-tools.jsx"
     },
     {
       "path": "css/motion-tools.css",
-      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/91cd343fee59be75b9a15d068acbce26ee136bd7/css/motion-tools.css"
+      "url": "https://raw.githubusercontent.com/desiremedia01/dm-tools-releases/43a66c6e5eaf85506115cc8078750a1844e90a55/css/motion-tools.css"
     }
   ],
   "notes": [
@@ -376,6 +376,13 @@
     },
     {
       "version": "1.10.0",
+      "notes": [
+        "<b>Text Animation</b> \u2014 animate selected text or transcribed speech with 48 presets, live text previews, speed controls and automatic syncing.",
+        "<b>Motion shortcuts</b> \u2014 adjust keyframe easing, move anchor points and create parent Nulls. Find the new controls below Speed Ramps."
+      ]
+    },
+    {
+      "version": "1.10.1",
       "notes": [
         "<b>Text Animation</b> \u2014 animate selected text or transcribed speech with 48 presets, live text previews, speed controls and automatic syncing.",
         "<b>Motion shortcuts</b> \u2014 adjust keyframe easing, move anchor points and create parent Nulls. Find the new controls below Speed Ramps."
