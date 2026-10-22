@@ -621,9 +621,22 @@
     }
 
     // ── Higgsfield upload ─────────────────────────────────────────────────────
+    async function confirmMedia(mediaId, type) {
+        const r = await mcpCall('media_confirm', { media_id: mediaId, type: type });
+        const t = extractText(r) || '';
+        if (/confirm failed|went wrong|not found|error/i.test(t) && !/confirmed/i.test(t)) throw new Error('Higgsfield could not confirm the upload. Try again. (' + t.slice(0, 120) + ')');
+        return r;
+    }
+    function checkPut(res, what) {
+        if (!res || res.status < 200 || res.status >= 300) throw new Error(what + ' upload to Higgsfield failed (HTTP ' + (res && res.status) + '). Try again.');
+    }
     async function uploadImage() {
+        // The bytes are ALWAYS JPEG (canvas / fileToBase64Jpeg). The timeline capture
+        // and browsed PNGs keep a .png name; uploading JPEG bytes under a .png name
+        // made Higgsfield fail with "Input image could not be read".
+        const jpgName = String((state.file && state.file.name) || 'frame').replace(/\.[^./]+$/, '') + '.jpg';
         const uploadRes = await mcpCall('media_upload', {
-            filename: state.file.name,
+            filename: jpgName,
             content_type: 'image/jpeg',
         });
         const text = extractText(uploadRes);
@@ -656,9 +669,9 @@
 
         // PUT image bytes to presigned URL
         const ab  = Uint8Array.from(atob(state.base64), c => c.charCodeAt(0));
-        await nodeRequest('PUT', uploadUrl, { 'Content-Type': 'image/jpeg' }, Buffer.from(ab));
-
-        await mcpCall('media_confirm', { media_id: mediaId, type: 'image' });
+        if (!ab.length) throw new Error('The reference frame is empty — capture it again.');
+        checkPut(await nodeRequest('PUT', uploadUrl, { 'Content-Type': 'image/jpeg' }, Buffer.from(ab)), 'Image');
+        await confirmMedia(mediaId, 'image');
         return mediaId;
     }
 
@@ -733,7 +746,16 @@
             let presetId = (res && res.structuredContent && res.structuredContent.preset_id) || null;
             if (!presetId) { const m = text.match(/preset[_ ]id["']?\s*[=:]\s*["']?([0-9a-f-]{32,})/i); if (m) presetId = m[1]; }
             if (!declinedPresetId && presetId) return callKling(presetId);
-            throw new Error('Higgsfield returned a preset instead of a job — no video was created. Try again, or generate on the website. (' + text.slice(0, 140) + ')');
+            // Image still being processed after upload → wait and retry (same media).
+            if (/could not be read|finished uploading/i.test(text) && (callKling._notReady || 0) < 3) {
+                callKling._notReady = (callKling._notReady || 0) + 1;
+                setStatus('Waiting for Higgsfield to process the image... (' + callKling._notReady + '/3)', 'busy');
+                await new Promise(function (r) { setTimeout(r, 4000 * callKling._notReady); });
+                return callKling(declinedPresetId);
+            }
+            const why = (text.match(/Error starting generation:[^\n]*/) || [text])[0].slice(0, 220);
+            throw new Error(presetId ? 'Higgsfield suggested a preset instead of creating the video. Try again. (' + why + ')'
+                                     : 'Higgsfield could not start the video: ' + why);
         }
         return await callKling(null);
     }
@@ -2020,8 +2042,8 @@ function setStatus(msg, dot) {
             if (!uploadUrl || !mediaId) throw new Error(`Cannot parse upload response:\n${text}`);
         }
         const videoBytes = fs.readFileSync(videoPath);
-        await nodeRequest('PUT', uploadUrl, { 'Content-Type': 'video/mp4' }, Buffer.from(videoBytes));
-        await mcpCall('media_confirm', { media_id: mediaId, type: 'video' });
+        checkPut(await nodeRequest('PUT', uploadUrl, { 'Content-Type': 'video/mp4' }, Buffer.from(videoBytes)), 'Video');
+        await confirmMedia(mediaId, 'video');
         return mediaId;
     }
 
@@ -2037,8 +2059,8 @@ function setStatus(msg, dot) {
             if (!mediaId) { const uuids = [...text.matchAll(/\b([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\b/gi)]; if (uuids.length) mediaId = uuids[0][1]; }
         }
         const ab = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
-        await nodeRequest('PUT', uploadUrl, { 'Content-Type': 'image/jpeg' }, Buffer.from(ab));
-        await mcpCall('media_confirm', { media_id: mediaId, type: 'image' });
+        checkPut(await nodeRequest('PUT', uploadUrl, { 'Content-Type': 'image/jpeg' }, Buffer.from(ab)), 'Reference image');
+        await confirmMedia(mediaId, 'image');
         return mediaId;
     }
 
