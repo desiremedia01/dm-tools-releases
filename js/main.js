@@ -756,8 +756,16 @@ authLogoutBtn.addEventListener('click', function() {
 });
 
 /* Security edition: no unattended downloads or remote code writes. */
+/* Native ffmpeg first on Apple Silicon: the Intel build (bin/ffmpeg) needs
+   Rosetta, which macOS is phasing out; without it spawn fails with
+   EBADARCH ("Unknown system error -86"). Intel Macs keep using bin/ffmpeg. */
 window.DM_BUNDLED_FFMPEG = function () {
-    try { var p=cs.getSystemPath('extension')+'/bin/ffmpeg';return require('fs').existsSync(p)?p:null; } catch (_) { return null; }
+    try {
+        var fs=require('fs'),base=cs.getSystemPath('extension')+'/bin/';
+        var order=process.arch==='arm64'?['ffmpeg-arm64','ffmpeg']:['ffmpeg'];
+        for(var i=0;i<order.length;i++){if(fs.existsSync(base+order[i]))return base+order[i];}
+    } catch (_) {}
+    return null;
 };
 document.addEventListener('DOMContentLoaded', function () {
     detectHost();

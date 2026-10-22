@@ -65,7 +65,24 @@
         try{if(!fs.existsSync(preset))throw new Error('Timeline export preset is missing.');if(lutName&&!ffList.length)throw new Error('FFmpeg is needed for an additional LUT.');fs.mkdirSync(dir,{recursive:true});work=fs.mkdtempSync(path.join(dir,'.dm-export-'));rendered=path.join(work,'timeline.mp4');out=path.join(dir,info.name+'_'+Date.now()+'.mp4');}catch(e){done(e.message);return;}
         btn.disabled=true;setStatus('Rendering timeline In/Out in Premiere…','busy');
         var jsx='(function(){try{var s=app.project.activeSequence;if(!s||String(s.sequenceID)!=='+JSON.stringify(info.id)+')return "ERR:Active sequence changed. Try again.";if(Math.abs(s.getInPointAsTime().seconds-'+info.start+')>0.0001||Math.abs(s.getOutPointAsTime().seconds-'+info.end+')>0.0001)return "ERR:In/Out points changed. Try again.";var result=s.exportAsMediaDirect('+JSON.stringify(rendered)+','+JSON.stringify(preset)+',1);return "OK:"+result;}catch(e){return "ERR:"+e;}}())';
-        evalScript(jsx,function(result){
+        // Live progress + lost-callback recovery. Premiere renders on its own and
+        // stays responsive, so without feedback a long In/Out looked frozen. The
+        // panel watches the file Premiere is writing; if the file stops growing
+        // and is a complete MP4 (readable moov) but the reply never arrived, it
+        // carries on as if Premiere had answered.
+        var settled=false,t0=Date.now(),lastSize=-1,stableSince=0,probing=false;
+        var watch=setInterval(function(){
+            if(settled)return;var size=0;try{size=fs.statSync(rendered).size;}catch(e){}
+            var secs=Math.round((Date.now()-t0)/1000);
+            if(size>0)setStatus('Rendering timeline In/Out in Premiere… '+(size/1048576).toFixed(1)+' MB · '+secs+'s','busy');
+            else if(secs>=60)setStatus('Waiting for Premiere to start the export ('+secs+'s) — check Premiere for an open dialog','busy');
+            if(size>1000&&size===lastSize){if(!stableSince)stableSince=Date.now();}else stableSince=0;lastSize=size;
+            if(stableSince&&Date.now()-stableSince>15000&&!probing&&ffList.length){probing=true;
+                cp.execFile(ffList[0],['-v','error','-i',rendered,'-map','0:v:0','-frames:v','1','-f','null','-'],{timeout:30000},function(err){probing=false;if(!err)finish('OK:file complete');});}
+        },2000);
+        evalScript(jsx,function(result){finish(result);});
+        function finish(result){
+            if(settled)return;settled=true;clearInterval(watch);
             if(!result||result.indexOf('ERR:')===0){done('Timeline export failed: '+(result||'No response'));return;}
             if(!fs.existsSync(rendered)||fs.statSync(rendered).size<1000){done('Premiere did not finish the timeline export. '+result);return;}
             if(!lutName){try{if(fs.existsSync(out))throw new Error('Output already exists. Try again.');fs.renameSync(rendered,out);done();}catch(e){done(e.message);}return;}
@@ -75,6 +92,6 @@
                 // Relative LUT path avoids spaces and filter escaping in project paths.
                 cp.execFile(ffList[i],['-y','-i',rendered,'-vf','lut3d=conversion.cube','-c:v','libx264','-preset','fast','-crf','18','-pix_fmt','yuv420p','-c:a','copy','-movflags','+faststart',filtered],{cwd:work,timeout:600000},function(err){if(err){convert(i+1);return;}try{if(fs.existsSync(out))throw new Error('Output already exists.');fs.renameSync(filtered,out);done();}catch(e){done(e.message);}});
             })(0);
-        });
+        }
     }
 })();

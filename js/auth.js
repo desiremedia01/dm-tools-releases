@@ -42,6 +42,14 @@
     function clearLegacy(){['dm_access_token','dm_refresh_token','dm_email','dm_expiry'].forEach(function(k){localStorage.removeItem(k);});}
     window.DmAuth={
         getEmail:function(){return email;},
+        /* Fresh Google access token for first-party Desire services (Gemini proxy). */
+        getAccessToken:function(){
+            return Promise.resolve().then(function(){var c=config(),t=DmSecureStore.get('google');if(!t||t.client_id!==c.client_id)throw new Error('Sign in again.');
+                if(t.expires_at>Date.now()+60000)return t.access_token;
+                if(!t.refresh_token)throw new Error('Sign in again.');
+                return request('https://oauth2.googleapis.com/token',{client_id:c.client_id,client_secret:c.client_secret,refresh_token:t.refresh_token,grant_type:'refresh_token'}).then(function(n){n.refresh_token=n.refresh_token||t.refresh_token;n.client_id=c.client_id;n.expires_at=Date.now()+(Number(n.expires_in)||3600)*1000;DmSecureStore.set('google',n);return n.access_token;});
+            });
+        },
         logout:function(){if(activeCancel)activeCancel();email='';clearLegacy();DmSecureStore.remove('google');},
         checkAuth:function(valid,invalid){
             email='';clearLegacy();

@@ -318,12 +318,24 @@
         try { var b = (typeof window !== 'undefined' && window.DM_BUNDLED_FFMPEG) ? window.DM_BUNDLED_FFMPEG() : null; if (b) cands.push(b); } catch (_) {}
         cands.push(dmRoot() + '/bin/ffmpeg');
         cands = cands.concat(FFMPEG_PATHS);
+        // Motion analysis needs vidstabdetect, which the native Apple Silicon
+        // bundled build lacks — prefer the first candidate that has it and that
+        // can actually run (an Intel build without Rosetta fails the probe).
+        if (_ffChoice) return _ffChoice;
+        var first = null;
         for (var i = 0; i < cands.length; i++) {
-            try { if (fs.existsSync(cands[i])) return cands[i]; } catch (_) {}
+            try { if (!fs.existsSync(cands[i])) continue; } catch (_) { continue; }
+            if (!first) first = cands[i];
+            if (hasVidstab(cands[i])) { _ffChoice = cands[i]; return _ffChoice; }
         }
-        return 'ffmpeg';
+        return first || 'ffmpeg';
     }
-    function findFfprobe() { return findFfmpeg().replace(/ffmpeg$/, 'ffprobe'); }
+    var _ffChoice = null;
+    function hasVidstab(p) {
+        try { var r = require('child_process').spawnSync(p, ['-hide_banner', '-filters'], { encoding: 'utf8', timeout: 8000 });
+              return r.status === 0 && /vidstabdetect/.test(r.stdout || ''); } catch (_) { return false; }
+    }
+    function findFfprobe() { return findFfmpeg().replace(/ffmpeg(-arm64)?$/, 'ffprobe'); }
 
     /* Sony XAVC from some cameras (Calvin's) carries header boxes the static
        ffmpeg build can't parse ("infe: version < 2"). The Wavdrop ffmpeg is

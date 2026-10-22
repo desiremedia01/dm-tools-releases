@@ -27,7 +27,12 @@
     function loadConfig() { DmSecureStore.migrateLegacy();return DmSecureStore.get('ai-config') || {}; }
     function saveConfig(patch) { const cfg=loadConfig();Object.assign(cfg,patch);DmSecureStore.set('ai-config',cfg); }
     function getStoredAnthropicKey() { return loadConfig().anthropic_key || ''; }
-    function getStoredGeminiKey() { return loadConfig().gemini_key || ''; }
+    /* Local Keychain key if this Mac has one, else the Desire Gemini proxy. */
+    function getStoredGeminiKey() { var k = loadConfig().gemini_key || ''; if (k) return k; return (window.DmGemini && DmGemini.proxyAvailable()) ? '@proxy' : ''; }
+    function geminiFetch(apiKey, init) {
+        if (apiKey === '@proxy') return DmGemini.proxyFetch('gemini-2.5-flash-lite', init);
+        return fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=' + apiKey, init);
+    }
     function persistAnthropicKey(key) { if(key){saveConfig({anthropic_key:key});localStorage.removeItem(ANTH_KEY);} }
 
     // ── Camera movements (Start → End mode) ──────────────────────────────────
@@ -574,8 +579,7 @@
                 const _ac = new AbortController();
                 const _to = setTimeout(function () { _ac.abort(); }, 30000);
                 try {
-                    res = await fetch(
-                        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`,
+                    res = await geminiFetch(apiKey,
                         { method: 'POST', headers: { 'Content-Type': 'application/json' }, body, signal: _ac.signal }
                     );
                 } finally { clearTimeout(_to); }
@@ -1548,8 +1552,7 @@ function setStatus(msg, dot) {
             generationConfig: { maxOutputTokens: 256 },
         });
         try {
-            const res = await fetch(
-                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`,
+            const res = await geminiFetch(apiKey,
                 { method: 'POST', headers: { 'Content-Type': 'application/json' }, body }
             );
             if (!res.ok) return null;
@@ -2156,7 +2159,7 @@ function setStatus(msg, dot) {
                     'Keep camera angle/composition unchanged. Return ONLY the prompt text, no quotes, no explanation.' }] }],
                 generationConfig: { maxOutputTokens: 200, temperature: 0.4 }
             });
-            const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=' + apiKey,
+            const res = await geminiFetch(apiKey,
                 { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
             if (!res.ok) return basePrompt + ', ' + userWords;
             const data = await res.json();
@@ -2193,7 +2196,7 @@ function setStatus(msg, dot) {
                 ] }],
                 generationConfig: { maxOutputTokens: 40, temperature: 0 }
             });
-            const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=' + apiKey,
+            const res = await geminiFetch(apiKey,
                 { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
             if (!res.ok) return null;
             const data = await res.json();
@@ -2815,7 +2818,7 @@ function setStatus(msg, dot) {
 
             const apiKey = getStoredGeminiKey();
             if (!apiKey) {
-                document.getElementById('vgStep3Status').textContent = 'Gemini key not configured.';
+                document.getElementById('vgStep3Status').textContent = 'Gemini is not available — sign in to DM Tools, or add a key in Settings (⚙).';
                 document.getElementById('vgStep3Status').style.display = '';
                 return;
             }
@@ -2840,8 +2843,7 @@ function setStatus(msg, dot) {
                 // free-tier Gemini is 20 req/min — 429 clears in seconds, so retry
                 let res;
                 for (let att = 0; ; att++) {
-                    res = await fetch(
-                        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`,
+                    res = await geminiFetch(apiKey,
                         { method: 'POST', headers: { 'Content-Type': 'application/json' }, body }
                     );
                     if (res.ok) break;
