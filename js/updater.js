@@ -1,6 +1,6 @@
 var DmUpdater=(function(){
 'use strict';
-var VERSION='1.10.3',busy=false;
+var VERSION='1.10.4',busy=false;
 function newer(a,b){var x=a.split('.').map(Number),y=b.split('.').map(Number);for(var i=0;i<3;i++){if(x[i]!==y[i])return x[i]>y[i];}return false;}
 function notesSince(m,version){
  if(!Array.isArray(m.releases))return m.notes;
