@@ -241,7 +241,10 @@ var actions = {
         if (window.dmGradeSetupBusy) return;
         window.dmGradeSetupBusy = true;
         setStatus('Loading LUTs...', 'busy');
-        evalScript('$.evalFile(' + JSON.stringify(getPrJsxPath()) + '); prEnsureAGItems(' + JSON.stringify(cs.getSystemPath('extension') + '/assets/grade') + ');', function(res) {
+        var gradeDir;
+        try { gradeDir = dmPrepareGradeAssets(); }
+        catch (e) { window.dmGradeSetupBusy = false; setStatus('Error: Color Grade assets: ' + e.message, 'error'); return; }
+        evalScript('$.evalFile(' + JSON.stringify(getPrJsxPath()) + '); prEnsureAGItems(' + JSON.stringify(gradeDir) + ');', function(res) {
             window.dmGradeSetupBusy = false;
             if (!res || res.indexOf('Error') === 0) { setStatus(res || 'Error scanning project', 'error'); return; }
             if (res === 'EMPTY') { setStatus('No AG items found in project', 'error'); return; }
@@ -756,6 +759,32 @@ authLogoutBtn.addEventListener('click', function() {
 });
 
 /* Security edition: no unattended downloads or remote code writes. */
+/* Color Grade assets ship as .prproj.b64. prEnsureAGItems decoded them in
+   ExtendScript one character at a time with string +=, which is quadratic and
+   never finished on Macs that only have the .b64 copies (every Mac except the
+   dev one): "Loading LUTs..." forever. Decode them here with Node (instant),
+   into a per-user cache, and hand that folder to the JSX, which then finds the
+   .prproj files and skips its own decoder. Written atomically, gzip-checked. */
+function dmPrepareGradeAssets() {
+    var fs=require('fs'),path=require('path'),os=require('os');
+    var src=cs.getSystemPath('extension')+'/assets/grade';
+    var out=path.join(os.homedir(),'Library','Application Support','DM Tools','grade-assets');
+    fs.mkdirSync(out,{recursive:true});
+    var count=0;
+    fs.readdirSync(src).forEach(function(f){
+        var m=f.match(/^(.+\.prproj)(\.b64)?$/); if(!m)return;
+        if(m[2]&&fs.existsSync(path.join(src,m[1])))return;      // plain copy present: use it instead
+        var buf=m[2]?Buffer.from(fs.readFileSync(path.join(src,f),'utf8').replace(/\s/g,''),'base64'):fs.readFileSync(path.join(src,f));
+        if(buf.length<2||buf[0]!==0x1f||buf[1]!==0x8b)throw new Error('invalid asset '+m[1]);
+        var dest=path.join(out,m[1]),same=false;
+        try{same=fs.readFileSync(dest).equals(buf);}catch(_){}
+        if(!same){var tmp=dest+'.tmp-'+process.pid;fs.writeFileSync(tmp,buf);fs.renameSync(tmp,dest);}
+        count++;
+    });
+    if(count<15)throw new Error('only '+count+' of 15 grade assets found');
+    return out;
+}
+
 /* Native ffmpeg first on Apple Silicon: the Intel build (bin/ffmpeg) needs
    Rosetta, which macOS is phasing out; without it spawn fails with
    EBADARCH ("Unknown system error -86"). Intel Macs keep using bin/ffmpeg. */
