@@ -558,9 +558,14 @@ cgCancelBtn.addEventListener('click', function() {
     colorGradeOverlay.classList.remove('visible');
 });
 
+// Mavic 3 / Mavic 4 footage is graded with the same D-Log M conversion as Dlog:
+// apply the existing AG_Conversion_Dlog item (always present after
+// prEnsureAGItems), so projects need no re-import.
+var CG_CONVERSION_ALIAS = { AG_Conversion_Mavic3: 'AG_Conversion_Dlog', AG_Conversion_Mavic4: 'AG_Conversion_Dlog' };
+function cgResolveConversion(name) { return CG_CONVERSION_ALIAS[name] || name; }
 cgApplyBtn.addEventListener('click', function() {
-    var drone    = cgDroneSelect.value;
-    var camera   = cgCameraSelect.value;
+    var drone    = cgResolveConversion(cgDroneSelect.value);
+    var camera   = cgResolveConversion(cgCameraSelect.value);
     var creative = cgCreativeSelect.value;
     if (!drone || !camera || !creative) { setStatus('Select all three LUTs', 'error'); return; }
     colorGradeOverlay.classList.remove('visible');
