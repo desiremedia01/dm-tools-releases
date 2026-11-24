@@ -24,7 +24,7 @@
     if (!btn) return;
 
     // Metadata from the sequence; no source clip resolution.
-    var jsxRead='(function(){try{var s=app.project.activeSequence;if(!s)return "ERR:No active sequence";var a=s.getInPointAsTime().seconds,b=s.getOutPointAsTime().seconds;if(!isFinite(a)||!isFinite(b)||a<0||b<=a)return "ERR:Set in and out points on the timeline first";var name=(s.name||"Sequence").replace(/[^A-Za-z0-9 _-]/g,"_");return "OK\\t"+(app.project.path||"")+"\\t"+name+"\\t"+s.sequenceID+"\\t"+a+"\\t"+b;}catch(e){return "ERR:"+e;}}())';
+    var jsxRead='(function(){try{var s=app.project.activeSequence;if(!s)return "ERR:No active sequence";var a=s.getInPointAsTime().seconds,b=s.getOutPointAsTime().seconds;if(!isFinite(a)||!isFinite(b)||a<0||b<=a)return "ERR:Set in and out points on the timeline first";var name=(s.name||"Sequence").replace(/[^A-Za-z0-9 _-]/g,"_");return "OK\\t"+(app.project.path||"")+"\\t"+name+"\\t"+s.sequenceID+"\\t"+a+"\\t"+b+"\\t"+(s.frameSizeHorizontal||0)+"\\t"+(s.frameSizeVertical||0);}catch(e){return "ERR:"+e;}}())';
     btn.addEventListener('click', function () {
         if (HOST !== 'PPRO') { setStatus('Quick Export only works in Premiere', 'error'); return; }
         var ffList = ffmpegCandidates();
@@ -33,7 +33,7 @@
         evalScript(jsxRead, function (res) {
             if (!res || res.indexOf('ERR:') === 0) { setStatus(res ? res.replace('ERR:', '') : 'Could not read timeline', 'error'); return; }
             var p = res.split('\t');
-            var info={projPath:p[1],name:p[2],id:p[3],start:Number(p[4]),end:Number(p[5])};
+            var info={projPath:p[1],name:p[2],id:p[3],start:Number(p[4]),end:Number(p[5]),w:Number(p[6])||0,h:Number(p[7])||0};
             showLutPicker(info);
         });
     });
@@ -60,7 +60,10 @@
     function runExport(info,lutName,ffList){
         var fs=require('fs'),path=require('path'),cp=require('child_process');
         var dir=path.join(info.projPath?path.dirname(info.projPath):require('os').homedir()+'/Desktop','Quick Export');
-        var preset=path.join(extRoot(),'presets','quick_export_match_sequence.epr'),work,rendered,out;
+        // H.264 High profile, VBR: 40 Mbps up to 1080-class frames, 100 Mbps above
+        // (Match Source keeps the sequence size and frame rate).
+        var big=Math.max(info.w||0,info.h||0)>2048;
+        var preset=path.join(extRoot(),'assets','presets',big?'quick_export_hq_4k.epr':'quick_export_hq_1080.epr'),work,rendered,out;
         function done(error){btn.disabled=false;if(work){try{fs.readdirSync(work).forEach(function(f){fs.unlinkSync(path.join(work,f));});fs.rmdirSync(work);}catch(e){}}if(error)setStatus(error,'error');else{revealInFinder(out);setStatus('Exported ✓ '+path.basename(out),'success');}}
         try{if(!fs.existsSync(preset))throw new Error('Timeline export preset is missing.');if(lutName&&!ffList.length)throw new Error('FFmpeg is needed for an additional LUT.');fs.mkdirSync(dir,{recursive:true});work=fs.mkdtempSync(path.join(dir,'.dm-export-'));rendered=path.join(work,'timeline.mp4');out=path.join(dir,info.name+'_'+Date.now()+'.mp4');}catch(e){done(e.message);return;}
         btn.disabled=true;setStatus('Rendering timeline In/Out in Premiere…','busy');

@@ -1304,7 +1304,10 @@ function setStatus(msg, dot) {
                 const canvas = document.createElement('canvas');
                 canvas.width = w; canvas.height = h;
                 canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-                if (!renderedSequence) applySelectedLut(canvas);
+                // Apply the LUT the user picked to timeline captures too: a timeline
+                // frame is still LOG unless the sequence is already graded, in which
+                // case the user leaves the selector on "No LUT".
+                applySelectedLut(canvas);
                 state.base64 = canvas.toDataURL('image/jpeg', 0.92).split(',')[1];
 
                 const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
